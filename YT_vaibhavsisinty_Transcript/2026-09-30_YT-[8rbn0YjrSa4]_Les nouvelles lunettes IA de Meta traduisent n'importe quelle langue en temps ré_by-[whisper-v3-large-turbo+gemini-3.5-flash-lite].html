@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Les nouvelles lunettes IA de Meta traduisent n&#x27;importe quelle langue en temps réel ! 🛑 — Transcription & Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #141e33;
+            --bg-card-hover: #1a2744;
+            --border-color: #243452;
+            --border-light: rgba(99, 102, 241, 0.2);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --secondary: #8b5cf6;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --text-title: #f8fafc;
+            --text-main: #cbd5e1;
+            --text-muted: #8292ab;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header.video-header {
+            background: linear-gradient(135deg, rgba(20, 30, 51, 0.95), rgba(15, 23, 42, 0.98));
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px var(--primary-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h1.video-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.35;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            background: rgba(36, 52, 82, 0.6);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-primary {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .badge-yt {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+            border-color: rgba(244, 63, 94, 0.4);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .badge-yt:hover {
+            background: rgba(244, 63, 94, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Executive Summary Section */
+        section.executive-summary {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: 0.85rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        .summary-card p {
+            margin-bottom: 0.9rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tools-card {
+            margin-bottom: 1.5rem;
+        }
+        .tools-card h4, .points-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.8rem;
+        }
+        .tool-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .points-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.7rem;
+        }
+        .points-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            background: var(--bg-card);
+            padding: 0.85rem 1.1rem;
+            border-radius: 0.65rem;
+            font-size: 0.93rem;
+            border: 1px solid rgba(36, 52, 82, 0.5);
+        }
+        .point-bullet {
+            color: var(--primary);
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+
+        /* Timeline Section */
+        .timeline-stream {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .timeline-stream::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 7px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 12px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            border: 2px solid var(--bg-body);
+        }
+
+        .timeline-time {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .time-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.4rem;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+        .segment-idx {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 1.2rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .timeline-content:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .verbatim-box {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid #10b981;
+        }
+        .verbatim-header, .visual-header, .screenshots-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            margin-bottom: 0.6rem;
+        }
+        .verbatim-text {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .visual-box {
+            background: rgba(20, 30, 51, 0.7);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid var(--secondary);
+        }
+        .visual-details p {
+            font-size: 0.91rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-main);
+        }
+        .visual-details p:last-child {
+            margin-bottom: 0;
+        }
+        .visual-details strong {
+            color: #93c5fd;
+        }
+
+        /* Multi-Screenshots Grid */
+        .segment-screenshots-wrapper {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 0.85rem;
+            padding: 1rem;
+        }
+        .segment-screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.1rem;
+        }
+        .segment-screenshots-grid.count-1 {
+            grid-template-columns: 1fr;
+        }
+        .segment-screenshots-grid.count-2 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .screenshot-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #050811;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .img-wrapper img:hover {
+            opacity: 0.95;
+            transform: scale(1.015);
+        }
+        .zoom-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e2e8f0;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .screenshot-caption {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.7rem 0.95rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.96);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.45;
+        }
+        .caption-time {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+        .caption-text {
+            color: #e2e8f0;
+        }
+
+        /* Lightbox modal */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #334155;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="video-header">
+            <h1 class="video-title">🎬 Les nouvelles lunettes IA de Meta traduisent n&#x27;importe quelle langue en temps réel ! 🛑</h1>
+            <div class="meta-badges">
+                <span class="badge badge-primary">📅 2026-09-30</span>
+                <span class="badge">⏱️ 00:01:02</span>
+                <span class="badge">🆔 <code>8rbn0YjrSa4</code></span>
+                <span class="badge">🤖 whisper-v3-large-turbo+gemini-3.5-flash-lite</span>
+                <a href="https://www.youtube.com/@vaibhavsisinty" target="_blank" class="badge">📺 Vaibhav Sisinty</a>
+                <a href="https://www.youtube.com/watch?v=8rbn0YjrSa4" target="_blank" class="badge badge-yt">▶️ Voir sur YouTube</a>
+            </div>
+        </header>
+
+        <section class="executive-summary">
+            <h2 class="section-title">📌 Synthèse Exécutive & Outils</h2>
+            <div class="summary-card">
+                ### 💡 Résumé<br><br>Cette vidéo de Vaibhav Sisinty met en lumière une avancée majeure dans le domaine de l'intelligence artificielle incarnée et de l'informatique ambiante : la fonctionnalité de traduction en direct intégrée aux dernières lunettes connectées de Meta (incluant les gammes Ray-Ban Meta, Oakley Meta et les nouveaux modèles de la marque). L'analyste démontre, à travers une expérience personnelle menée au Japon, la capacité de ces montures à transcender la barrière de la langue de manière fluide, naturelle et totalement mains libres, permettant de tenir des conversations complexes dans plus de 20 langues (dont le japonais, l'hindi, le coréen, le mandarin, l'arabe et l'espagnol) sans prononcer un seul mot d'anglais.<br><br>Sur le plan technique, la prouesse ne réside pas seulement dans la traduction linguistique, mais dans l'ingénierie audio et la puissance du traitement en temps réel. Grâce à un réseau de six microphones intégrés à la monture, l'appareil est capable d'isoler avec précision la voix de l'interlocuteur du bruit ambiant et de la séparer de celle de l'utilisateur. Contrairement aux traducteurs traditionnels qui imposent une latence en attendant la fin complète d'une phrase, le système analyse, traduit et restitue l'audio directement dans l'oreille de l'utilisateur toutes les quelques mots, pendant même que l'interlocuteur continue de parler.<br><br>Cette technologie redéfinit les standards du growth hacking personnel, du voyage d'affaires et de la communication interculturelle. En s'affranchissant des écrans de smartphones (les « yeux baissés »), Meta propose une expérience immersive qui maintient le contact visuel et l'attention dans le monde réel (« les yeux levés »). Pour les entrepreneurs, marketeurs et professionnels du numérique, cet usage illustre le basculement progressif vers des interfaces invisibles et contextuelles, ouvrant la voie à de nouveaux cas d'usage en matière de productivité globale et d'expansion sur les marchés internationaux.<br><br>---<br><br>### 🛠️ Outils, Modèles & Logiciels Présentés<br><br>* **Ray-Ban Meta / Oakley Meta / Lunettes Meta** : Montures connectées équipées de six microphones directionnels et de capacités de traitement audio avancées, servant de support matériel (hardware) pour l'exécution des fonctionnalités d'intelligence artificielle contextuelle et de traduction vocale.<br>* **Traduction en direct (Meta Live Translation)** : Fonctionnalité logicielle intégrée à l'écosystème Meta, capable de décoder, segmenter, traduire et restituer simultanément plus de 20 langues en audio binaural directement dans l'oreille de l'utilisateur.<br>* **Système de séparation vocale par IA** : Algorithme embarqué exploitant les capteurs de la monture pour dissocier la voix de l'utilisateur de celle de son interlocuteur au milieu des nuisances sonores, garantissant une clarté d'écoute optimale.<br>* **Midjourney** *(Mentionné dans l'écosystème de la chaîne)* : Modèle de génération d'images par IA, utilisé par les créateurs pour concevoir des visuels marketing percutants et illustrer des concepts futuristes.<br>* **Gemini** *(Mentionné dans l'écosystème de la chaîne)* : Modèle multimodal de Google, exploité pour le traitement de données textuelles, visuelles et l'analyse stratégique.<br>* **Perplexity** *(Mentionné dans l'écosystème de la chaîne)* : Moteur de recherche conversationnel propulsé par l'IA, utilisé pour la veille technologique et la recherche rapide d'informations complexes.<br>* **ChatGPT & Claude** *(Mentionnés dans l'écosystème de la chaîne)* : Assistants conversationnels majeurs mobilisés pour la création de contenu, la rédaction de scripts et l'automatisation des processus textuels.<br>* **Make & n8n** *(Mentionnés dans l'écosystème de la chaîne)* : Plateformes d'automatisation de workflows sans code (no-code), essentielles pour connecter entre eux différents logiciels et optimiser les tunnels de conversion marketing.<br><br>---<br><br>### 🔑 Points Clés & Enseignements Stratégiques<br><br>1. **L'essor de l'informatique ambiante (Ambient Computing)** : Le passage des écrans physiques (smartphones, tablettes) à des dispositifs portables et invisibles (lunettes connectées) redéfinit l'interaction homme-machine en éliminant la friction technologique.<br>2. **La traduction simultanée micro-segmentée** : Ne plus attendre la fin d'une phrase pour traduire révolutionne le rythme des échanges, rendant les conversations interlinguistiques aussi fluides qu'un dialogue dans une même langue.<br>3. **L'ingénierie audio au service de l'IA** : L'utilisation de six microphones pour l'isolation spatiale et la dissociation des flux vocaux prouve que le succès d'une IA dépend autant de la capture physique (hardware) que du traitement logiciel.<br>4. **Maintien du lien social et du contact visuel** : Contrairement aux applications mobiles de traduction qui obligent à fixer un écran, les lunettes encouragent le « regard haut », préservant la communication non verbale et la posture relationnelle.<br>5. **Démocratisation d'une technologie agnostique** : La fonctionnalité ne nécessite pas de modèle de lunettes excessivement onéreux ou de niche ; elle est déployée à grande échelle sur les gammes grand public existantes (Ray-Ban Meta, Oakley Meta).<br>6. **Agilité géopolitique et commerciale** : La prise en charge native de plus de 20 langues (japonais, coréen, arabe, mandarin, espagnol, etc.) permet aux entrepreneurs et nomades digitaux de s'implanter ou de négocier instantanément sur de nouveaux marchés sans barrière linguistique.<br>7. **Suppression de la dépendance à l'anglais** : Il est désormais possible de voyager, de prospecter et de collaborer dans des pays non anglophones (comme le démontre l'expérience au Japon) en utilisant sa langue maternelle ou une langue pivot sans effort d'apprentissage préalable.<br>8. **Expérience utilisateur (UX) invisible** : La restitution audio directe dans l'oreille crée une intimité technologique où l'outil s'efface au profit de l'efficacité de la communication.<br>9. **Stratégie de croissance internationale (Growth Hacking)** : Pour les marketeurs et créateurs de contenu, ces outils permettent de tester des marchés étrangers en conditions réelles et de nouer des partenariats locaux sans les coûts liés à l'embauche immédiate d'interprètes.<br>10. **Convergence hardware et software** : La valeur ajoutée ne réside plus dans la seule intelligence logicielle de traduction, mais dans sa fusion parfaite avec un objet du quotidien esthétique et ergonomique.<br>11. **Engagement communautaire et viralité** : Inviter l'audience à partager ses cas d'usage dans les commentaires (« Comment allez-vous utiliser cette techno ? ») stimule l'algorithme d'engagement et permet de co-créer de nouveaux scénarios d'utilisation pour les prochaines vidéos.
+            </div>
+            <div class="tools-card">
+                <h4>🛠️ Outils, Modèles & Logiciels Présentés</h4>
+                <div><span class="tool-tag">Ray-Ban Meta / Oakley Meta / Lunettes Meta</span><span class="tool-tag">Traduction en direct (Meta Live Translation)</span><span class="tool-tag">Système de séparation vocale par IA</span><span class="tool-tag">Midjourney</span><span class="tool-tag">Gemini</span><span class="tool-tag">Perplexity</span><span class="tool-tag">ChatGPT &amp; Claude</span><span class="tool-tag">Make &amp; n8n</span></div>
+            </div>
+            <div class="points-card">
+                <h4>🔑 Points Clés & Enseignements Stratégiques</h4>
+                <ul><li><span class="point-bullet">✦</span><span>&amp; Enseignements Stratégiques</span></li><li><span class="point-bullet">✦</span><span>1. **L&#x27;essor de l&#x27;informatique ambiante (Ambient Computing)** : Le passage des écrans physiques (smartphones, tablettes) à des dispositifs portables et invisibles (lunettes connectées) redéfinit l&#x27;interaction homme-machine en éliminant la friction technologique.</span></li><li><span class="point-bullet">✦</span><span>2. **La traduction simultanée micro-segmentée** : Ne plus attendre la fin d&#x27;une phrase pour traduire révolutionne le rythme des échanges, rendant les conversations interlinguistiques aussi fluides qu&#x27;un dialogue dans une même langue.</span></li><li><span class="point-bullet">✦</span><span>3. **L&#x27;ingénierie audio au service de l&#x27;IA** : L&#x27;utilisation de six microphones pour l&#x27;isolation spatiale et la dissociation des flux vocaux prouve que le succès d&#x27;une IA dépend autant de la capture physique (hardware) que du traitement logiciel.</span></li><li><span class="point-bullet">✦</span><span>4. **Maintien du lien social et du contact visuel** : Contrairement aux applications mobiles de traduction qui obligent à fixer un écran, les lunettes encouragent le « regard haut », préservant la communication non verbale et la posture relationnelle.</span></li><li><span class="point-bullet">✦</span><span>5. **Démocratisation d&#x27;une technologie agnostique** : La fonctionnalité ne nécessite pas de modèle de lunettes excessivement onéreux ou de niche ; elle est déployée à grande échelle sur les gammes grand public existantes (Ray-Ban Meta, Oakley Meta).</span></li><li><span class="point-bullet">✦</span><span>6. **Agilité géopolitique et commerciale** : La prise en charge native de plus de 20 langues (japonais, coréen, arabe, mandarin, espagnol, etc.) permet aux entrepreneurs et nomades digitaux de s&#x27;implanter ou de négocier instantanément sur de nouveaux marchés sans barrière linguistique.</span></li><li><span class="point-bullet">✦</span><span>7. **Suppression de la dépendance à l&#x27;anglais** : Il est désormais possible de voyager, de prospecter et de collaborer dans des pays non anglophones (comme le démontre l&#x27;expérience au Japon) en utilisant sa langue maternelle ou une langue pivot sans effort d&#x27;apprentissage préalable.</span></li><li><span class="point-bullet">✦</span><span>8. **Expérience utilisateur (UX) invisible** : La restitution audio directe dans l&#x27;oreille crée une intimité technologique où l&#x27;outil s&#x27;efface au profit de l&#x27;efficacité de la communication.</span></li><li><span class="point-bullet">✦</span><span>9. **Stratégie de croissance internationale (Growth Hacking)** : Pour les marketeurs et créateurs de contenu, ces outils permettent de tester des marchés étrangers en conditions réelles et de nouer des partenariats locaux sans les coûts liés à l&#x27;embauche immédiate d&#x27;interprètes.</span></li><li><span class="point-bullet">✦</span><span>10. **Convergence hardware et software** : La valeur ajoutée ne réside plus dans la seule intelligence logicielle de traduction, mais dans sa fusion parfaite avec un objet du quotidien esthétique et ergonomique.</span></li><li><span class="point-bullet">✦</span><span>11. **Engagement communautaire et viralité** : Inviter l&#x27;audience à partager ses cas d&#x27;usage dans les commentaires (« Comment allez-vous utiliser cette techno ? ») stimule l&#x27;algorithme d&#x27;engagement et permet de co-créer de nouveaux scénarios d&#x27;utilisation pour les prochaines vidéos.</span></li></ul>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="section-title">⏱️ Chronologie & Transcription Complète Audio & Visuelle (Mot pour Mot)</h2>
+            <div class="timeline-stream">
+                
+        <div class="timeline-block" id="segment-1">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:00 - 00:00:20</span>
+                <span class="segment-idx">Segment #01</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Je viens de faire parler Zuckerberg en hindi et ces lunettes ont fait tout cela. Laissez-moi donc revenir en arrière et vous dire ce que c&#x27;est réellement, car il ne s&#x27;agit pas seulement de l&#x27;hindi. Ce sont 20 langues, dont le japonais, le coréen, le mandarin, l&#x27;arabe, l&#x27;espagnol et bien d&#x27;autres encore. De plus, il ne s&#x27;agit pas non plus d&#x27;une paire spéciale. Ray-Ban Meta, Oakley Meta et les nouvelles lunettes Meta que vous pouvez voir ici, toutes font cela.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface graphique de présentation des fonctionnalités des lunettes (listing des langues de traduction).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Liste détaillée des langues supportées (anglais, espagnol, français, italien, portugais, allemand, japonais, coréen, mandarin, arabe, etc.) pour la traduction en temps réel.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation des spécifications techniques et des capacités de traduction multilingue des lunettes connectées.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/8rbn0YjrSa4/8rbn0YjrSa4_000010_seg1.jpg" alt="Infographie montrant les langues prises en charge par les lunettes Ray-Ban Meta, divisées entre hors-ligne et connexion Wi-Fi/LTE, avec le présentateur en bas." loading="lazy" onclick="openLightbox('../screenshots/8rbn0YjrSa4/8rbn0YjrSa4_000010_seg1.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:10</span>
+                        <span class="caption-text">Infographie montrant les langues prises en charge par les lunettes Ray-Ban Meta, divisées entre hors-ligne et connexion Wi-Fi/LTE, avec le présentateur en bas.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-2">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:20 - 00:00:40</span>
+                <span class="segment-idx">Segment #02</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">J&#x27;étais au Japon il y a quelques semaines et beaucoup de ces conversations se sont déroulées entièrement en japonais, pas un seul mot d&#x27;anglais. J&#x27;ai juste activé ceci et j&#x27;ai continué à marcher. Ça a fait l&#x27;affaire. La fonctionnalité s&#x27;appelle la traduction en direct et la façon dont elle fonctionne est vraiment folle. Les Meta glasses utilisent six micros sur leur monture et leur premier rôle n&#x27;est pas de traduire, c&#x27;est de comprendre qui parle. Ça sépare votre voix de la voix en face de vous.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou numérique visible (le présentateur porte des lunettes connectées et parle face caméra).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Sous-titres textuels affichés à l&#x27;écran (« I just turned this on », « and how it works », « isn&#x27;t translating »).</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur parle directement à la caméra en expliquant l&#x27;utilisation de la fonctionnalité de traduction.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-3">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:40 - 00:01:02</span>
+                <span class="segment-idx">Segment #03</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Et le truc fou, c&#x27;est que ça n&#x27;attend pas que la personne ait fini sa phrase. Ça traduit littéralement toutes les quelques mots pendant qu&#x27;ils parlent encore, puis ça retransforme ça en audio et ça le lit dans votre oreille. La plupart des technologies vous font baisser les yeux. Celle-ci vous fait lever les yeux et c&#x27;est juste incroyable. Je me demande comment vous allez utiliser cette techno de fou, dites-le-moi dans les commentaires ci-dessous et je vous vois dans la prochaine !</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> Sous-titres textuels affichés à l&#x27;écran (&quot;every few words&quot;, &quot;makes you look down&quot;, &quot;I wonder how will you&quot;).</p>
+                        <p><strong>Action / Démonstration :</strong> Le créateur parle à la caméra pour illustrer les limites des technologies traditionnelles de traduction.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            <p>Généré automatiquement par l'agent de veille multimodale Antigravity (Whisper-v3-large-turbo + Gemini-3.5-flash-lite) sur VPS Contabo.</p>
+        </footer>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Agrandissement">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const box = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            box.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

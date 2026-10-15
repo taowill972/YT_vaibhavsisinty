@@ -1,6 +1,7 @@
 {
   "processed_ids": [
-    "2XpIMa1BSPc"
+    "2XpIMa1BSPc",
+    "8rbn0YjrSa4"
   ],
   "processed_videos": [
     {
@@ -15,9 +16,22 @@
       "screenshots_count": 81,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "8rbn0YjrSa4",
+      "title": "Meta’s New AI Glasses Translate ANY Language in Real-Time! 🛑",
+      "title_fr": "Les nouvelles lunettes IA de Meta traduisent n'importe quelle langue en temps réel ! 🛑",
+      "upload_date": "20260930",
+      "duration": 62,
+      "duration_str": "00:01:02",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-09-30_YT-[8rbn0YjrSa4]_Les nouvelles lunettes IA de Meta traduisent n'importe quelle langue en temps ré_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-09-30_YT-[8rbn0YjrSa4]_Les nouvelles lunettes IA de Meta traduisent n'importe quelle langue en temps ré_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 1,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 1,
+  "completed_count": 2,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -162,6 +176,7 @@
     "eS6PQ8vSRtQ",
     "rTTrCAL_B3E",
     "1_H50fYolDA",
-    "Ft8Wq-68XbE"
+    "Ft8Wq-68XbE",
+    "8rbn0YjrSa4"
   ]
 }
