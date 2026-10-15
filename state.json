@@ -2,7 +2,8 @@
   "processed_ids": [
     "2XpIMa1BSPc",
     "8rbn0YjrSa4",
-    "BtUA3IGDxVQ"
+    "BtUA3IGDxVQ",
+    "2GOE_Zpa40c"
   ],
   "processed_videos": [
     {
@@ -43,9 +44,22 @@
       "screenshots_count": 10,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "2GOE_Zpa40c",
+      "title": "OpenAI DevDay 2026: Sam Altman Just Changed AI Forever! 🤯",
+      "title_fr": "OpenAI DevDay 2026 : Sam Altman vient de changer l'IA pour toujours ! 🤯",
+      "upload_date": "20261003",
+      "duration": 175,
+      "duration_str": "00:02:55",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-10-03_YT-[2GOE_Zpa40c]_OpenAI DevDay 2026 Sam Altman vient de changer l'IA pour toujours ! 🤯_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-10-03_YT-[2GOE_Zpa40c]_OpenAI DevDay 2026 Sam Altman vient de changer l'IA pour toujours ! 🤯_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 11,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 3,
+  "completed_count": 4,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -192,6 +206,7 @@
     "1_H50fYolDA",
     "Ft8Wq-68XbE",
     "8rbn0YjrSa4",
-    "BtUA3IGDxVQ"
+    "BtUA3IGDxVQ",
+    "2GOE_Zpa40c"
   ]
 }
