@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Tesla vient de transformer votre voiture en véritable assistant robot ! 🤯 — Transcription & Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #141e33;
+            --bg-card-hover: #1a2744;
+            --border-color: #243452;
+            --border-light: rgba(99, 102, 241, 0.2);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --secondary: #8b5cf6;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --text-title: #f8fafc;
+            --text-main: #cbd5e1;
+            --text-muted: #8292ab;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header.video-header {
+            background: linear-gradient(135deg, rgba(20, 30, 51, 0.95), rgba(15, 23, 42, 0.98));
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px var(--primary-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h1.video-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.35;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            background: rgba(36, 52, 82, 0.6);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-primary {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .badge-yt {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+            border-color: rgba(244, 63, 94, 0.4);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .badge-yt:hover {
+            background: rgba(244, 63, 94, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Executive Summary Section */
+        section.executive-summary {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: 0.85rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        .summary-card p {
+            margin-bottom: 0.9rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tools-card {
+            margin-bottom: 1.5rem;
+        }
+        .tools-card h4, .points-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.8rem;
+        }
+        .tool-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .points-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.7rem;
+        }
+        .points-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            background: var(--bg-card);
+            padding: 0.85rem 1.1rem;
+            border-radius: 0.65rem;
+            font-size: 0.93rem;
+            border: 1px solid rgba(36, 52, 82, 0.5);
+        }
+        .point-bullet {
+            color: var(--primary);
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+
+        /* Timeline Section */
+        .timeline-stream {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .timeline-stream::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 7px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 12px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            border: 2px solid var(--bg-body);
+        }
+
+        .timeline-time {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .time-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.4rem;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+        .segment-idx {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 1.2rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .timeline-content:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .verbatim-box {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid #10b981;
+        }
+        .verbatim-header, .visual-header, .screenshots-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            margin-bottom: 0.6rem;
+        }
+        .verbatim-text {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .visual-box {
+            background: rgba(20, 30, 51, 0.7);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid var(--secondary);
+        }
+        .visual-details p {
+            font-size: 0.91rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-main);
+        }
+        .visual-details p:last-child {
+            margin-bottom: 0;
+        }
+        .visual-details strong {
+            color: #93c5fd;
+        }
+
+        /* Multi-Screenshots Grid */
+        .segment-screenshots-wrapper {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 0.85rem;
+            padding: 1rem;
+        }
+        .segment-screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.1rem;
+        }
+        .segment-screenshots-grid.count-1 {
+            grid-template-columns: 1fr;
+        }
+        .segment-screenshots-grid.count-2 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .screenshot-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #050811;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .img-wrapper img:hover {
+            opacity: 0.95;
+            transform: scale(1.015);
+        }
+        .zoom-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e2e8f0;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .screenshot-caption {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.7rem 0.95rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.96);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.45;
+        }
+        .caption-time {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+        .caption-text {
+            color: #e2e8f0;
+        }
+
+        /* Lightbox modal */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #334155;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="video-header">
+            <h1 class="video-title">🎬 Tesla vient de transformer votre voiture en véritable assistant robot ! 🤯</h1>
+            <div class="meta-badges">
+                <span class="badge badge-primary">📅 2026-10-09</span>
+                <span class="badge">⏱️ 00:01:38</span>
+                <span class="badge">🆔 <code>US1uK_TZkWU</code></span>
+                <span class="badge">🤖 whisper-v3-large-turbo+gemini-3.5-flash-lite</span>
+                <a href="https://www.youtube.com/@vaibhavsisinty" target="_blank" class="badge">📺 Vaibhav Sisinty</a>
+                <a href="https://www.youtube.com/watch?v=US1uK_TZkWU" target="_blank" class="badge badge-yt">▶️ Voir sur YouTube</a>
+            </div>
+        </header>
+
+        <section class="executive-summary">
+            <h2 class="section-title">📌 Synthèse Exécutive & Outils</h2>
+            <div class="summary-card">
+                ### 💡 Résumé<br>La vidéo met en lumière une avancée majeure dans la convergence entre l'intelligence artificielle et l'industrie automobile : l'intégration officielle de GrokBot au cœur des véhicules Tesla. L'analyste démontre comment la voiture cesse d'être un simple moyen de transport pour devenir un véritable assistant robotisé et un agent d'IA personnel sur roues. Grâce à une synergie poussée entre commande vocale, géolocalisation et connecteurs logiciels, le véhicule est désormais capable d'exécuter des actions complexes en arrière-plan, orchestrant de manière autonome des tâches de la vie quotidienne directement depuis le tableau de bord.<br><br>Au-delà de la simple interaction conversationnelle, la grande révolution réside dans l'exécution de workflows multi-étapes combinant le contexte physique du conducteur (emplacement, itinéraire, trafic) et ses données numériques (e-mails, calendrier). Qu'il s'agisse de commander un café pré-payé à récupérer en chemin ou de repousser une réunion en informant les parties prenantes, l'IA s'affranchit de la fragmentation des applications mobiles traditionnelles. L'utilisateur exprime une intention globale, et le système se charge de décomposer et d'exécuter séquentiellement les actions requises.<br><br>Cette mutation illustre parfaitement le passage d'une IA purement textuelle ou logicielle à une IA dotée d'une incarnation physique, ouvrant des perspectives vertigineuses en matière de productivité et de *growth hacking* appliqué au quotidien. Alors que les fonctionnalités basiques s'ouvrent au grand public, l'écosystème de xAI monétise les capacités d'agents autonomes avancés via des abonnements premium, préfigurant l'ère où les assistants intelligents piloteront notre environnement physique et numérique de manière unifiée.<br><br>---<br><br>### 🛠️ Outils, Modèles & Logiciels Présentés<br><br>* **GrokBot (xAI)** : Intégré nativement dans les véhicules Tesla, il sert d'assistant vocal robotisé capable d'exécuter des tâches physiques et numériques complexes en temps réel.<br>* **Connecteurs d'IA (API & Intégrations)** : Ponts logiciels permettant à l'assistant de se connecter aux boîtes e-mail, aux agendas, aux plateformes de commande en ligne et aux services de géolocalisation.<br>* **Super Grok** : Version d'abonnement payante requise pour débloquer les actions avancées en plusieurs étapes (*multi-step actions*) et les workflows d'agents autonomes complexes.<br>* **Midjourney** : Mentionné dans l'écosystème global de la chaîne, utilisé pour la génération d'actifs visuels et l'imagerie marketing.<br>* **Gemini** : Modèle d'IA de pointe de Google, référencé dans l'écosystème d'analyse et de veille technologique de l'auteur.<br>* **Perplexity** : Moteur de recherche conversationnel basé sur l'IA, utilisé pour la veille stratégique et l'agrégation d'informations en temps réel.<br>* **Make & n8n** : Outils d'automatisation de workflows no-code/low-code, servant de référence conceptuelle pour comprendre la logique des connecteurs et des chaînes d'actions automatisées présentées dans la vidéo.<br>* **ChatGPT & Claude** : Modèles de langage conversationnels de référence, évoqués pour contextualiser les standards de l'intelligence artificielle générative et de l'assistance textuelle avancée.<br><br>---<br><br>### 🔑 Points Clés & Enseignements Stratégiques<br><br>* **Mutation de l'automobile en agent physique** : La voiture n'est plus seulement un objet connecté, c'est le premier point de contact physique majeur pour une IA dotée de bras ou d'une capacité d'action concrète dans le monde réel.<br>* **Suppression de la friction applicative** : L'utilisation de commandes vocales globales permet de s'affranchir de la manipulation de multiples applications mobiles (calendrier, cartes, messagerie, e-commerce) au profit d'une interface unifiée.<br>* **Exploitation du contexte contextuel et géographique** : L'IA se distingue des chatbots classiques en fusionnant les requêtes de l'utilisateur avec des données en temps réel (position GPS, itinéraire, heure d'arrivée estimée).<br>* **Workflows multi-étapes automatisés** : Capacité pour un agent IA d'analyser un problème complexe (ex: "je suis en retard"), d'identifier les sous-tâches (prévenir les participants, modifier le calendrier) et de les exécuter séquentiellement.<br>* **Synergie d'écosystèmes industriels** : La fusion des technologies issues des différentes entreprises d'Elon Musk (IA, automobile, énergie) crée un avantage concurrentiel difficilement replicable et un écosystème captif puissant.<br>* **Modèle freemium appliqué aux agents IA** : Stratégie de monétisation claire où les interactions basiques sont démocratisées, tandis que la véritable valeur ajoutée (autonomie décisionnelle et exécution de tâches complexes) est réservée à l'abonnement payant (*Super Grok*).<br>* **Commerce contextuel en mouvement** : Intégration fluide du commerce de proximité et de la commande en ligne au cœur des déplacements, transformant le temps de trajet en temps utile et productif.<br>* **Approche axée sur le gain de temps (*Productivity Hacking*)** : Le ciblage d'actions à fort impact temporel (gestion d'imprévus de dernière minute, logistique du quotidien) maximise la valeur perçue de l'outil par l'utilisateur final.<br>* **Fidélisation par la communauté** : Utilisation stratégique de canaux de communication directs et gratuits (comme les communautés WhatsApp) pour fédérer l'audience et propager rapidement les innovations technologiques.<br>* **Évolution du rôle de l'utilisateur** : L'humain passe du statut d'exécutant multi-tâches (taper sur son téléphone au feu rouge) à celui de superviseur stratégique qui valide des intentions pendant que l'IA exécute le travail.
+            </div>
+            <div class="tools-card">
+                <h4>🛠️ Outils, Modèles & Logiciels Présentés</h4>
+                <div><span class="tool-tag">GrokBot (xAI)</span><span class="tool-tag">Connecteurs d&#x27;IA (API &amp; Intégrations)</span><span class="tool-tag">Super Grok</span><span class="tool-tag">Midjourney</span><span class="tool-tag">Gemini</span><span class="tool-tag">Perplexity</span><span class="tool-tag">Make &amp; n8n</span><span class="tool-tag">ChatGPT &amp; Claude</span></div>
+            </div>
+            <div class="points-card">
+                <h4>🔑 Points Clés & Enseignements Stratégiques</h4>
+                <ul><li><span class="point-bullet">✦</span><span>&amp; Enseignements Stratégiques</span></li><li><span class="point-bullet">✦</span><span>Mutation de l&#x27;automobile en agent physique** : La voiture n&#x27;est plus seulement un objet connecté, c&#x27;est le premier point de contact physique majeur pour une IA dotée de bras ou d&#x27;une capacité d&#x27;action concrète dans le monde réel.</span></li><li><span class="point-bullet">✦</span><span>Suppression de la friction applicative** : L&#x27;utilisation de commandes vocales globales permet de s&#x27;affranchir de la manipulation de multiples applications mobiles (calendrier, cartes, messagerie, e-commerce) au profit d&#x27;une interface unifiée.</span></li><li><span class="point-bullet">✦</span><span>Exploitation du contexte contextuel et géographique** : L&#x27;IA se distingue des chatbots classiques en fusionnant les requêtes de l&#x27;utilisateur avec des données en temps réel (position GPS, itinéraire, heure d&#x27;arrivée estimée).</span></li><li><span class="point-bullet">✦</span><span>Workflows multi-étapes automatisés** : Capacité pour un agent IA d&#x27;analyser un problème complexe (ex: &quot;je suis en retard&quot;), d&#x27;identifier les sous-tâches (prévenir les participants, modifier le calendrier) et de les exécuter séquentiellement.</span></li><li><span class="point-bullet">✦</span><span>Synergie d&#x27;écosystèmes industriels** : La fusion des technologies issues des différentes entreprises d&#x27;Elon Musk (IA, automobile, énergie) crée un avantage concurrentiel difficilement replicable et un écosystème captif puissant.</span></li><li><span class="point-bullet">✦</span><span>Modèle freemium appliqué aux agents IA** : Stratégie de monétisation claire où les interactions basiques sont démocratisées, tandis que la véritable valeur ajoutée (autonomie décisionnelle et exécution de tâches complexes) est réservée à l&#x27;abonnement payant (*Super Grok*).</span></li><li><span class="point-bullet">✦</span><span>Commerce contextuel en mouvement** : Intégration fluide du commerce de proximité et de la commande en ligne au cœur des déplacements, transformant le temps de trajet en temps utile et productif.</span></li><li><span class="point-bullet">✦</span><span>Approche axée sur le gain de temps (*Productivity Hacking*)** : Le ciblage d&#x27;actions à fort impact temporel (gestion d&#x27;imprévus de dernière minute, logistique du quotidien) maximise la valeur perçue de l&#x27;outil par l&#x27;utilisateur final.</span></li><li><span class="point-bullet">✦</span><span>Fidélisation par la communauté** : Utilisation stratégique de canaux de communication directs et gratuits (comme les communautés WhatsApp) pour fédérer l&#x27;audience et propager rapidement les innovations technologiques.</span></li><li><span class="point-bullet">✦</span><span>Évolution du rôle de l&#x27;utilisateur** : L&#x27;humain passe du statut d&#x27;exécutant multi-tâches (taper sur son téléphone au feu rouge) à celui de superviseur stratégique qui valide des intentions pendant que l&#x27;IA exécute le travail.</span></li></ul>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="section-title">⏱️ Chronologie & Transcription Complète Audio & Visuelle (Mot pour Mot)</h2>
+            <div class="timeline-stream">
+                
+        <div class="timeline-block" id="segment-1">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:00 - 00:00:19</span>
+                <span class="segment-idx">Segment #01</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Écoute ça. Hé Grok, sors ma voiture de l&#x27;allée. D&#x27;accord, bien sûr. Je déplace ta Tesla maintenant vers le début de la rue. Tesla vient de transformer ta voiture en assistant robot. Et tu peux la contrôler avec ta voix. Ta Tesla est maintenant garée à l&#x27;avant. Ouais, c&#x27;est insensé. Tesla a officiellement lancé GrokBot à l&#x27;intérieur de ses voitures.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Écran de contrôle Tesla</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte incrusté : &quot;Moving your Tesla&quot;, &quot;Tesla just into a robot assistant&quot; et sous-titres &quot;yeah&quot;</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration visuelle d&#x27;une Tesla en mouvement et présentation de ses fonctionnalités autonomes.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (3) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-3">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000005_seg1.jpg" alt="Vue depuis l&#x27;intérieur d&#x27;une Tesla montrant l&#x27;écran de contrôle central affichant les caméras et la navigation, avec le présentateur incrusté en bas." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000005_seg1.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:05</span>
+                        <span class="caption-text">Vue depuis l&#x27;intérieur d&#x27;une Tesla montrant l&#x27;écran de contrôle central affichant les caméras et la navigation, avec le présentateur incrusté en bas.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000009_seg1.jpg" alt="Vue de l&#x27;habitacle vide d&#x27;une Tesla montrant le volant et l&#x27;écran central, avec du texte incrusté à l&#x27;écran." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000009_seg1.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:09</span>
+                        <span class="caption-text">Vue de l&#x27;habitacle vide d&#x27;une Tesla montrant le volant et l&#x27;écran central, avec du texte incrusté à l&#x27;écran.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000014_seg1.jpg" alt="Vue extérieure d&#x27;une voiture Tesla bleue garée en extérieur, avec le présentateur incrusté en bas." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000014_seg1.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:14</span>
+                        <span class="caption-text">Vue extérieure d&#x27;une voiture Tesla bleue garée en extérieur, avec le présentateur incrusté en bas.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-2">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:19 - 00:00:40</span>
+                <span class="segment-idx">Segment #02</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Maintenant, il ne s&#x27;agit pas juste d&#x27;un autre chatbot installé sur votre tableau de bord. Vous pouvez réellement donner un travail à Grok. Et il peut aller le faire pour vous. Grâce à ses connecteurs, Grok peut fonctionner avec des éléments comme votre e-mail et votre calendrier, et vous pouvez l&#x27;utiliser pour des choses comme la prise de rendez-vous, des réservations et même pour commander des articles en ligne. Mais c&#x27;est là que ça devient vraiment intéressant. Grok sait que vous êtes à l&#x27;intérieur d&#x27;une Tesla. Il peut donc combiner ce que vous demandez avec l&#x27;emplacement de votre voiture et votre itinéraire.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> X (anciennement Twitter) / Publication de Tesla</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte du tweet de Tesla décrivant les fonctionnalités de Grok pour effectuer des tâches complexes comme commander du café ou réserver un rendez-vous.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation des capacités d&#x27;automatisation et des fonctionnalités avancées de Grok via une publication officielle de Tesla.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000029_seg2.jpg" alt="Un tweet de Tesla affiché à l&#x27;écran montrant les fonctionnalités de Grok, avec le présentateur en dessous." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000029_seg2.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:29</span>
+                        <span class="caption-text">Un tweet de Tesla affiché à l&#x27;écran montrant les fonctionnalités de Grok, avec le présentateur en dessous.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-3">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:40 - 00:00:59</span>
+                <span class="segment-idx">Segment #03</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Imaginez monter dans votre Tesla et dire : « Je suis en retard. Trouve-moi un café sur mon trajet et commande-moi un cappuccino. » Grok passe la commande pendant que votre Tesla vous y conduit. Ainsi, lorsque vous arrivez, votre café vous attend déjà. Ou imaginez ce scénario : vous pouvez dire à votre voiture : « Je vais avoir 20 minutes de retard pour ma réunion. Prévenez-les et déplacez-la à demain après-midi. » Vous n&#x27;avez pas besoin d&#x27;ouvrir cinq applications différentes.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Écran tactile de bord de véhicule Tesla, interface assistant Grok.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte sous-titré lié à une commande vocale de café (&quot;and order me&quot;, &quot;your coffee is already&quot;, &quot;20 minutes late&quot;).</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration visuelle d&#x27;un cas d&#x27;usage IA intégrant un véhicule connecté et un service de commande.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (3) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-3">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000045_seg3.jpg" alt="Vue depuis l&#x27;intérieur d&#x27;une Tesla en mouvement avec le présentateur en bas." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000045_seg3.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:45</span>
+                        <span class="caption-text">Vue depuis l&#x27;intérieur d&#x27;une Tesla en mouvement avec le présentateur en bas.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000050_seg3.jpg" alt="Vue dans un café montrant une tasse posée sur le comptoir." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000050_seg3.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:50</span>
+                        <span class="caption-text">Vue dans un café montrant une tasse posée sur le comptoir.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000055_seg3.jpg" alt="Gros plan sur l&#x27;écran tactile d&#x27;une Tesla avec l&#x27;interface de l&#x27;assistant Grok." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000055_seg3.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:55</span>
+                        <span class="caption-text">Gros plan sur l&#x27;écran tactile d&#x27;une Tesla avec l&#x27;interface de l&#x27;assistant Grok.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-4">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:01:00 - 00:01:19</span>
+                <span class="segment-idx">Segment #04</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Tu dis simplement à une IA ce que tu veux et tu la laisses trouver les étapes, de la vérification de ton calendrier à l&#x27;envoi du message. Et c&#x27;est ça le vrai changement. L&#x27;IA commence à avoir un corps physique. Et une voiture est l&#x27;un des endroits les plus intéressants pour commencer. Avant de t&#x27;enthousiasmer, il y a une chose que tu dois savoir. Les actions avancées en plusieurs étapes nécessitent actuellement un abonnement super grok payant. Mais les connecteurs de base peuvent être utilisés par n&#x27;importe qui dès maintenant.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Écran tactile de tableau de bord automobile, interface de navigation et de commande du véhicule.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Interface utilisateur de contrôle de véhicule avec options de navigation et commandes tactiles.
+[DESC_IMAGE_1] Démonstration de l&#x27;utilisation d&#x27;un système intelligent embarqué dans un véhicule en circulation.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (3) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-3">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000105_seg4.jpg" alt="Vue depuis l&#x27;intérieur d&#x27;une voiture en mouvement, montrant l&#x27;écran de navigation central affichant un itinéraire." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000105_seg4.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:05</span>
+                        <span class="caption-text">Vue depuis l&#x27;intérieur d&#x27;une voiture en mouvement, montrant l&#x27;écran de navigation central affichant un itinéraire.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000109_seg4.jpg" alt="Écran partagé montrant en haut l&#x27;intérieur d&#x27;une voiture stationnée avec un écran de contrôle, et en bas le présentateur dans son studio." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000109_seg4.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:09</span>
+                        <span class="caption-text">Écran partagé montrant en haut l&#x27;intérieur d&#x27;une voiture stationnée avec un écran de contrôle, et en bas le présentateur dans son studio.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000114_seg4.jpg" alt="Gros plan sur l&#x27;écran tactile du tableau de bord d&#x27;un véhicule affichant l&#x27;interface du système avec des commandes vocales ou textuelles." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000114_seg4.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:14</span>
+                        <span class="caption-text">Gros plan sur l&#x27;écran tactile du tableau de bord d&#x27;un véhicule affichant l&#x27;interface du système avec des commandes vocales ou textuelles.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-5">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:01:19 - 00:01:38</span>
+                <span class="segment-idx">Segment #05</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Votre Tesla vient juste de devenir votre agent IA personnel sur roues. C&#x27;est peut-être à cela que ressemblent les robots du futur. Franchement, voir Elon fusionner la technologie de ses différentes entreprises m&#x27;enthousiasme tellement. Queeriez-vous d&#x27;autre avec cette technologie ? Dites-le-moi dans les commentaires. Et si vous avez aimé cette histoire et que vous voulez rester informés dans le monde de l&#x27;IA, rejoignez ma communauté WhatsApp gratuite. Le lien est dans la bio.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application WhatsApp, smartphone.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte incitatif &quot;Join the free WhatsApp Community&quot; et interface du groupe WhatsApp &quot;IND-11 | Staying Ahead Club&quot;.
+[DESC_IMAGE_3 illustre un appel à l&#x27;action pour rejoindre la communauté WhatsApp du créateur.]</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/US1uK_TZkWU/US1uK_TZkWU_000133_seg5.jpg" alt="Capture d&#x27;écran d&#x27;un smartphone affichant l&#x27;interface de l&#x27;application WhatsApp avec un appel à rejoindre la communauté &quot;IND-11 | Staying Ahead Club&quot;." loading="lazy" onclick="openLightbox('../screenshots/US1uK_TZkWU/US1uK_TZkWU_000133_seg5.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:33</span>
+                        <span class="caption-text">Capture d&#x27;écran d&#x27;un smartphone affichant l&#x27;interface de l&#x27;application WhatsApp avec un appel à rejoindre la communauté &quot;IND-11 | Staying Ahead Club&quot;.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            <p>Généré automatiquement par l'agent de veille multimodale Antigravity (Whisper-v3-large-turbo + Gemini-3.5-flash-lite) sur VPS Contabo.</p>
+        </footer>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Agrandissement">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const box = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            box.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

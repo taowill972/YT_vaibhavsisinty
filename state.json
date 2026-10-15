@@ -6,7 +6,8 @@
     "2GOE_Zpa40c",
     "umSPvhTv4LM",
     "bxrmWw4qt0Y",
-    "GQGK3U0FOcY"
+    "GQGK3U0FOcY",
+    "US1uK_TZkWU"
   ],
   "processed_videos": [
     {
@@ -99,9 +100,22 @@
       "screenshots_count": 7,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "US1uK_TZkWU",
+      "title": "Tesla Just Turned Your Car Into a Real Robot Assistant! 🤯",
+      "title_fr": "Tesla vient de transformer votre voiture en véritable assistant robot ! 🤯",
+      "upload_date": "20261009",
+      "duration": 98,
+      "duration_str": "00:01:38",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-10-09_YT-[US1uK_TZkWU]_Tesla vient de transformer votre voiture en véritable assistant robot ! 🤯_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-10-09_YT-[US1uK_TZkWU]_Tesla vient de transformer votre voiture en véritable assistant robot ! 🤯_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 11,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 7,
+  "completed_count": 8,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -252,6 +266,7 @@
     "2GOE_Zpa40c",
     "umSPvhTv4LM",
     "bxrmWw4qt0Y",
-    "GQGK3U0FOcY"
+    "GQGK3U0FOcY",
+    "US1uK_TZkWU"
   ]
 }
