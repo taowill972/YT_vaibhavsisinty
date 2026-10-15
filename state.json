@@ -8,7 +8,8 @@
     "bxrmWw4qt0Y",
     "GQGK3U0FOcY",
     "US1uK_TZkWU",
-    "DWtKmYglUOM"
+    "DWtKmYglUOM",
+    "tMSqFrAiggw"
   ],
   "processed_videos": [
     {
@@ -127,9 +128,22 @@
       "screenshots_count": 13,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "tMSqFrAiggw",
+      "title": "Your Slow Internet Isn’t What You Think... Fix It With AI! 🤯",
+      "title_fr": "Votre connexion lente n'est pas ce que vous pensez... Réparez-la avec l'IA ! 🤯",
+      "upload_date": "20261012",
+      "duration": 104,
+      "duration_str": "00:01:44",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-10-12_YT-[tMSqFrAiggw]_Votre connexion lente n'est pas ce que vous pensez... Réparez-la avec l'IA ! 🤯_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-10-12_YT-[tMSqFrAiggw]_Votre connexion lente n'est pas ce que vous pensez... Réparez-la avec l'IA ! 🤯_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 7,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 9,
+  "completed_count": 10,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -282,6 +296,7 @@
     "bxrmWw4qt0Y",
     "GQGK3U0FOcY",
     "US1uK_TZkWU",
-    "DWtKmYglUOM"
+    "DWtKmYglUOM",
+    "tMSqFrAiggw"
   ]
 }

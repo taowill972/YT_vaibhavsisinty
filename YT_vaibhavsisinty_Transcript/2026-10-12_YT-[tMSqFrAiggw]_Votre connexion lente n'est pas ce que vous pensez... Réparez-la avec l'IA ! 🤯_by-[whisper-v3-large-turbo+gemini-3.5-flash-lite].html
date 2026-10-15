@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Votre connexion lente n&#x27;est pas ce que vous pensez... Réparez-la avec l&#x27;IA ! 🤯 — Transcription & Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #141e33;
+            --bg-card-hover: #1a2744;
+            --border-color: #243452;
+            --border-light: rgba(99, 102, 241, 0.2);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --secondary: #8b5cf6;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --text-title: #f8fafc;
+            --text-main: #cbd5e1;
+            --text-muted: #8292ab;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header.video-header {
+            background: linear-gradient(135deg, rgba(20, 30, 51, 0.95), rgba(15, 23, 42, 0.98));
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px var(--primary-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h1.video-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.35;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            background: rgba(36, 52, 82, 0.6);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-primary {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .badge-yt {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+            border-color: rgba(244, 63, 94, 0.4);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .badge-yt:hover {
+            background: rgba(244, 63, 94, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Executive Summary Section */
+        section.executive-summary {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: 0.85rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        .summary-card p {
+            margin-bottom: 0.9rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tools-card {
+            margin-bottom: 1.5rem;
+        }
+        .tools-card h4, .points-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.8rem;
+        }
+        .tool-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .points-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.7rem;
+        }
+        .points-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            background: var(--bg-card);
+            padding: 0.85rem 1.1rem;
+            border-radius: 0.65rem;
+            font-size: 0.93rem;
+            border: 1px solid rgba(36, 52, 82, 0.5);
+        }
+        .point-bullet {
+            color: var(--primary);
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+
+        /* Timeline Section */
+        .timeline-stream {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .timeline-stream::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 7px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 12px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            border: 2px solid var(--bg-body);
+        }
+
+        .timeline-time {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .time-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.4rem;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+        .segment-idx {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 1.2rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .timeline-content:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .verbatim-box {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid #10b981;
+        }
+        .verbatim-header, .visual-header, .screenshots-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            margin-bottom: 0.6rem;
+        }
+        .verbatim-text {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .visual-box {
+            background: rgba(20, 30, 51, 0.7);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid var(--secondary);
+        }
+        .visual-details p {
+            font-size: 0.91rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-main);
+        }
+        .visual-details p:last-child {
+            margin-bottom: 0;
+        }
+        .visual-details strong {
+            color: #93c5fd;
+        }
+
+        /* Multi-Screenshots Grid */
+        .segment-screenshots-wrapper {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 0.85rem;
+            padding: 1rem;
+        }
+        .segment-screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.1rem;
+        }
+        .segment-screenshots-grid.count-1 {
+            grid-template-columns: 1fr;
+        }
+        .segment-screenshots-grid.count-2 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .screenshot-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #050811;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .img-wrapper img:hover {
+            opacity: 0.95;
+            transform: scale(1.015);
+        }
+        .zoom-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e2e8f0;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .screenshot-caption {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.7rem 0.95rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.96);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.45;
+        }
+        .caption-time {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+        .caption-text {
+            color: #e2e8f0;
+        }
+
+        /* Lightbox modal */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #334155;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="video-header">
+            <h1 class="video-title">🎬 Votre connexion lente n&#x27;est pas ce que vous pensez... Réparez-la avec l&#x27;IA ! 🤯</h1>
+            <div class="meta-badges">
+                <span class="badge badge-primary">📅 2026-10-12</span>
+                <span class="badge">⏱️ 00:01:44</span>
+                <span class="badge">🆔 <code>tMSqFrAiggw</code></span>
+                <span class="badge">🤖 whisper-v3-large-turbo+gemini-3.5-flash-lite</span>
+                <a href="https://www.youtube.com/@vaibhavsisinty" target="_blank" class="badge">📺 Vaibhav Sisinty</a>
+                <a href="https://www.youtube.com/watch?v=tMSqFrAiggw" target="_blank" class="badge badge-yt">▶️ Voir sur YouTube</a>
+            </div>
+        </header>
+
+        <section class="executive-summary">
+            <h2 class="section-title">📌 Synthèse Exécutive & Outils</h2>
+            <div class="summary-card">
+                ### 💡 Résumé<br><br>Cette vidéo aborde une problématique universelle et frustrante : la lenteur perçue d'Internet à la maison, que nous attribuons systématiquement à notre fournisseur d'accès, alors qu'elle trouve souvent sa source dans la congestion interne de notre réseau domestique. Entre les jeux vidéo, les appels en visioconférence, le streaming 4K et la multitude d'objets connectés s'arrachant la bande passante à travers les murs, le signal s'effondre. Pour résoudre ce défi d'optimisation complexe, l'entreprise indienne ACT Fibernet introduit une solution innovante baptisée ACT Smart Wi-Fi, propulsée par un agent d'intelligence artificielle nommé « ACT Zippy ».<br><br>Plutôt que de recourir à l'IA pour faire du simple battage médiatique (« AI washing »), cette technologie déploie une approche pragmatique d'automatisation invisible. Agissant comme un agent de circulation intelligent 24h/24 et 7j/7, Zippy surveille en permanence le réseau, ajuste dynamiquement la répartition de la bande passante, anticipe et résout les pertes de signal, et s'associe à une architecture de Wi-Fi maillé. Cette synergie garantit qu'aucun usage (comme un appel professionnel critique) ne pâtisse d'un autre (comme le streaming du salon), tout en offrant à l'utilisateur final un contrôle granulaire via une application dédiée permettant de cartographier, analyser et planifier l'accès des appareils.<br><br>L'analyse de ce cas met en lumière une tendance forte du marché : l'intégration de l'IA et de l'automatisation dans les infrastructures du quotidien pour éliminer les frictions de l'expérience utilisateur. En transformant un équipement passif en un système autonome capable de « se débrouiller tout seul », la marque améliore radicalement la satisfaction client tout en fidélisant sa base grâce à une mise à niveau gratuite et sans friction. Une stratégie marketing et produit redoutable axée sur la valeur perçue et l'utilité réelle.<br><br>---<br><br>### 🛠️ Outils, Modèles & Logiciels Présentés<br><br>*   **ACT Smart Wi-Fi / ACT Zippy** : Le système de gestion de réseau intelligent propulsé par l'IA qui surveille, optimise la bande passante et résout les problèmes de signal en arrière-plan 24h/24 et 7j/7.<br>*   **Application ACT** : L'interface utilisateur mobile permettant de visualiser l'état de santé du réseau, d'accéder à une carte interactive des appareils connectés, d'analyser l'utilisation individuelle et de gérer le contrôle d'accès ou les restrictions horaires.<br>*   **Système de Wi-Fi Maillé (Mesh)** : La technologie matérielle complémentaire qui remplace un routeur unique par plusieurs points d'accès pour diffuser uniformément le signal à travers toute la maison, éliminant les zones mortes.<br>*   *Note sur l'écosystème IA global (Midjourney, Gemini, Perplexity, Make, ChatGPT, n8n, Claude)* : Bien que la vidéo cible spécifiquement une IA réseau (ACT Zippy), l'expertise globale de la chaîne Vaibhav Sisinty mobilise ces outils d'automatisation et de génération pour le growth hacking, la création de contenus et l'optimisation des workflows digitaux au quotidien.<br><br>---<br><br>### 🔑 Points Clés & Enseignements Stratégiques<br><br>1.  **Identifier la vraie source du problème** : Ne pas confondre la performance brute d'un fournisseur d'accès avec la capacité de distribution locale et la congestion de son propre réseau domestique.<br>2.  **L'IA utilitaire vs l'effet de mode** : Utiliser l'intelligence artificielle pour résoudre des frictions concrètes et invisibles (comme la gestion du trafic réseau) plutôt que de l'implémenter superficiellement pour le marketing.<br>3.  **L'automatisation proactive 24/7** : Concevoir des systèmes capables de s'auto-diagnostiquer et de se réguler en arrière-plan sans nécessiter d'intervention humaine ou de redémarrage manuel du routeur.<br>4.  **La priorisation intelligente des flux (Bande passante)** : Appliquer une logique de routage dynamique pour que les usages critiques (appels professionnels) ne subissent pas la concurrence des usages lourds (streaming 4K, jeux en réseau).<br>5.  **Dépasser les limites physiques** : Combiner l'intelligence logicielle avec du matériel adapté (comme le Wi-Fi maillé) pour surmonter les obstacles architecturaux (murs, éloignement) et garantir une couverture homogène.<br>6.  **Transparence et gouvernance par la donnée** : Offrir aux utilisateurs finaux un tableau de bord applicatif clair pour auditer la santé de leur réseau, identifier les appareils gourmands et comprendre leurs usages.<br>7.  **Contrôle parental et gestion des accès** : Permettre de planifier des plages horaires d'utilisation par appareil pour responsabiliser la consommation numérique au sein du foyer.<br>8.  **Stratégie de fidélisation par la mise à niveau gratuite** : Transformer une innovation technologique en un argument de rétention client massif en proposant l'amélioration sans frais ni tracas d'installation pour les abonnés existants.<br>9.  **L'expérience utilisateur (UX) sans friction** : Masquer la complexité technique derrière une automatisation fluide où la technologie travaille silencieusement au service du confort de l'utilisateur.<br>10. **Growth Hacking et viralité communautaire** : Capitaliser sur la curiosité et la valeur éducative de ces innovations pour nourrir des communautés engagées (comme les canaux WhatsApp) et créer un trafic organique qualifié.
+            </div>
+            <div class="tools-card">
+                <h4>🛠️ Outils, Modèles & Logiciels Présentés</h4>
+                <div><span class="tool-tag">ACT Smart Wi-Fi / ACT Zippy</span><span class="tool-tag">Application ACT</span><span class="tool-tag">Système de Wi-Fi Maillé (Mesh)</span></div>
+            </div>
+            <div class="points-card">
+                <h4>🔑 Points Clés & Enseignements Stratégiques</h4>
+                <ul><li><span class="point-bullet">✦</span><span>&amp; Enseignements Stratégiques</span></li><li><span class="point-bullet">✦</span><span>1.  **Identifier la vraie source du problème** : Ne pas confondre la performance brute d&#x27;un fournisseur d&#x27;accès avec la capacité de distribution locale et la congestion de son propre réseau domestique.</span></li><li><span class="point-bullet">✦</span><span>2.  **L&#x27;IA utilitaire vs l&#x27;effet de mode** : Utiliser l&#x27;intelligence artificielle pour résoudre des frictions concrètes et invisibles (comme la gestion du trafic réseau) plutôt que de l&#x27;implémenter superficiellement pour le marketing.</span></li><li><span class="point-bullet">✦</span><span>3.  **L&#x27;automatisation proactive 24/7** : Concevoir des systèmes capables de s&#x27;auto-diagnostiquer et de se réguler en arrière-plan sans nécessiter d&#x27;intervention humaine ou de redémarrage manuel du routeur.</span></li><li><span class="point-bullet">✦</span><span>4.  **La priorisation intelligente des flux (Bande passante)** : Appliquer une logique de routage dynamique pour que les usages critiques (appels professionnels) ne subissent pas la concurrence des usages lourds (streaming 4K, jeux en réseau).</span></li><li><span class="point-bullet">✦</span><span>5.  **Dépasser les limites physiques** : Combiner l&#x27;intelligence logicielle avec du matériel adapté (comme le Wi-Fi maillé) pour surmonter les obstacles architecturaux (murs, éloignement) et garantir une couverture homogène.</span></li><li><span class="point-bullet">✦</span><span>6.  **Transparence et gouvernance par la donnée** : Offrir aux utilisateurs finaux un tableau de bord applicatif clair pour auditer la santé de leur réseau, identifier les appareils gourmands et comprendre leurs usages.</span></li><li><span class="point-bullet">✦</span><span>7.  **Contrôle parental et gestion des accès** : Permettre de planifier des plages horaires d&#x27;utilisation par appareil pour responsabiliser la consommation numérique au sein du foyer.</span></li><li><span class="point-bullet">✦</span><span>8.  **Stratégie de fidélisation par la mise à niveau gratuite** : Transformer une innovation technologique en un argument de rétention client massif en proposant l&#x27;amélioration sans frais ni tracas d&#x27;installation pour les abonnés existants.</span></li><li><span class="point-bullet">✦</span><span>9.  **L&#x27;expérience utilisateur (UX) sans friction** : Masquer la complexité technique derrière une automatisation fluide où la technologie travaille silencieusement au service du confort de l&#x27;utilisateur.</span></li><li><span class="point-bullet">✦</span><span>10. **Growth Hacking et viralité communautaire** : Capitaliser sur la curiosité et la valeur éducative de ces innovations pour nourrir des communautés engagées (comme les canaux WhatsApp) et créer un trafic organique qualifié.</span></li></ul>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="section-title">⏱️ Chronologie & Transcription Complète Audio & Visuelle (Mot pour Mot)</h2>
+            <div class="timeline-stream">
+                
+        <div class="timeline-block" id="segment-1">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:00 - 00:00:19</span>
+                <span class="segment-idx">Segment #01</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Pendant des années, le Wi-Fi servait uniquement à obtenir un Internet plus rapide. Aujourd&#x27;hui, une entreprise indienne essaie de le rendre plus intelligent en y intégrant de l&#x27;intelligence artificielle. Voici les actualités. Nous blâmons généralement Internet pour la lenteur du Wi-Fi. Mais le problème peut en réalité venir de ce qui se passe chez vous. Quelqu&#x27;un joue à des jeux vidéo, quelqu&#x27;un est en appel vidéo, la télévision diffuse en streaming dans le salon, et soudain tout ralentit.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte à l&#x27;écran : &quot;is trying&quot; puis &quot;We usually blame slow WI-FI Error&quot; et &quot;Someone&#x27;s gaming&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation introductive d&#x27;un sujet technologique avec des animations graphiques explicatives.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-2">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:19 - 00:00:39</span>
+                <span class="segment-idx">Segment #02</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Mais Internet allait probablement bien. La vraie bataille se jouait à l&#x27;intérieur de chez vous. Tous vos appareils connectés à la même connexion en même temps, avec quelques murs au milieu, et le signal qui a du mal à atteindre la pièce d&#x27;à côté. C&#x27;est là que ACT Smart Wi-Fi devient intéressant. Il est doté d&#x27;un cerveau d&#x27;intelligence artificielle appelé ACT Zippy, qui fonctionne en arrière-plan 24h/24 et 7j/7. Considérez Zippy comme un agent de circulation intelligent pour votre Wi-Fi.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Publicité animée pour ACT Fibernet</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte promotionnel &#x27;ACT Zippy is here with great advice, for a great Wi-Fi connection.&#x27; et hashtag &#x27;#BreakFreeWithZippy&#x27;</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation publicitaire d&#x27;un service Wi-Fi avec un personnage mascotté animé.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/tMSqFrAiggw/tMSqFrAiggw_000034_seg2.jpg" alt="Publicité animée pour ACT Fibernet présentant le personnage &#x27;ACT Zippy&#x27; sur fond rouge avec le texte &#x27;ACT Zippy is here with great advice for a great Wi-Fi connection.&#x27;" loading="lazy" onclick="openLightbox('../screenshots/tMSqFrAiggw/tMSqFrAiggw_000034_seg2.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:34</span>
+                        <span class="caption-text">Publicité animée pour ACT Fibernet présentant le personnage &#x27;ACT Zippy&#x27; sur fond rouge avec le texte &#x27;ACT Zippy is here with great advice for a great Wi-Fi connection.&#x27;</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-3">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:39 - 00:00:59</span>
+                <span class="segment-idx">Segment #03</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Il surveille constamment votre réseau, optimise automatiquement la connexion, gère la répartition de votre bande passante, et peut même résoudre certains problèmes de signal avant que vous ne les remarquiez. Ainsi, au lieu d&#x27;aller vers votre routeur chaque fois que quelque chose ne va pas, votre Wi-Fi essaie fondamentalement de se débrouiller tout seul. C&#x27;est là que le Wi-Fi maillé entre en jeu. Au lieu d&#x27;un seul routeur qui crie depuis un coin, le signal se propage dans toute votre maison.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Animation graphique de réseau et dispositif matériel Mesh Wi-Fi</p>
+                        <p><strong>Contenu textuel & Code :</strong> Schéma explicatif de routeur avec fréquences (2.4 GHz) et texte &quot;Mesh Wi-Fi&quot;</p>
+                        <p><strong>Action / Démonstration :</strong> Explication visuelle et démonstration matérielle du fonctionnement d&#x27;un routeur Mesh Wi-Fi et de la gestion de bande passante</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/tMSqFrAiggw/tMSqFrAiggw_000044_seg3.jpg" alt="Animation explicative montrant le fonctionnement du routeur Wi-Fi et la répartition de la bande vitesse avec le présentateur en dessous." loading="lazy" onclick="openLightbox('../screenshots/tMSqFrAiggw/tMSqFrAiggw_000044_seg3.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:44</span>
+                        <span class="caption-text">Animation explicative montrant le fonctionnement du routeur Wi-Fi et la répartition de la bande vitesse avec le présentateur en dessous.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/tMSqFrAiggw/tMSqFrAiggw_000054_seg3.jpg" alt="Présentation d&#x27;un routeur Mesh Wi-Fi physique sur une table avec une animation graphique de signal autour." loading="lazy" onclick="openLightbox('../screenshots/tMSqFrAiggw/tMSqFrAiggw_000054_seg3.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:54</span>
+                        <span class="caption-text">Présentation d&#x27;un routeur Mesh Wi-Fi physique sur une table avec une animation graphique de signal autour.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-4">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:59 - 00:01:22</span>
+                <span class="segment-idx">Segment #04</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Ainsi, vos jeux n&#x27;ont pas à rivaliser avec votre téléviseur 4K. Votre appel professionnel n&#x27;a pas à rivaliser avec les appareils de tout le monde. Et vos objets connectés peuvent également rester connectés. Et vous pouvez réellement voir ce qui se passe grâce à l&#x27;application ACT. Vous pouvez vérifier l&#x27;état de santé de votre réseau, voir chaque appareil connecté sur la carte des appareils et obtenir des analyses d&#x27;utilisation pour chaque appareil individuel. Vous pouvez même gérer des choses comme l&#x27;accès des appareils et définir des périodes spécifiques pendant lesquelles un appareil peut ou ne peut pas utiliser le Wi-Fi.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application mobile ACT</p>
+                        <p><strong>Contenu textuel & Code :</strong> Vitesse d&#x27;upload (84.5 mbps), vitesse de download (56 mbps), performance Wi-Fi (&quot;Good&quot;), nombre d&#x27;appareils connectés.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur explique les fonctionnalités de l&#x27;application mobile en montrant des captures d&#x27;écran de l&#x27;interface de gestion du réseau.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/tMSqFrAiggw/tMSqFrAiggw_000111_seg4.jpg" alt="Interface mobile montrant la carte du réseau connectée avec les routeurs et les appareils connectés." loading="lazy" onclick="openLightbox('../screenshots/tMSqFrAiggw/tMSqFrAiggw_000111_seg4.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:11</span>
+                        <span class="caption-text">Interface mobile montrant la carte du réseau connectée avec les routeurs et les appareils connectés.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/tMSqFrAiggw/tMSqFrAiggw_000117_seg4.jpg" alt="Interface de l&#x27;application ACT affichant le statut du routeur principal, la vitesse de téléchargement et la performance Wi-Fi." loading="lazy" onclick="openLightbox('../screenshots/tMSqFrAiggw/tMSqFrAiggw_000117_seg4.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:17</span>
+                        <span class="caption-text">Interface de l&#x27;application ACT affichant le statut du routeur principal, la vitesse de téléchargement et la performance Wi-Fi.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-5">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:01:23 - 00:01:41</span>
+                <span class="segment-idx">Segment #05</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">C&#x27;est ce qui rend cela intéressant pour moi. Ce n&#x27;est pas de l&#x27;intelligence artificielle pour le simple fait de faire de l&#x27;intelligence artificielle. C&#x27;est de l&#x27;intelligence artificielle qui travaille discrètement en arrière-plan pour vous offrir une meilleure expérience Wi-Fi à la maison. Et le meilleur, c&#x27;est que si vous êtes un utilisateur nouveau ou existant d&#x27;ACT Fibernet, la mise à niveau est gratuite, sans tracas d&#x27;installation supplémentaire. Un Wi-Fi plus rapide, plus puissant et plus intelligent propulsé par l&#x27;intelligence artificielle.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> Sous-titres textuels (&quot;quietly working&quot;, &quot;If you are a new&quot;, &quot;extra installation hassle&quot;) et animation 3D illustrant la portée du signal d&#x27;un routeur Wi-Fi.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation orale avec support visuel animé illustrant l&#x27;emplacement du routeur Wi-Fi à la maison.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/tMSqFrAiggw/tMSqFrAiggw_000127_seg5.jpg" alt="L&#x27;écran est divisé : en haut, une animation 3D illustrant le positionnement idéal d&#x27;un routeur Wi-Fi (à 5-6 pieds de hauteur) ; en bas, le présentateur s&#x27;exprime face caméra." loading="lazy" onclick="openLightbox('../screenshots/tMSqFrAiggw/tMSqFrAiggw_000127_seg5.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:27</span>
+                        <span class="caption-text">L&#x27;écran est divisé : en haut, une animation 3D illustrant le positionnement idéal d&#x27;un routeur Wi-Fi (à 5-6 pieds de hauteur) ; en bas, le présentateur s&#x27;exprime face caméra.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-6">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:01:41 - 00:01:44</span>
+                <span class="segment-idx">Segment #06</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Je partage des mises à jour comme celles-ci dans ma communauté WhatsApp. Lien dans la bio.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application WhatsApp (interface mobile)</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte &quot;Join the free WhatsApp Community&quot; et &quot;IND-11 | Staying Ahead Club&quot; avec des aperçus de médias partagés et un bouton cliquable &quot;Link in bio&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Incitation à rejoindre la communauté WhatsApp via le lien indiqué.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/tMSqFrAiggw/tMSqFrAiggw_000142_seg6.jpg" alt="Capture d&#x27;écran montrant l&#x27;interface d&#x27;un smartphone affichant la communauté WhatsApp &quot;IND-11 | Staying Ahead Club&quot; avec un appel à l&#x27;action pour rejoindre." loading="lazy" onclick="openLightbox('../screenshots/tMSqFrAiggw/tMSqFrAiggw_000142_seg6.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:42</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant l&#x27;interface d&#x27;un smartphone affichant la communauté WhatsApp &quot;IND-11 | Staying Ahead Club&quot; avec un appel à l&#x27;action pour rejoindre.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            <p>Généré automatiquement par l'agent de veille multimodale Antigravity (Whisper-v3-large-turbo + Gemini-3.5-flash-lite) sur VPS Contabo.</p>
+        </footer>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Agrandissement">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const box = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            box.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
