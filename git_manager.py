@@ -13,6 +13,17 @@ from config import (
 
 def update_readme_index(processed_videos: List[Dict[str, Any]], total_catalog_count: int = 0) -> None:
     readme_path = REPO_DIR / "README.md"
+    if total_catalog_count <= 0:
+        cat_file = REPO_DIR / "catalog.json"
+        if cat_file.exists():
+            try:
+                import json
+                with open(cat_file, "r", encoding="utf-8") as f:
+                    total_catalog_count = len(json.load(f))
+            except Exception:
+                total_catalog_count = 143
+        else:
+            total_catalog_count = 143
     pct = (len(processed_videos) / total_catalog_count * 100) if total_catalog_count > 0 else 0
 
     lines = [
