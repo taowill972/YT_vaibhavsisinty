@@ -9,7 +9,8 @@
     "GQGK3U0FOcY",
     "US1uK_TZkWU",
     "DWtKmYglUOM",
-    "tMSqFrAiggw"
+    "tMSqFrAiggw",
+    "OR1cvD8JqEk"
   ],
   "processed_videos": [
     {
@@ -141,9 +142,22 @@
       "screenshots_count": 7,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "OR1cvD8JqEk",
+      "title": "Trump, Elon & Zuck Signed a Promise NO ONE Can Enforce! 🤯",
+      "title_fr": "Trump, Elon & Zuck ont signé une promesse que PERSONNE ne peut appliquer ! 🤯",
+      "upload_date": "20261013",
+      "duration": 96,
+      "duration_str": "00:01:36",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-10-13_YT-[OR1cvD8JqEk]_Trump, Elon & Zuck ont signé une promesse que PERSONNE ne peut appliquer ! 🤯_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-10-13_YT-[OR1cvD8JqEk]_Trump, Elon & Zuck ont signé une promesse que PERSONNE ne peut appliquer ! 🤯_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 3,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 10,
+  "completed_count": 11,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -297,6 +311,7 @@
     "GQGK3U0FOcY",
     "US1uK_TZkWU",
     "DWtKmYglUOM",
-    "tMSqFrAiggw"
+    "tMSqFrAiggw",
+    "OR1cvD8JqEk"
   ]
 }
