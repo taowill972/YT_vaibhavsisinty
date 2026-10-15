@@ -65,15 +65,9 @@ def main():
         with open(CATALOG_FILE, "r", encoding="utf-8") as f:
             catalog = json.load(f)
 
-    # Trier de la plus récente à la plus ancienne
-    catalog_sorted = sorted(catalog, key=lambda x: x.get("upload_date", ""), reverse=True)
-    state = load_state()
-    state["total_catalog"] = len(catalog_sorted)
-    processed_ids = set(state.get("processed_ids", []))
-
-    # Filtrer les vidéos non encore traitées
-    unprocessed = [v for v in catalog_sorted if v["id"] not in processed_ids]
-    print(f"[BatchRunner] Progression globale : {len(processed_ids)} / {len(catalog_sorted)} traitées ({len(unprocessed)} restantes).", flush=True)
+    # Le catalogue extrait depuis la section /videos est naturellement ordonné du plus récent au plus ancien
+    unprocessed = [v for v in catalog if v.get("id") and v.get("id") not in processed_ids]
+    print(f"[BatchRunner] Progression globale : {len(processed_ids)} / {len(catalog)} traitées ({len(unprocessed)} restantes).", flush=True)
 
     if not unprocessed:
         print("[BatchRunner] 🎉 TOUTES LES VIDÉOS DU CATALOGUE ONT ÉTÉ ENTIÈREMENT TRAITÉES !", flush=True)
@@ -98,7 +92,7 @@ def main():
             state["last_run_timestamp"] = time.time()
             save_state(state)
 
-            update_readme_index(state["processed_videos"], total_catalog_count=len(catalog_sorted))
+            update_readme_index(state["processed_videos"], total_catalog_count=len(catalog))
             commit_and_push_repo(f"feat: transcription {vid_id} - {res.get('title_fr', v_title)[:50]}")
             print(f"[BatchRunner] ✓ Vidéo {vid_id} traitée, indexée et poussée sur GitHub avec succès.", flush=True)
 
@@ -106,7 +100,7 @@ def main():
             print(f"[BatchRunner] ❌ Échec sur la vidéo {vid_id} : {e}", flush=True)
 
     # Vérification post-lot : reste-t-il des vidéos ?
-    remaining_after_batch = len(catalog_sorted) - len(state["processed_ids"])
+    remaining_after_batch = len(catalog) - len(state["processed_ids"])
     if remaining_after_batch <= 0:
         print("\n[BatchRunner] 🏁 Toutes les vidéos du catalogue sont désormais traitées !", flush=True)
         disable_cron_batch_job()
