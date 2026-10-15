@@ -1,0 +1,6 @@
+gemini_audio_keys.txt
+gemini_visual_keys.txt
+__pycache__/
+*.pyc
+/tmp/
+.env
