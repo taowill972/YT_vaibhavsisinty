@@ -7,7 +7,8 @@
     "umSPvhTv4LM",
     "bxrmWw4qt0Y",
     "GQGK3U0FOcY",
-    "US1uK_TZkWU"
+    "US1uK_TZkWU",
+    "DWtKmYglUOM"
   ],
   "processed_videos": [
     {
@@ -113,9 +114,22 @@
       "screenshots_count": 11,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "DWtKmYglUOM",
+      "title": "Trump Just Rejected Elon & Sam Altman’s AI Slowdown Plan! 🤯",
+      "title_fr": "Trump vient de rejeter le plan de ralentissement de l'IA d'Elon et Sam Altman ! 🤯",
+      "upload_date": "20261010",
+      "duration": 156,
+      "duration_str": "00:02:36",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-10-10_YT-[DWtKmYglUOM]_Trump vient de rejeter le plan de ralentissement de l'IA d'Elon et Sam Altman ! _by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-10-10_YT-[DWtKmYglUOM]_Trump vient de rejeter le plan de ralentissement de l'IA d'Elon et Sam Altman ! _by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 13,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 8,
+  "completed_count": 9,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -267,6 +281,7 @@
     "umSPvhTv4LM",
     "bxrmWw4qt0Y",
     "GQGK3U0FOcY",
-    "US1uK_TZkWU"
+    "US1uK_TZkWU",
+    "DWtKmYglUOM"
   ]
 }
