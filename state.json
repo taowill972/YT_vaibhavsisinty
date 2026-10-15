@@ -5,7 +5,8 @@
     "BtUA3IGDxVQ",
     "2GOE_Zpa40c",
     "umSPvhTv4LM",
-    "bxrmWw4qt0Y"
+    "bxrmWw4qt0Y",
+    "GQGK3U0FOcY"
   ],
   "processed_videos": [
     {
@@ -85,9 +86,22 @@
       "screenshots_count": 5,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "GQGK3U0FOcY",
+      "title": "How an AI Camera Confused a Guitar for a Helmetless Passenger!",
+      "title_fr": "Comment une caméra IA a confondu une guitare avec un passager sans casque !",
+      "upload_date": "20261007",
+      "duration": 120,
+      "duration_str": "00:02:00",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-10-07_YT-[GQGK3U0FOcY]_Comment une caméra IA a confondu une guitare avec un passager sans casque !_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-10-07_YT-[GQGK3U0FOcY]_Comment une caméra IA a confondu une guitare avec un passager sans casque !_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 7,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 6,
+  "completed_count": 7,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -237,6 +251,7 @@
     "BtUA3IGDxVQ",
     "2GOE_Zpa40c",
     "umSPvhTv4LM",
-    "bxrmWw4qt0Y"
+    "bxrmWw4qt0Y",
+    "GQGK3U0FOcY"
   ]
 }
