@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Cet outil IA open-source peut Rétroconcevoir n&#x27;importe quelle application ! 🤯 — Transcription & Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #141e33;
+            --bg-card-hover: #1a2744;
+            --border-color: #243452;
+            --border-light: rgba(99, 102, 241, 0.2);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --secondary: #8b5cf6;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --text-title: #f8fafc;
+            --text-main: #cbd5e1;
+            --text-muted: #8292ab;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header.video-header {
+            background: linear-gradient(135deg, rgba(20, 30, 51, 0.95), rgba(15, 23, 42, 0.98));
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px var(--primary-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h1.video-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.35;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            background: rgba(36, 52, 82, 0.6);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-primary {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .badge-yt {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+            border-color: rgba(244, 63, 94, 0.4);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .badge-yt:hover {
+            background: rgba(244, 63, 94, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Executive Summary Section */
+        section.executive-summary {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: 0.85rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        .summary-card p {
+            margin-bottom: 0.9rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tools-card {
+            margin-bottom: 1.5rem;
+        }
+        .tools-card h4, .points-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.8rem;
+        }
+        .tool-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .points-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.7rem;
+        }
+        .points-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            background: var(--bg-card);
+            padding: 0.85rem 1.1rem;
+            border-radius: 0.65rem;
+            font-size: 0.93rem;
+            border: 1px solid rgba(36, 52, 82, 0.5);
+        }
+        .point-bullet {
+            color: var(--primary);
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+
+        /* Timeline Section */
+        .timeline-stream {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .timeline-stream::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 7px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 12px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            border: 2px solid var(--bg-body);
+        }
+
+        .timeline-time {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .time-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.4rem;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+        .segment-idx {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 1.2rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .timeline-content:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .verbatim-box {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid #10b981;
+        }
+        .verbatim-header, .visual-header, .screenshots-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            margin-bottom: 0.6rem;
+        }
+        .verbatim-text {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .visual-box {
+            background: rgba(20, 30, 51, 0.7);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid var(--secondary);
+        }
+        .visual-details p {
+            font-size: 0.91rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-main);
+        }
+        .visual-details p:last-child {
+            margin-bottom: 0;
+        }
+        .visual-details strong {
+            color: #93c5fd;
+        }
+
+        /* Multi-Screenshots Grid */
+        .segment-screenshots-wrapper {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 0.85rem;
+            padding: 1rem;
+        }
+        .segment-screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.1rem;
+        }
+        .segment-screenshots-grid.count-1 {
+            grid-template-columns: 1fr;
+        }
+        .segment-screenshots-grid.count-2 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .screenshot-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #050811;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .img-wrapper img:hover {
+            opacity: 0.95;
+            transform: scale(1.015);
+        }
+        .zoom-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e2e8f0;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .screenshot-caption {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.7rem 0.95rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.96);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.45;
+        }
+        .caption-time {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+        .caption-text {
+            color: #e2e8f0;
+        }
+
+        /* Lightbox modal */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #334155;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="video-header">
+            <h1 class="video-title">🎬 Cet outil IA open-source peut Rétroconcevoir n&#x27;importe quelle application ! 🤯</h1>
+            <div class="meta-badges">
+                <span class="badge badge-primary">📅 2026-10-16</span>
+                <span class="badge">⏱️ 00:01:15</span>
+                <span class="badge">🆔 <code>uoO2EIJoE58</code></span>
+                <span class="badge">🤖 whisper-v3-large-turbo+gemini-3.5-flash-lite</span>
+                <a href="https://www.youtube.com/@vaibhavsisinty" target="_blank" class="badge">📺 Vaibhav Sisinty</a>
+                <a href="https://www.youtube.com/watch?v=uoO2EIJoE58" target="_blank" class="badge badge-yt">▶️ Voir sur YouTube</a>
+            </div>
+        </header>
+
+        <section class="executive-summary">
+            <h2 class="section-title">📌 Synthèse Exécutive & Outils</h2>
+            <div class="summary-card">
+                ### 💡 Résumé<br><br>La vidéo met en lumière le dépôt GitHub tendance de la semaine : « Reverse Engineer Anything », un outil gratuit et open-source qui révolutionne l'analyse logicielle. Auparavant, la rétro-ingénierie d'une application nécessitait des compétences d'expert en lecture de code machine brut, rendant cette pratique élitiste et inaccessible au plus grand nombre. Aujourd'hui, en combinant cet outil open-source à des agents IA de pointe comme Claude Code ou Cursor, il devient possible de pointer n'importe quelle application pour en comprendre instantanément le fonctionnement interne, analyser le comportement d'une fonctionnalité spécifique, et ce, sans même disposer du code source d'origine. L'intégralité du processus s'exécute localement sur la machine de l'utilisateur, garantissant une sécurité et une confidentialité totales, puisque l'application cible n'est jamais téléchargée sur des serveurs tiers.<br><br>Au-delà de la simple analyse, ce duo formé par l'IA et la rétro-ingénierie ouvre la voie à des cas d'usage disruptifs où les utilisateurs ne se contentent plus de lire le code, mais reconstruisent les produits de zéro. La vidéo illustre cette bascule par des exemples concrets et saisissants : un utilisateur frustré par la lenteur de sa télévision (trente secondes pour ouvrir une application) a rétro-conçu le système pour ramener ce délai à trois secondes sur le même matériel ; un autre a réussi à faire tourner la fonctionnalité AirDrop d'Apple sur un ordinateur portable Linux ; tandis qu'un troisième a détourné des cadres photo à 50 dollars pour en faire des tableaux de bord domotiques sophistiqués. Ce qui nécessitait autrefois des mois de travail à une équipe entière d'ingénieurs ne demande désormais plus qu'une seule instruction textuelle.<br><br>Ce paradigme redéfinit profondément le rapport aux logiciels et au matériel du quotidien. Le message adressé à la communauté est un appel direct au *growth hacking* appliqué à l'ingénierie personnelle : les consommateurs ne sont plus tenus de subir des logiciels lents, fermés ou verrouillés qu'ils ont pourtant achetés. Grâce à l'automatisation et aux agents intelligents, chacun dispose des leviers pour comprendre, réparer et reconstruire ses propres solutions technologiques. Pour démocratiser cette approche, un guide gratuit contenant les étapes d'installation et les prompts exacts a été mis à disposition dans la communauté WhatsApp du créateur, illustrant parfaitement une stratégie d'acquisition et de rétention d'audience axée sur la valeur.<br><br>---<br><br>### 🛠️ Outils, Modèles & Logiciels Présentés<br><br>* **Reverse Engineer Anything** : Dépôt GitHub open-source et gratuit servant de moteur principal pour analyser le fonctionnement d'applications et de fonctionnalités sans nécessiter le code source d'origine.<br>* **Claude Code** : Agent IA conversationnel et de développement avancé utilisé pour interpréter les données de rétro-ingénierie et assister dans la compréhension ou la réécriture du code.<br>* **Cursor** : Éditeur de code assisté par IA agissant comme agent d'exécution pour analyser, modifier et reconstruire des architectures logicielles complexes.<br>* **Make** : (Mentionné dans l'écosystème global de la chaîne) Outil d'automatisation no-code utilisé pour connecter les flux de travail et orchestrer des tâches complexes.<br>* **n8n** : (Mentionné dans l'écosystème global de la chaîne) Alternative open-source d'automatisation pour connecter des applications et déclencher des actions basées sur l'IA.<br>* **ChatGPT** : (Mentionné dans l'écosystème global de la chaîne) Modèle de langage conversationnel de référence pour la génération de contenu et l'assistance stratégique.<br>* **Gemini** : (Mentionné dans l'écosystème global de la chaîne) Modèle multimodal de Google mobilisé pour le traitement rapide d'informations textuelles et contextuelles.<br>* **Perplexity** : (Mentionné dans l'écosystème global de la chaîne) Moteur de recherche conversationnel basé sur l'IA pour la veille technologique et l'analyse de tendances.<br>* **Midjourney** : (Mentionné dans l'écosystème global de la chaîne) Générateur d'images par IA de premier plan pour la création de visuels marketing et d'assets graphiques.<br><br>---<br><br>### 🔑 Points Clés & Enseignements Stratégiques<br><br>* **Démocratisation de la rétro-ingénierie** : Ce qui était autrefois l'apanage exclusif d'experts en code machine brut est désormais accessible à toute personne capable d'utiliser un agent IA.<br>* **Exécution 100 % locale** : L'analyse s'effectue directement sur la machine de l'utilisateur, garantissant une confidentialité maximale puisque les applications cibles ne quittent jamais l'environnement local.<br>* **Du diagnostic à la reconstruction** : L'outil ne sert pas seulement à auditer ou comprendre le code, mais permet de reconstruire activement des logiciels et des systèmes sur mesure.<br>* **Optimisation drastique des performances matérielles** : Possibilité de contourner les limitations logicielles imposées par les constructeurs, comme l'illustre le passage du temps de chargement d'une application TV de 30 à 3 secondes.<br>* **Interopérabilité inter-plateformes** : Capacité à porter des technologies propriétaires (comme AirDrop d'Apple) sur des environnements ouverts (Linux).<br>* **Détournement d'hardware abordable** : Transformation d'objets du quotidien à faible coût (comme des cadres photo à 50 dollars) en interfaces de contrôle domotique haut de gamme.<br>* **Réduction exponentielle des coûts de développement** : Des projets nécessitant traditionnellement une équipe entière d'ingénieurs qualifiés peuvent désormais être amorcés via une simple instruction textuelle (*prompt*).<br>* **Émancipation technologique du consommateur** : Fin de la dépendance aux mises à jour ou aux correctifs des entreprises ; l'utilisateur final reprend le contrôle total sur les outils qu'il possède et a payés.<br>* **Stratégie de lead generation communautaire** : Utilisation d'un guide technique gratuit et exclusif comme aimant à prospects (*lead magnet*) pour alimenter une communauté WhatsApp privée.<br>* **Appel à l'action comportemental** : Encourager l'audience à adopter une posture proactive (« Ne soyez pas la personne qui attend... Soyez la personne qui l'ouvre et le fait ») pour renforcer l'engagement et la viralité de la chaîne.
+            </div>
+            <div class="tools-card">
+                <h4>🛠️ Outils, Modèles & Logiciels Présentés</h4>
+                <div><span class="tool-tag">Reverse Engineer Anything</span><span class="tool-tag">Claude Code</span><span class="tool-tag">Cursor</span><span class="tool-tag">Make</span><span class="tool-tag">n8n</span><span class="tool-tag">ChatGPT</span><span class="tool-tag">Gemini</span><span class="tool-tag">Perplexity</span></div>
+            </div>
+            <div class="points-card">
+                <h4>🔑 Points Clés & Enseignements Stratégiques</h4>
+                <ul><li><span class="point-bullet">✦</span><span>&amp; Enseignements Stratégiques</span></li><li><span class="point-bullet">✦</span><span>Démocratisation de la rétro-ingénierie** : Ce qui était autrefois l&#x27;apanage exclusif d&#x27;experts en code machine brut est désormais accessible à toute personne capable d&#x27;utiliser un agent IA.</span></li><li><span class="point-bullet">✦</span><span>Exécution 100 % locale** : L&#x27;analyse s&#x27;effectue directement sur la machine de l&#x27;utilisateur, garantissant une confidentialité maximale puisque les applications cibles ne quittent jamais l&#x27;environnement local.</span></li><li><span class="point-bullet">✦</span><span>Du diagnostic à la reconstruction** : L&#x27;outil ne sert pas seulement à auditer ou comprendre le code, mais permet de reconstruire activement des logiciels et des systèmes sur mesure.</span></li><li><span class="point-bullet">✦</span><span>Optimisation drastique des performances matérielles** : Possibilité de contourner les limitations logicielles imposées par les constructeurs, comme l&#x27;illustre le passage du temps de chargement d&#x27;une application TV de 30 à 3 secondes.</span></li><li><span class="point-bullet">✦</span><span>Interopérabilité inter-plateformes** : Capacité à porter des technologies propriétaires (comme AirDrop d&#x27;Apple) sur des environnements ouverts (Linux).</span></li><li><span class="point-bullet">✦</span><span>Détournement d&#x27;hardware abordable** : Transformation d&#x27;objets du quotidien à faible coût (comme des cadres photo à 50 dollars) en interfaces de contrôle domotique haut de gamme.</span></li><li><span class="point-bullet">✦</span><span>Réduction exponentielle des coûts de développement** : Des projets nécessitant traditionnellement une équipe entière d&#x27;ingénieurs qualifiés peuvent désormais être amorcés via une simple instruction textuelle (*prompt*).</span></li><li><span class="point-bullet">✦</span><span>Émancipation technologique du consommateur** : Fin de la dépendance aux mises à jour ou aux correctifs des entreprises ; l&#x27;utilisateur final reprend le contrôle total sur les outils qu&#x27;il possède et a payés.</span></li><li><span class="point-bullet">✦</span><span>Stratégie de lead generation communautaire** : Utilisation d&#x27;un guide technique gratuit et exclusif comme aimant à prospects (*lead magnet*) pour alimenter une communauté WhatsApp privée.</span></li><li><span class="point-bullet">✦</span><span>Appel à l&#x27;action comportemental** : Encourager l&#x27;audience à adopter une posture proactive (« Ne soyez pas la personne qui attend... Soyez la personne qui l&#x27;ouvre et le fait ») pour renforcer l&#x27;engagement et la viralité de la chaîne.</span></li></ul>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="section-title">⏱️ Chronologie & Transcription Complète Audio & Visuelle (Mot pour Mot)</h2>
+            <div class="timeline-stream">
+                
+        <div class="timeline-block" id="segment-1">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:00 - 00:00:34</span>
+                <span class="segment-idx">Segment #01</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Le dépôt GitHub numéro un en tendance cette semaine s&#x27;appelle Reverse Engineer Anything, un outil gratuit et open source. Voici ce qu&#x27;il fait. Jusqu&#x27;à présent, si vous vouliez savoir comment une application fonctionnait vraiment, vous aviez besoin d&#x27;un expert en rétro-ingénierie. Quelqu&#x27;un qui sait lire le code machine brut. Presque personne ne peut faire ça. Vous le branchez sur votre agent IA comme Claude Code ou Cursor, vous le pointez sur n&#x27;importe quelle application, et il vous dit exactement comment fonctionne une fonctionnalité, même sans le code source. Et l&#x27;analyse s&#x27;exécute sur votre propre machine. Votre application n&#x27;est jamais téléchargée nulle part. Mais c&#x27;est là que ça devient fou. Les gens ne font plus seulement lire du code. Ils reconstruisent des choses. Un type était tellement agacé que sa télé prenne 30</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface graphique textuelle présentant les moteurs d&#x27;analyse et lecteurs REA.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte affichant &#x27;ANALYSIS ENGINES&#x27;, &#x27;Ghidra&#x27;, &#x27;IDA&#x27;, &#x27;Hopper&#x27; et &#x27;REA&#x27;s OWN READERS&#x27;.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle des différents outils et moteurs d&#x27;analyse utilisés par le logiciel.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/uoO2EIJoE58/uoO2EIJoE58_000026_seg1.jpg" alt="Présentation des moteurs d&#x27;analyse (Ghidra, IDA, Hopper) et des lecteurs REA au-dessus du présentateur." loading="lazy" onclick="openLightbox('../screenshots/uoO2EIJoE58/uoO2EIJoE58_000026_seg1.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:26</span>
+                        <span class="caption-text">Présentation des moteurs d&#x27;analyse (Ghidra, IDA, Hopper) et des lecteurs REA au-dessus du présentateur.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-2">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:34 - 00:00:59</span>
+                <span class="segment-idx">Segment #02</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">secondes pour ouvrir une application. Il a fait de la rétro-ingénierie sur tout le système et a créé le sien. Même téléviseur, même matériel. Maintenant, elle s&#x27;ouvre en trois secondes. Quelqu&#x27;un a fait tourner AirDrop, la propre fonctionnalité d&#x27;Apple, sur un ordinateur portable Linux. Une autre personne a transformé des cadres photo à 50 dollars en tableaux de bord pour maison connectée. Un travail qui nécessitait autrefois toute une équipe d&#x27;ingénieurs ne demande plus qu&#x27;une seule instruction. Alors, voici le problème : vous n&#x27;êtes pas obligé d&#x27;accepter les versions lentes et verrouillées des choses que vous avez déjà payées.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Cadre photo numérique reconverti en tableau de bord intelligent.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Interface utilisateur affichant l&#x27;heure (3:20), la météo (15°C) et divers widgets de suivi ou statistiques.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation d&#x27;un matériel détourné de sa fonction initiale pour afficher un tableau de bord intelligent fait maison.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/uoO2EIJoE58/uoO2EIJoE58_000047_seg2.jpg" alt="Un homme tient un cadre photo numérique affichant une interface personnalisée avec horloge, météo et graphiques." loading="lazy" onclick="openLightbox('../screenshots/uoO2EIJoE58/uoO2EIJoE58_000047_seg2.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:47</span>
+                        <span class="caption-text">Un homme tient un cadre photo numérique affichant une interface personnalisée avec horloge, météo et graphiques.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-3">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:59 - 00:01:15</span>
+                <span class="segment-idx">Segment #03</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Vous pouvez les comprendre. Vous pouvez les réparer. Vous pouvez les reconstruire vous-même. Ne soyez pas la personne qui attend qu&#x27;une entreprise répare les choses. Soyez la personne qui l&#x27;ouvre et le fait. J&#x27;ai préparé un guide gratuit avec les étapes d&#x27;installation exactes et les prompts pour commencer. Il est dans ma communauté WhatsApp. Cliquez sur le lien dans ma bio.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucun outil, interface ou logiciel n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte affiché en sous-titre uniquement : &quot;Don&#x27;t be the person&quot;, &quot;and does it.&quot;, &quot;and the prompts&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur s&#x27;adresse directement à l&#x27;audience en parlant face caméra, sans démonstration technique.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            <p>Généré automatiquement par l'agent de veille multimodale Antigravity (Whisper-v3-large-turbo + Gemini-3.5-flash-lite) sur VPS Contabo.</p>
+        </footer>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Agrandissement">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const box = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            box.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
