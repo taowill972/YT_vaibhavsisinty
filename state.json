@@ -11,7 +11,8 @@
     "DWtKmYglUOM",
     "tMSqFrAiggw",
     "OR1cvD8JqEk",
-    "uoO2EIJoE58"
+    "uoO2EIJoE58",
+    "ZkKxud5gPfw"
   ],
   "processed_videos": [
     {
@@ -169,9 +170,22 @@
       "screenshots_count": 2,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "ZkKxud5gPfw",
+      "title": "I Spent 48 Hours Inside Meta. Are Glasses Replacing iPhones?",
+      "title_fr": "I Spent 48 Hours Inside Meta. Are Glasses Replacing iPhones?",
+      "upload_date": "20261017",
+      "duration": 1632,
+      "duration_str": "00:27:12",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-10-17_YT-[ZkKxud5gPfw]_I Spent 48 Hours Inside Meta. Are Glasses Replacing iPhones_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-10-17_YT-[ZkKxud5gPfw]_I Spent 48 Hours Inside Meta. Are Glasses Replacing iPhones_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 10,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 12,
+  "completed_count": 13,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -327,6 +341,7 @@
     "DWtKmYglUOM",
     "tMSqFrAiggw",
     "OR1cvD8JqEk",
-    "uoO2EIJoE58"
+    "uoO2EIJoE58",
+    "ZkKxud5gPfw"
   ]
 }

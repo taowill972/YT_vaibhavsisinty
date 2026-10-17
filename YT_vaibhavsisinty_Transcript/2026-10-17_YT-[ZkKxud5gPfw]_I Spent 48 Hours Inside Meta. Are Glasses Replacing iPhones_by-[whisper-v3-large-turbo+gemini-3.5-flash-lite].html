@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 I Spent 48 Hours Inside Meta. Are Glasses Replacing iPhones? — Transcription & Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #141e33;
+            --bg-card-hover: #1a2744;
+            --border-color: #243452;
+            --border-light: rgba(99, 102, 241, 0.2);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --secondary: #8b5cf6;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --text-title: #f8fafc;
+            --text-main: #cbd5e1;
+            --text-muted: #8292ab;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header.video-header {
+            background: linear-gradient(135deg, rgba(20, 30, 51, 0.95), rgba(15, 23, 42, 0.98));
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px var(--primary-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h1.video-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.35;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            background: rgba(36, 52, 82, 0.6);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-primary {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .badge-yt {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+            border-color: rgba(244, 63, 94, 0.4);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .badge-yt:hover {
+            background: rgba(244, 63, 94, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Executive Summary Section */
+        section.executive-summary {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: 0.85rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        .summary-card p {
+            margin-bottom: 0.9rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tools-card {
+            margin-bottom: 1.5rem;
+        }
+        .tools-card h4, .points-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.8rem;
+        }
+        .tool-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .points-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.7rem;
+        }
+        .points-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            background: var(--bg-card);
+            padding: 0.85rem 1.1rem;
+            border-radius: 0.65rem;
+            font-size: 0.93rem;
+            border: 1px solid rgba(36, 52, 82, 0.5);
+        }
+        .point-bullet {
+            color: var(--primary);
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+
+        /* Timeline Section */
+        .timeline-stream {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .timeline-stream::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 7px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 12px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            border: 2px solid var(--bg-body);
+        }
+
+        .timeline-time {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .time-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.4rem;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+        .segment-idx {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 1.2rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .timeline-content:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .verbatim-box {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid #10b981;
+        }
+        .verbatim-header, .visual-header, .screenshots-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            margin-bottom: 0.6rem;
+        }
+        .verbatim-text {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .visual-box {
+            background: rgba(20, 30, 51, 0.7);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid var(--secondary);
+        }
+        .visual-details p {
+            font-size: 0.91rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-main);
+        }
+        .visual-details p:last-child {
+            margin-bottom: 0;
+        }
+        .visual-details strong {
+            color: #93c5fd;
+        }
+
+        /* Multi-Screenshots Grid */
+        .segment-screenshots-wrapper {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 0.85rem;
+            padding: 1rem;
+        }
+        .segment-screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.1rem;
+        }
+        .segment-screenshots-grid.count-1 {
+            grid-template-columns: 1fr;
+        }
+        .segment-screenshots-grid.count-2 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .screenshot-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #050811;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .img-wrapper img:hover {
+            opacity: 0.95;
+            transform: scale(1.015);
+        }
+        .zoom-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e2e8f0;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .screenshot-caption {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.7rem 0.95rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.96);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.45;
+        }
+        .caption-time {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+        .caption-text {
+            color: #e2e8f0;
+        }
+
+        /* Lightbox modal */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #334155;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="video-header">
+            <h1 class="video-title">🎬 I Spent 48 Hours Inside Meta. Are Glasses Replacing iPhones?</h1>
+            <div class="meta-badges">
+                <span class="badge badge-primary">📅 2026-10-17</span>
+                <span class="badge">⏱️ 00:27:12</span>
+                <span class="badge">🆔 <code>ZkKxud5gPfw</code></span>
+                <span class="badge">🤖 whisper-v3-large-turbo+gemini-3.5-flash-lite</span>
+                <a href="https://www.youtube.com/@vaibhavsisinty" target="_blank" class="badge">📺 Vaibhav Sisinty</a>
+                <a href="https://www.youtube.com/watch?v=ZkKxud5gPfw" target="_blank" class="badge badge-yt">▶️ Voir sur YouTube</a>
+            </div>
+        </header>
+
+        <section class="executive-summary">
+            <h2 class="section-title">📌 Synthèse Exécutive & Outils</h2>
+            <div class="summary-card">
+                ### 💡 Résumé<br>Dans cette vidéo intitulée **I Spent 48 Hours Inside Meta. Are Glasses Replacing iPhones?**, Vaibhav Sisinty présente des stratégies d'optimisation et d'automatisation propulsées par les technologies IA.<br><br>### 🛠️ Outils, Modèles & Logiciels Présentés<br>- **Outils IA & Automatisation** : Solutions de productivité et d'ingénierie présentées dans la vidéo.<br><br>### 🔑 Points Clés & Enseignements Stratégiques<br>- Exploiter les modèles d'IA récents pour décupler sa productivité quotidienne.<br>- Mettre en place des automatisations scalables et reproductibles.
+            </div>
+            <div class="tools-card">
+                <h4>🛠️ Outils, Modèles & Logiciels Présentés</h4>
+                <div><span class="tool-tag">Outils IA &amp; Automatisation</span></div>
+            </div>
+            <div class="points-card">
+                <h4>🔑 Points Clés & Enseignements Stratégiques</h4>
+                <ul><li><span class="point-bullet">✦</span><span>&amp; Enseignements Stratégiques</span></li><li><span class="point-bullet">✦</span><span>Exploiter les modèles d&#x27;IA récents pour décupler sa productivité quotidienne.</span></li><li><span class="point-bullet">✦</span><span>Mettre en place des automatisations scalables et reproductibles.</span></li></ul>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="section-title">⏱️ Chronologie & Transcription Complète Audio & Visuelle (Mot pour Mot)</h2>
+            <div class="timeline-stream">
+                
+        <div class="timeline-block" id="segment-1">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:00 - 00:00:18</span>
+                <span class="segment-idx">Segment #01</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I&#x27;ve got a quick question for you. How many times have you opened your phone today? I&#x27;ve been told that the average person opens it 90 times every single day. And when it comes to me, it&#x27;s probably going to be more. Today, we&#x27;re going to do something different. I&#x27;m going to ditch my phone for the next 24 hours. Guess what I&#x27;m going to be using? My Meta glasses.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil n&#x27;est visible sur les captures.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte incrusté en bas de l&#x27;image reprenant une partie de la narration (&quot;I&#x27;ve been told that&quot;, &quot;its probably&quot;, &quot;for the next&quot;).</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur présente son sujet en marchant et en gesticulant, sans effectuer de démonstration technique.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-2">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:19 - 00:00:43</span>
+                <span class="segment-idx">Segment #02</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">And we&#x27;re going to see how we&#x27;re going to roll with just these two glasses. And I&#x27;m going to explore a bunch of new updates that Meta is dropping. because we are right now in the Silicon Valley exploring all the new updates that Meta is gonna drop and very soon we are also gonna see Zuck live on stage. It&#x27;s gonna be fun. Be with me today. It&#x27;s usually an AI clone that we are in real wonder.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-3">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:46 - 00:01:07</span>
+                <span class="segment-idx">Segment #03</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">GBC faster. It&#x27;s okay. It&#x27;s okay. It&#x27;s okay. It&#x27;s okay. Morning. Morning. We are following the boss lady. Ma&#x27;am, where do we go? Actually, we get the fact check before you say it&#x27;s done.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUNE</p>
+                        <p><strong>Action / Démonstration :</strong> Déplacement du groupe dans un environnement extérieur (campus ou lieu de transit).</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-4">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:01:07 - 00:01:28</span>
+                <span class="segment-idx">Segment #04</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Urvashi said that&#x27;s the first building. And Urvashi works for Meta. If anything goes wrong, you can get in touch with her. Okay, we have to verify a fact right now that Urvashi threw it around. Urvashi was like, that building, the hacker company was supposed to be the first office of Meta where Zuck sits out of.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur déambule dans un environnement public tout en parlant de l&#x27;histoire du premier bâtiment de Meta. Aucune démonstration technique ou interface logicielle n&#x27;est présentée.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-5">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:01:28 - 00:02:00</span>
+                <span class="segment-idx">Segment #05</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Is that true or not? I mean, who gives that punch back? I heard one! Alright guys, so we&#x27;ve got our coffee, we&#x27;ve had our very quick breakfast. All set for some fun demos. Yeah, let&#x27;s do it. Guys, I think we&#x27;re making a transition towards being a tech creator right now.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-6">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:02:00 - 00:02:20</span>
+                <span class="segment-idx">Segment #06</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">So MKBHD, I&#x27;m coming for you my friend. So, we have a brand new Meta Ray-Ban. Sorry, we have a brand new Meta glasses. This turns out to be not a Ray-Ban branded one, but actually by Meta. So that&#x27;s going to be interesting. Let&#x27;s try it out. I think this is a flat case, if I&#x27;m not wrong.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil numérique n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu textuel, code ou donnée n&#x27;est visible.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur effectue une présentation physique de l&#x27;emballage d&#x27;un nouveau produit technologique (Meta glasses).</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-7">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:02:21 - 00:02:45</span>
+                <span class="segment-idx">Segment #07</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">This is a flat case. Yes, you can see that it flattens out, fits in your pocket, which is quite cool. My old one is quite bulky. I have one more, the Oakley ones of last generation. The case of this is quite bulky. That&#x27;s been a problem. We have interesting glasses. What do you think? It&#x27;s cool. Why just glasses? Because wearables could be a watch, could be your phones, could be something like a Neuralink.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur montre physiquement ses lunettes et discute de leur aspect pratique (boîtier plat) par rapport à d&#x27;anciens modèles, sans démonstration de logiciel ou d&#x27;interface.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-8">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:02:45 - 00:03:04</span>
+                <span class="segment-idx">Segment #08</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I don&#x27;t know. Because if the interface that we are building is for an interface to talk to an agent, there could be multiple of those. What could those be, according to you, and what are you guys cooking right now? I definitely think that there&#x27;s a place for different form factors for different people. And the obvious one you didn&#x27;t mention is a phone, which people do use.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-9">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:03:04 - 00:03:41</span>
+                <span class="segment-idx">Segment #09</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Yeah, sure. Right now, or a desktop computer or a laptop. up um the reason so glasses has always we&#x27;ve always believed glasses would be the most common form factor and the most important one because more people wear glasses than anything else uh over two billion people wear prescription glasses in the world more than that wear sunglasses like think of the people you know and try to think of a single person who does not wear sunglasses or prescription glasses me you&#x27;re the second person i&#x27;ve met who meets that criteria and so So for you, we do need, although you do have a beautiful pair of ears, for you, we do need</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-10">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:03:41 - 00:04:01</span>
+                <span class="segment-idx">Segment #10</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">to find an alternative form factor. But because so many people wear glasses and it can see what you see, it can hear what you hear, it really is a great form factor for the AI. And a core thing that we want to look at is 90% of the time, this device is doing nothing, right? You&#x27;re just wearing it, whether it&#x27;s a watch or a phone in your pocket or glasses.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil numérique n&#x27;est présenté.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun texte, code, ou donnée affiché à l&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Conversation informelle ; le segment se compose uniquement d&#x27;une discussion orale sans support visuel de démonstration.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-11">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:04:01 - 00:04:35</span>
+                <span class="segment-idx">Segment #11</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">and so you know my favorite analogy is that an escalator doesn&#x27;t break it just becomes stairs and so similarly if the glasses are on and they&#x27;re doing nothing they just have to be a stylish good looking prayer glasses that are still useful to you um so i think that that&#x27;s going to be the most ubiquitous form factor doesn&#x27;t mean the only one this video is sponsored by whisper flow it lets me write just by talking i hold one key i speak and it types for me in whatsapp slack Gmail, my favorite AI apps, pretty much anywhere. And with AI that really helps because the more you</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Widget d&#x27;interface utilisateur (UI) propriétaire, probablement lié à une application de commande vocale ou d&#x27;IA.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Barre de visualisation audio centrale avec options d&#x27;annulation et de confirmation, mention &quot;#AD&quot; dans le coin supérieur gauche.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle de l&#x27;interface utilisateur du produit (overlay graphique) illustrant le fonctionnement du système de commande ou d&#x27;interaction vocale.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_000426_seg11.jpg" alt="Interface graphique minimale sur fond vert présentant un widget de contrôle vocal avec un indicateur de niveau sonore, un bouton &quot;X&quot; (annuler) et un bouton &quot;V&quot; (valider)." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_000426_seg11.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:04:26</span>
+                        <span class="caption-text">Interface graphique minimale sur fond vert présentant un widget de contrôle vocal avec un indicateur de niveau sonore, un bouton &quot;X&quot; (annuler) et un bouton &quot;V&quot; (valider).</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-12">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:04:35 - 00:05:02</span>
+                <span class="segment-idx">Segment #12</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">tell it, the better it works. And we say a lot more when we talk than when we type. And this video is also sponsored by Fulcrum. A lot of companies know they want to use AI but have no idea what to build or who can actually build it. With Fulcrum, you just describe what you want to get done. It gives you an AI assessment of exactly what it would take and then their team helps you turn it into a working solution and I&#x27;ll show you both of these in action later in the episode. You&#x27;ll find the links to both in the description.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Plateforme SaaS Fulcrum (AI Assessment).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte affiché : &quot;FULCRUM - AI ASSESSMENT&quot; et &quot;Tell us your business&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle de l&#x27;interface utilisateur de l&#x27;outil Fulcrum pour évaluer les besoins métier liés à l&#x27;IA.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_000449_seg12.jpg" alt="Interface de l&#x27;outil Fulcrum présentant un formulaire &quot;AI Assessment&quot; avec la question &quot;Tell us your business&quot;." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_000449_seg12.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:04:49</span>
+                        <span class="caption-text">Interface de l&#x27;outil Fulcrum présentant un formulaire &quot;AI Assessment&quot; avec la question &quot;Tell us your business&quot;.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-13">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:05:02 - 00:05:23</span>
+                <span class="segment-idx">Segment #13</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I think I&#x27;m butchering it. I&#x27;ve screwed it up. I don&#x27;t know how to fold this. Oh, there you go. No. Done, done, done. To pull off what she is. She&#x27;s probably going to take me a two-year course. Alright, so let&#x27;s go explore all the glasses. Looks like they have all the glasses here.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-14">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:05:24 - 00:05:43</span>
+                <span class="segment-idx">Segment #14</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">There&#x27;s no line. It&#x27;s all for us right now. Let&#x27;s go explore. Hello. Can we? Can we come explore? This is the style pavilion. Is this a display? What is this? It is a personalized gem. So on all the Starfire&#x27;s they&#x27;re gonna come with a personalized gem. Oh! Interesting. And these are our new meta adventure of VISA. These are a VISA collab.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou numérique n&#x27;est affichée ; il s&#x27;agit d&#x27;une séquence de visite physique d&#x27;un stand.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu numérique, texte, slide ou code n&#x27;est visible. L&#x27;arrière-plan montre uniquement le logo de Meta sur un mur bleu.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur explore physiquement un stand d&#x27;exposition, observe des objets (probablement des lunettes) posés sur un présentoir et interagit avec son environnement immédiat.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-15">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:05:43 - 00:06:02</span>
+                <span class="segment-idx">Segment #15</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I like them. Oh yeah, they look good. So we actually have two variations of it. So those are the VISA adventures that come in this plush lens. You see how it&#x27;s almost like translucent? You can see the tech inside. Quite cool. Yeah, you were saying. And then there&#x27;s another variation where they have the Merlot lens.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-16">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:06:04 - 00:06:24</span>
+                <span class="segment-idx">Segment #16</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">And these are our new Ray-Zan Meta Gen 3 8mm. We saw them. We tried it out. Oh, we got the brother. Absolutely. Like this? Okay. Sorry, big hands. I&#x27;m showing out the displays. The Meta Display. Sorry, I&#x27;m pushing it.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface numérique, logiciel ou outil SaaS n&#x27;est affiché dans ce segment.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informationnel, texte, code ou donnée n&#x27;est présent à l&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Le segment se concentre exclusivement sur une visite physique dans un showroom et la manipulation d&#x27;objets réels (lunettes).</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-17">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:06:24 - 00:06:52</span>
+                <span class="segment-idx">Segment #17</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">No, don&#x27;t worry. I did the same thing. It should be a nice thing. Oh, there you go. I see. It&#x27;s loading up. I see a bunch of activations there. I love the pop colors that are in there. Let&#x27;s go try them out.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-18">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:06:59 - 00:07:19</span>
+                <span class="segment-idx">Segment #18</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Okay, perfect. So, welcome. This is going to be our Cedric Verlet experience. Okay. So, with the glasses, I want you to go ahead. We&#x27;re going to read this prompt here first. Hey, Mehta. How do you say delicious in French? Delice you. Gotcha. Okay. Follow me. Yes, ma&#x27;am. Hello. Thank you. Of course. In France. You said what? In France?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Meta AI (utilisé via des lunettes connectées).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte affiché dans la bulle d&#x27;interface : &quot;Hey Meta, how do you say &#x27;delicious&#x27; in French?&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration de l&#x27;utilisation de l&#x27;assistant vocal Meta AI via des lunettes connectées pour traduire une expression en temps réel.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_000709_seg18.jpg" alt="Une bulle d&#x27;interface augmentée (Meta AI) apparaît au centre de l&#x27;écran affichant la question : &quot;Hey Meta, how do you say &#x27;delicious&#x27; in French?&quot;." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_000709_seg18.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:07:09</span>
+                        <span class="caption-text">Une bulle d&#x27;interface augmentée (Meta AI) apparaît au centre de l&#x27;écran affichant la question : &quot;Hey Meta, how do you say &#x27;delicious&#x27; in French?&quot;.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-19">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:07:19 - 00:07:38</span>
+                <span class="segment-idx">Segment #19</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Yeah, to your prayer and I yell in France. It says going to France. Yeah, right. Are we going to France by eating this? Are you ready to go France? Oh, let&#x27;s do it. I don&#x27;t have the visa though. We&#x27;ve got some... What is it called? It&#x27;s popcorn. It&#x27;s popcorn, yes. It&#x27;s a caramel filled... How can a popcorn be this big? Okay. It&#x27;s made with popcorn. Can I eat it?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-20">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:07:39 - 00:07:57</span>
+                <span class="segment-idx">Segment #20</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">500 calories. Right there. How are you going for sure? Thank you. Alright, follow me. Awesome. So good. Thank you. Nice to meet you, bye. Would you like to try this pastry? This is a pastry? Yes. This is not a pear? No. What? How can this not be a pear?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, outil SaaS ou contenu numérique n&#x27;est affiché. Il s&#x27;agit d&#x27;une séquence de type &quot;vlog&quot; en extérieur.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informationnel, code, prompt ou donnée chiffrée n&#x27;est présent à l&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur interagit physiquement avec des passants dans un cadre informel et discute de la nature d&#x27;un aliment (pastisserie versus fruit).</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-21">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:07:57 - 00:08:19</span>
+                <span class="segment-idx">Segment #21</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">It&#x27;s a pear. So Cedric Roulet has made fish, he&#x27;s made pears, flowers. That&#x27;s not a pear, that&#x27;s a pastry. Shit. Oh man, more food? Oh my. Thank you. We are basically making up for the whole week of food in single day. I feel bad wasting it.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-22">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:08:19 - 00:08:38</span>
+                <span class="segment-idx">Segment #22</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I&#x27;ll have a bite and I&#x27;ll leave it. Oh, okay. Is that okay? Sorry? Yeah. Thank you. Alright, so this is not a pear. This is a pastry. Let&#x27;s try. Very good.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUNE</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur teste une pâtisserie achetée sur un stand extérieur, ce qui ne correspond pas aux critères de démonstration d&#x27;outils technologiques ou logiciels demandés.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-23">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:08:47 - 00:09:06</span>
+                <span class="segment-idx">Segment #23</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Alright, so I think we can make our own wordy set, right? So this is the glasses that&#x27;s been going viral on Twitter as the big leak of Meta Connect. How do you feel about it? Stop it. What was the name? I forgot the project name.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, application ou outil numérique n&#x27;est visible à l&#x27;écran.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informatif tel que du texte, des prompts ou des tableaux de bord n&#x27;est présent.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur échange verbalement avec une personne hors-champ et manipule des cartes physiques, sans démonstration technique logicielle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-24">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:09:06 - 00:09:29</span>
+                <span class="segment-idx">Segment #24</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Mew. Nein. Hatch. Hatch. So I asked Urvashi, when am I getting access to Hatch? She was like, what is Hatch? This was before Muse came out. She was like, what is Hatch? Sure. When did you access? Then I think four or five days later it drops as Muse. And the poor guy who was doing the demo for me in the night, he kept saying Hatch, Hatch, Hatch, because I was so used to the...</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, outil SaaS ou contenu technique n&#x27;est affiché à l&#x27;écran.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informationnel, texte, code ou donnée n&#x27;est présent.</p>
+                        <p><strong>Action / Démonstration :</strong> Le segment montre uniquement une interaction sociale et conversationnelle entre deux personnes dans un cadre extérieur ; aucune démonstration technique n&#x27;est effectuée.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-25">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:09:29 - 00:09:51</span>
+                <span class="segment-idx">Segment #25</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">When did you start using it? Honestly, not as much as I would like to, because it was just so close and the last week was like a mess for me at work. So I could not get hands on it. I was trying to play with it on my flight and trying to get to work on WhatsApp and I was trying to compare it with instinct.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-26">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:09:51 - 00:10:12</span>
+                <span class="segment-idx">Segment #26</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Yeah, evidently it ranks higher than that. What we&#x27;re going to do right now is we&#x27;re going to do a quick rapid fire. This is going to be a fun one. Okay. And this is going to be more of how you use AI and variables more than anything else.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-27">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:10:12 - 00:10:34</span>
+                <span class="segment-idx">Segment #27</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Give me a second, I&#x27;m going to just pull that out. Alright, here comes the rapid fire, right? How many words per answer? As less as possible. Okay. And it should not start with a no. Okay. No, no. Okay. What&#x27;s something you do with AI that most people would find super strange?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-28">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:10:35 - 00:10:56</span>
+                <span class="segment-idx">Segment #28</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Calendar. Calendar? Calendar. So you manage all your calendar using AI? Okay. If you have to delete every single AI app, I&#x27;m assuming you&#x27;re using a bunch of them, what is that that you&#x27;d be left with? What is that one app that you can work with? True question. obviously Muse. Perfect. That was the trick one. You got it right.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-29">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:10:58 - 00:11:17</span>
+                <span class="segment-idx">Segment #29</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I made these for you guys. Thank you. No problem. No, these are pastries. They&#x27;re all confections. All confections. Sorry. No problem. What&#x27;s that? What&#x27;s the difference between pastries and confections?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil numérique n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun texte, code, tableau de bord ou donnée numérique n&#x27;est visible à l&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Échange informel et manipulation d&#x27;objets physiques (boîtes de confiseries) au comptoir d&#x27;une boutique.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-30">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:11:17 - 00:11:35</span>
+                <span class="segment-idx">Segment #30</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">So confections are more, they&#x27;re smaller. Okay. And they&#x27;re more sugary. Oh, they&#x27;re more sugary? Right. They&#x27;re more like a candy. As opposed to a pastry would be something more of that sound. It&#x27;s more composed. It has different elements.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-31">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:11:36 - 00:11:55</span>
+                <span class="segment-idx">Segment #31</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Thank you. Let&#x27;s get some ice cream. This is Gen 3, right? This is the first edition of Meta Glasses. So this is non Ray-Ban.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-32">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:11:55 - 00:12:32</span>
+                <span class="segment-idx">Segment #32</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">No, but this is the one that is going out tomorrow. No, this is available today. What do you mean? This is not the new one? No, this is already released. oh okay the new one is coming in tomorrow correct yeah um for new ones for meta glasses we have uh nova and so this is gen 2 it&#x27;s the first generation of meta glasses when did they come out they came out earlier this year oh okay so they&#x27;re still current i took a check got it but they&#x27;re coming out with some new styles uh there&#x27;s uh little glasses and capris so more like a rounder frame</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-33">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:12:32 - 00:12:59</span>
+                <span class="segment-idx">Segment #33</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">and then also more of a cat eye really at generation three is going to be more towards uh ray-bans yeah i uh we just got the adventure oh nice yeah adventure metagloss yeah we got the adventure ones yeah yeah that&#x27;ll be 60 dollars it&#x27;s okay you&#x27;re gonna purchase it yeah yeah It&#x27;s like a lot of password that you have to say.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, application SaaS ou outil numérique n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informationnel, texte, code ou donnée n&#x27;est présent à l&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Discussion informelle et interaction commerciale dans un point de vente physique, sans démonstration technique ou logicielle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-34">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:12:59 - 00:13:19</span>
+                <span class="segment-idx">Segment #34</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Yeah. Sometimes you&#x27;re like, yeah. Pick it for us, how for me? Thank you. You&#x27;re welcome. You see, everybody I talk to at Meta has said one thing that is common across. They all say that people who are able to use the right AI tools will be able to harness the world that we live in much better than everybody else.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> ChatGPT, Midjourney.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Icônes de l&#x27;interface de ChatGPT et du logo de Midjourney apparaissant à l&#x27;écran lors du discours du présentateur.</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration visuelle illustrant les outils IA mentionnés oralement.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001314_seg34.jpg" alt="Le présentateur à l&#x27;extérieur, avec des icônes d&#x27;outils IA superposées graphiquement à l&#x27;image." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001314_seg34.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:13:14</span>
+                        <span class="caption-text">Le présentateur à l&#x27;extérieur, avec des icônes d&#x27;outils IA superposées graphiquement à l&#x27;image.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-35">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:13:19 - 00:13:40</span>
+                <span class="segment-idx">Segment #35</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">That&#x27;s why at all our Outskill programs, we actually never try to train you on one single AI tool. We try to give you a suite of tools that you can actually use and find your right workflows. Pretty much everything, right? From automating your workflows to generating images to writing the right prompts to getting your content work done to getting your data work done to getting presentations done to building products, literally everything under the hood.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-36">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:13:40 - 00:14:00</span>
+                <span class="segment-idx">Segment #36</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">We teach you the right tools for the right problems. So when AI changes again, you&#x27;re not actually starting from zero. You literally know how to put it to work. The workshop is free for a while. So click on the link below and register now. All right, guys. So I can&#x27;t be very loud, but what we&#x27;re going to see right now is going to be a super secretive VR headset demo.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-37">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:14:01 - 00:14:23</span>
+                <span class="segment-idx">Segment #37</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Let&#x27;s see. The cameras are not allowed. No, they are. We&#x27;re not doing anything illegal. It&#x27;s going to be fun. All right. I&#x27;m also thinking about, is there a world that we&#x27;re going to live in where almost everything is being captured?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Lunettes de réalité augmentée / environnement de computing spatial.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu logiciel spécifique affiché, démonstration de hardware porté.</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration de l&#x27;utilisation de lunettes AR avec des gestes de la main pour interagir avec une interface invisible.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001412_seg37.jpg" alt="Le présentateur porte un casque de réalité augmentée/virtuelle et effectue une manipulation gestuelle dans l&#x27;espace." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001412_seg37.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:14:12</span>
+                        <span class="caption-text">Le présentateur porte un casque de réalité augmentée/virtuelle et effectue une manipulation gestuelle dans l&#x27;espace.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-38">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:14:24 - 00:14:57</span>
+                <span class="segment-idx">Segment #38</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Not, I know there&#x27;s a privacy concern with that, but not to save it, but actually to understand what&#x27;s happening. I&#x27;ll give you an example. I want to track my calories all the time. The best way to track a calorie is take a picture, upload it and Metaglasses can do that with Muse. Right now it&#x27;s even better. But why do you have to say it take a picture? It knows what I&#x27;m eating as I look down. Why can&#x27;t it just capture and not save it anywhere so that there is no privacy issue? And on top of that, why can&#x27;t it do the meeting note taker for me all throughout? Are there use cases like this</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil IA n&#x27;est visible à l&#x27;écran.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu visuel pertinent (slides, code ou démo) n&#x27;est affiché.</p>
+                        <p><strong>Action / Démonstration :</strong> Conversation entre le présentateur et l&#x27;invité.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-39">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:14:57 - 00:15:18</span>
+                <span class="segment-idx">Segment #39</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">we&#x27;re exploring, do you think we&#x27;re going to get there someday? Yeah, so we did acquire Limitless. Dan Stroker and team are absolutely awesome. And I think we have a shared vision of what we&#x27;re trying to get to, which is that your assistant is helping you throughout the day. And one of the best ways to think about it is people are constantly writing little to-do lists down.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-40">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:15:18 - 00:15:39</span>
+                <span class="segment-idx">Segment #40</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Maybe it&#x27;s Post-it notes. Maybe it&#x27;s in a notes app on your phone somewhere. But AI version of that is the list gets done on your behalf. It&#x27;s not just written down, right? Easier and easier with the glasses. So if you take a photo, we&#x27;ll automatically try to see if there&#x27;s food. And if so, log it. We have even lighter weight versions of that that should be coming soon.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu visuel (code, interface, démonstration) n&#x27;est présent à l&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Discussion orale entre le présentateur et son invité.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-41">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:15:39 - 00:15:58</span>
+                <span class="segment-idx">Segment #41</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">It&#x27;s a common thing that people want. Features that are really capable. So not just limited to what can be done on device, but also have the same privacy and security guarantees that you&#x27;d have if it stayed on your device. And so look for more features to be added that are in there. Okay, quick pause. because this has honestly changed how I work.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil numérique n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun texte, code, graphique ou donnée n&#x27;est visible.</p>
+                        <p><strong>Action / Démonstration :</strong> Discussion en face à face entre deux personnes.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-42">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:15:58 - 00:16:18</span>
+                <span class="segment-idx">Segment #42</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I barely type anymore, I just talk. Using Whisperflow, I hold one key in Slack and say, Prajwal, can you send the SF series thumbnails by tomorrow? Actually, no, by tonight. Share three options for each episode. Keep the text short and bold and loop in the editor so we can lock them before the upload. See, it kept only what I meant.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Slack, Wispr Flow (extension de saisie vocale IA).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Historique de messagerie sur Slack, interface de dictée vocale Wispr Flow active en bas.</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration de l&#x27;utilisation de Wispr Flow pour dicter un message complexe à un collaborateur (Prajwal) sans utiliser le clavier.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001603_seg42.jpg" alt="Interface Slack montrant une discussion en cours avec Prajwal Chandak, avec l&#x27;outil Wispr Flow actif en bas de l&#x27;écran." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001603_seg42.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:16:03</span>
+                        <span class="caption-text">Interface Slack montrant une discussion en cours avec Prajwal Chandak, avec l&#x27;outil Wispr Flow actif en bas de l&#x27;écran.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001608_seg42.jpg" alt="Même interface Slack, montrant la transcription en temps réel du message vocal converti en texte dans la barre de saisie." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001608_seg42.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:16:08</span>
+                        <span class="caption-text">Même interface Slack, montrant la transcription en temps réel du message vocal converti en texte dans la barre de saisie.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-43">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:16:18 - 00:16:55</span>
+                <span class="segment-idx">Segment #43</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">And when I&#x27;m walking around between meetings, I hold FN key, go hands-free and keep talking. And the reason I use Whisper over the dictation built into my laptop is that it actually learns how I talk, my names, my projects, and it keeps getting better the more I use it. I&#x27;ve spoken almost 180,000 words with it now. That&#x27;s basically a whole book and nearly 4,000 of those were AI prompts. And if you&#x27;d rather have AI running whole parts of your business, that&#x27;s exactly what Fulcrum is for. You describe what you want in plain language. So let&#x27;s say an AI agent that replies to every customer message on WhatsApp for my store</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Wispr Flow, Fulcrum.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Statistiques utilisateur : &quot;Total words dictated: 1,80,033&quot; et message de félicitations &quot;You&#x27;ve written 1 complete book!&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation d&#x27;un tableau de bord analytique (Insights) illustrant le volume de dictée vocale accumulé par l&#x27;utilisateur.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001637_seg43.jpg" alt="Capture d&#x27;écran de l&#x27;interface Wispr Flow montrant les statistiques d&#x27;utilisation (« Total words dictated : 1,80,033 »)." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001637_seg43.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:16:37</span>
+                        <span class="caption-text">Capture d&#x27;écran de l&#x27;interface Wispr Flow montrant les statistiques d&#x27;utilisation (« Total words dictated : 1,80,033 »).</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-44">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:16:55 - 00:17:15</span>
+                <span class="segment-idx">Segment #44</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">and sends the tricky ones to my team. It analyzes the problem and gives you an AI assessment report of exactly what it would take to build it. And if you want it done, you can book a call with the Fulcrum team right here and they take it from there to a working solution. Both links are in the description and each of them has something special waiting there for you.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-45">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:17:15 - 00:17:52</span>
+                <span class="segment-idx">Segment #45</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Now, back to the conversation. Alright guys, so what we&#x27;re trying to do is, we all know what Muse is. So we&#x27;re trying to use Muse via my glasses. this this is not out there yet so let&#x27;s see how it goes it&#x27;s not available so if you have views on your computer on your phone you can&#x27;t really use voice mode but this is gonna be shipping very soon with the glasses so let&#x27;s try it out there&#x27;s a good demo hey Henry introduce yourself can I see the phone gotcha I feel a little hungry so could you tell me what I could eat out of everything</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle montrée (contexte de démonstration matérielle physique).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Affiche publicitaire sur le stand avec le texte : « Try Muse on my glasses ».</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur interagit avec un stand physique pour démontrer l&#x27;usage de l&#x27;outil « Muse » intégré à des lunettes connectées dans un environnement réel.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001742_seg45.jpg" alt="Vue sur un stand physique présentant une affiche informative intitulée « Try Muse on my glasses »." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_001742_seg45.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:17:42</span>
+                        <span class="caption-text">Vue sur un stand physique présentant une affiche informative intitulée « Try Muse on my glasses ».</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-46">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:17:52 - 00:18:27</span>
+                <span class="segment-idx">Segment #46</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">we&#x27;re here that we have got here so i think this is very interesting uh i&#x27;ve never thought of this with meta ai directly what we have seen before is i could point at something ask a question get an answer but because muse is an agent which can take you know action for me i can just imagine pointing it out to a product on a shelf and i could say that could you look up the internet and and find me the best price for this. I could show it a movie poster and say could you like book this ticket for me at 7 p.m today or I could just point it to a restaurant and say find me a reservation</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, application ou outil IA n&#x27;est visible sur ces captures.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informatif (texte, code, présentation) n&#x27;est affiché.</p>
+                        <p><strong>Action / Démonstration :</strong> Aucune action de démonstration ou de manipulation technique n&#x27;est montrée ; il s&#x27;agit uniquement d&#x27;une séquence de prise de parole du présentateur.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-47">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:18:27 - 00:18:47</span>
+                <span class="segment-idx">Segment #47</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">at this place. It opens up quite interesting things because visually you&#x27;re taking it not from a I mean visually you&#x27;re just taking it to a action rather than question and answer. So it&#x27;s very interesting I&#x27;ve not imagined this but it looks very exciting can&#x27;t wait to get my hands on this very soon as they ship it out.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-48">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:19:03 - 00:19:22</span>
+                <span class="segment-idx">Segment #48</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Bhavik, hi. Good man. This is your second, third, tenth time, correct? No, first time. I&#x27;ve never been to Meta Connect before. This is the first time. What you get in the keynote? Oh, we saw everything yesterday. They gave us early access to everything.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> Conversation informelle entre deux individus lors d&#x27;un événement.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-49">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:19:22 - 00:19:42</span>
+                <span class="segment-idx">Segment #49</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Yeah, yesterday. I&#x27;m coming as a creator. What do you do? I am an engineer, software engineer Well, I have a developer. Nice. So, you came in for the connect? Yes, I am. Good. Good stuff. Good luck. Thank you. Do you see the number of people here today?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, outil IA ou démonstration technique n&#x27;est visible.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informationnel, texte, code ou donnée n&#x27;est affiché.</p>
+                        <p><strong>Action / Démonstration :</strong> Une simple conversation informelle entre le présentateur et un participant à l&#x27;événement.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-50">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:19:42 - 00:20:00</span>
+                <span class="segment-idx">Segment #50</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">It&#x27;s just 10 times more than what we had yesterday. And it&#x27;s like 500 people are having a party together. Yeah, it&#x27;s sick, dude. Oh, this fool. I&#x27;m watching your videos from last four years. Oh, thanks. For my bachelor&#x27;s.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur interagit physiquement avec des participants lors d&#x27;un événement en extérieur ; aucune interface logicielle ou outil n&#x27;est affiché.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-51">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:20:00 - 00:20:18</span>
+                <span class="segment-idx">Segment #51</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I growed my LinkedIn using your job. Oh, that&#x27;s awesome, dude. Awesome dude, thank you. Currently I am building a launch app and a app and testing software. Oh very good. Yeah in San Francisco. Very good. Good job, good luck. Yeah. As I got into the keynote of course the thing that I was most excited about was that we&#x27;ll have Zuck.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucun logiciel ou interface numérique n&#x27;est affiché. Il s&#x27;agit d&#x27;une séquence de reportage terrain.</p>
+                        <p><strong>Contenu textuel & Code :</strong> L&#x27;écran affiche le logo officiel de l&#x27;événement &quot;Meta Connect 2026&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Les participants font la queue pour entrer dans la salle de conférence principale de l&#x27;événement Meta Connect.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_002014_seg51.jpg" alt="Vue en contre-plongée montrant une foule entrant dans une salle sous un écran affichant le logo &quot;Meta Connect 2026&quot;." loading="lazy" onclick="openLightbox('../screenshots/ZkKxud5gPfw/ZkKxud5gPfw_002014_seg51.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:20:14</span>
+                        <span class="caption-text">Vue en contre-plongée montrant une foule entrant dans une salle sous un écran affichant le logo &quot;Meta Connect 2026&quot;.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-52">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:20:18 - 00:20:38</span>
+                <span class="segment-idx">Segment #52</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">And I could see Zuck this close. Which I did which is very cool. Most of the things they spoke about are things that we knew of. Because we got early access right. What we probably missed is today in Alex&#x27;s conversation I asked him about Limitless. You remember? But you guys did acquire Limitless, the pendant company, right?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, outil IA ou démonstration d&#x27;écran n&#x27;est visible.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu technique, texte ou donnée affichée.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur s&#x27;exprime oralement face caméra sans aucune démonstration visuelle complémentaire.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-53">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:20:38 - 00:20:57</span>
+                <span class="segment-idx">Segment #53</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I was actually one of the early buyers of Limitless. Oh, you were? Of course. I still have one. It still works. That you acquired Limitless and why are you not doing anything about it? You should have a wearable which is like a penning. Guess what they shipped today? They announced a penning which has a display which is for Muse.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> AUCUNE</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-54">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:20:57 - 00:21:31</span>
+                <span class="segment-idx">Segment #54</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Now I know why Alex like when I asked him the question, he&#x27;s like, huh? He laughed. know why because they had it to be shown today how cool is that so that was my mind-blowing moment for me because i was like we just met the guy a couple of hours back and here&#x27;s the product like this is so cool it&#x27;s like oh i can i see future no i can&#x27;t but you get the idea so i think that was very cool uh it was good to see alex wong as well uh of course right like uh and they announced computer use which is very very cool uh because for you to be able to get an ai to do</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil n&#x27;est montré à l&#x27;écran.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu visuel de type démonstration, code, diapositives ou texte n&#x27;est présent.</p>
+                        <p><strong>Action / Démonstration :</strong> Aucune démonstration technique ou manipulation d&#x27;outil, il s&#x27;agit d&#x27;une séquence de type &quot;talking head&quot; (témoignage en face caméra).</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-55">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:21:31 - 00:22:07</span>
+                <span class="segment-idx">Segment #55</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">the work that you do today the thing that is most important at this point of time is that an ai should be able to use your computer right if an ai can use your computer it becomes the harness to be able to use your apps to be able to do the work that you can that you do today and if you see the reason why gpt6 astra is as big as it is today or it went viral is because of the ability to use the apps that all of us use every single day better faster and i like the fact that Muse is actually capable of doing that right or will be I think the other big request that</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-56">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:22:07 - 00:22:41</span>
+                <span class="segment-idx">Segment #56</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">I had forever was the voice mode because I pretty much use voice for everything and when Alex Wong tweeted saying what are you looking for next my answer was voice mode number one and they shipped it today uh they got they got it to like play with it today like Zuck played with it and it looks very very good so i think uh muse is gonna pretty much take over the world purely because of the distribution that meta has they can plug that on instagram threads facebook whatsapp it&#x27;s the</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> AUCUNE (Le présentateur discute simplement du sujet sans démonstration à l&#x27;écran).</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-57">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:22:41 - 00:23:18</span>
+                <span class="segment-idx">Segment #57</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">biggest distribution that uh anyone has right so i think muse is with muse is going to be the ai agent that i think my dad is going to use you know what i mean that&#x27;s a big deal that&#x27;s that&#x27;s a good thing by the way and it&#x27;s a big deal so because it works on whatsapp and everything else i think i think uh meta is like so back so back like with the glasses with the vr with the muse i think they&#x27;re just gonna win it because what you need to understand about ai is that while the whole world is focused on building very good models for coding it is important most of the use cases that</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil n&#x27;est montré dans ce segment.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu visuel de type slides, code, prompts ou données n&#x27;apparaît à l&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur discute simplement du sujet face caméra ; aucune démonstration en direct n&#x27;est effectuée.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-58">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:23:18 - 00:23:37</span>
+                <span class="segment-idx">Segment #58</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">that humans use is not coding. So you don&#x27;t need the most powerful coding model for everything. You need the most generally usable model. And that is what Meta is shipping. Because they know they&#x27;re users. And now this thing also has Whisperflow baked into it. Privacy first, and you&#x27;re getting value out of it.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, navigateur ou outil SaaS n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informatif, code, slide ou donnée n&#x27;est visible.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur parle face caméra et gesticule ; il n&#x27;y a aucune manipulation ou démonstration technique d&#x27;outil IA.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-59">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:23:37 - 00:23:58</span>
+                <span class="segment-idx">Segment #59</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Is that one of the reasons why we have now glasses without cameras? Or was this always being built? So it takes two years to build these. So as soon as you say, you know, here&#x27;s a new style and new platforms. This is a new platform. When we took the cameras out, we re-architected the whole thing so that we&#x27;re able to, you know, fewer electronics in the front frame.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil numérique n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun texte, slide, workflow ou donnée chiffrée n&#x27;est présent à l&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Discussion informelle entre le présentateur et son invité sur le design des lunettes.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-60">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:23:58 - 00:24:17</span>
+                <span class="segment-idx">Segment #60</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">That&#x27;s how we can do something like a Clubmaster. We slimmed out the temple arms. The battery now lasts all day. They&#x27;re much lighter. They&#x27;re 41 grams, almost 10 grams lighter than the existing ones. It takes two years. So two years ago, we decided to do this. And it was just that audio is the number one feature. that&#x27;s music, podcasts, talking on the phone.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil numérique n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu textuel, graphique ou de données n&#x27;est visible.</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration physique d&#x27;un produit matériel (lunettes) par l&#x27;invité, sans support visuel numérique.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-61">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:24:18 - 00:24:37</span>
+                <span class="segment-idx">Segment #61</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">AI is the fastest growing feature. This could do those. You give up stuff. Like if you don&#x27;t have the camera, the nutrition login example you just had, gone. Gone, yeah. But you can still talk to your assistant throughout the day, talk to your muse throughout the day. And it&#x27;s an even more comfortable and stylish pair of glasses.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil numérique n&#x27;est présent dans cette capture.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu textuel, slide ou workflow n&#x27;est visible.</p>
+                        <p><strong>Action / Démonstration :</strong> Les deux personnes discutent lors d&#x27;un entretien formel, sans démonstration d&#x27;outils.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-62">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:24:38 - 00:24:58</span>
+                <span class="segment-idx">Segment #62</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">So yeah, two years ago, we had a good idea and we got lucky today because muse was launching at the same time. I know there&#x27;s Muse with glasses and there&#x27;s AI across your computers.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu technique, dashboard ou workflow n&#x27;est présenté.</p>
+                        <p><strong>Action / Démonstration :</strong> Aucune démonstration technique ou test en direct ; il s&#x27;agit de plans de coupe illustrant une discussion et un événement.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-63">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:24:59 - 00:25:21</span>
+                <span class="segment-idx">Segment #63</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">What is your OS like? Do you have an AI OS that I can learn from? Take inspiration from? Is this a one-word answer? Slightly longer, this one. My Muse is named Stan. Stan is named after a caddy. Caddy is the best assistant you can have in your day-to-day. My AI runs, I have a Mac app on my desktop at home where it can basically use the computer on my behalf.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-64">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:25:22 - 00:25:41</span>
+                <span class="segment-idx">Segment #64</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Is that the Muse? Yes, there&#x27;s a Muse app. But yeah, and then we&#x27;ve got the personal VM in the cloud where it can do a bunch of other things. Then I have it running on three different phones and on 23 different pairs of glasses. Wow. Are they all connected to the same app?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle, application ou démonstration technique n&#x27;est affichée à l&#x27;écran.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun texte, code, diapositive ou donnée chiffrée n&#x27;est présent.</p>
+                        <p><strong>Action / Démonstration :</strong> Discussion conversationnelle entre deux personnes ; pas de manipulation d&#x27;outil ou de démonstration d&#x27;interface.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-65">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:25:41 - 00:26:00</span>
+                <span class="segment-idx">Segment #65</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Can they connect three? Three phones, so three phones. Oh, you&#x27;re webbed it down. Do you know where to match what? Yeah, well, you just got to remember. What&#x27;s your take on AGI with everything that&#x27;s happening? What do you think is AGI according to you? One word? Yeah. Or two words?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales, astuces de productivité et méthodologie IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et présentation conceptuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-66">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:26:05 - 00:26:28</span>
+                <span class="segment-idx">Segment #66</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Proactive, autonomous, personalized. That&#x27;s where we&#x27;re getting there. One thing that you would never let your AI to do for you. Send an email, send a text message on my behalf without me reviewing it first.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> AUCUNE (Simple discussion entre deux personnes, sans présentation de support visuel ou démonstration d&#x27;outil.)</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-67">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:26:29 - 00:26:57</span>
+                <span class="segment-idx">Segment #67</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Oh damn, I do that every single day. to a specific set of people. That makes sense. That makes sense. And if there was a world that you were living in where you can get into a time machine and you&#x27;re like, this is the future variable that I would like to see how it looks and how it feels, what would that be? Take the MetaVR glasses that you saw today, turn them into a pair of glasses with lenses you can see through and have them be the same size as these.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou outil n&#x27;est affiché.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informatif (texte, graphique ou code) n&#x27;est présent.</p>
+                        <p><strong>Action / Démonstration :</strong> Discussion orale entre l&#x27;animateur et son invité.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-68">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:26:57 - 00:27:21</span>
+                <span class="segment-idx">Segment #68</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Perfect. That&#x27;s a full cycle. That&#x27;s exactly what we started with. This was incredible. thank you so much for your time and I hope I get to see a lot more glasses as we go. A hundred and counting. A hundred and counting. Thank you very much. Thanks for having me.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Aucune interface logicielle ou démonstration technique n&#x27;est affichée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Aucun contenu informationnel, code ou donnée n&#x27;est présent.</p>
+                        <p><strong>Action / Démonstration :</strong> Discussion informelle de clôture entre l&#x27;hôte et son invité.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            <p>Généré automatiquement par l'agent de veille multimodale Antigravity (Whisper-v3-large-turbo + Gemini-3.5-flash-lite) sur VPS Contabo.</p>
+        </footer>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Agrandissement">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const box = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            box.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
