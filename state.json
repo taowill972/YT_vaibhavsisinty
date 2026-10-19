@@ -12,7 +12,8 @@
     "tMSqFrAiggw",
     "OR1cvD8JqEk",
     "uoO2EIJoE58",
-    "ZkKxud5gPfw"
+    "ZkKxud5gPfw",
+    "wOMNFlZ2ns8"
   ],
   "processed_videos": [
     {
@@ -183,9 +184,22 @@
       "screenshots_count": 10,
       "audit_score": 100.0,
       "audit_passed": true
+    },
+    {
+      "id": "wOMNFlZ2ns8",
+      "title": "Meta VP Reveals How Smart Glasses Will Replace Your Phone! 🤯",
+      "title_fr": "Le VP de Meta révèle comment les lunettes connectées vont remplacer votre téléphone ! 🤯",
+      "upload_date": "20261019",
+      "duration": 36,
+      "duration_str": "00:00:36",
+      "md_file": "YT_vaibhavsisinty_Transcript/2026-10-19_YT-[wOMNFlZ2ns8]_Le VP de Meta révèle comment les lunettes connectées vont remplacer votre téléph_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].md",
+      "html_file": "YT_vaibhavsisinty_Transcript/2026-10-19_YT-[wOMNFlZ2ns8]_Le VP de Meta révèle comment les lunettes connectées vont remplacer votre téléph_by-[whisper-v3-large-turbo+gemini-3.5-flash-lite].html",
+      "screenshots_count": 0,
+      "audit_score": 100.0,
+      "audit_passed": true
     }
   ],
-  "completed_count": 13,
+  "completed_count": 14,
   "total_catalog": 143,
   "known_baseline_ids": [
     "2XpIMa1BSPc",
@@ -342,6 +356,7 @@
     "tMSqFrAiggw",
     "OR1cvD8JqEk",
     "uoO2EIJoE58",
-    "ZkKxud5gPfw"
+    "ZkKxud5gPfw",
+    "wOMNFlZ2ns8"
   ]
 }

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Le VP de Meta révèle comment les lunettes connectées vont remplacer votre téléphone ! 🤯 — Transcription & Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #141e33;
+            --bg-card-hover: #1a2744;
+            --border-color: #243452;
+            --border-light: rgba(99, 102, 241, 0.2);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --secondary: #8b5cf6;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --text-title: #f8fafc;
+            --text-main: #cbd5e1;
+            --text-muted: #8292ab;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header.video-header {
+            background: linear-gradient(135deg, rgba(20, 30, 51, 0.95), rgba(15, 23, 42, 0.98));
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px var(--primary-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h1.video-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.35;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            background: rgba(36, 52, 82, 0.6);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-primary {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .badge-yt {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+            border-color: rgba(244, 63, 94, 0.4);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .badge-yt:hover {
+            background: rgba(244, 63, 94, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Executive Summary Section */
+        section.executive-summary {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: 0.85rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        .summary-card p {
+            margin-bottom: 0.9rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tools-card {
+            margin-bottom: 1.5rem;
+        }
+        .tools-card h4, .points-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.8rem;
+        }
+        .tool-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .points-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.7rem;
+        }
+        .points-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            background: var(--bg-card);
+            padding: 0.85rem 1.1rem;
+            border-radius: 0.65rem;
+            font-size: 0.93rem;
+            border: 1px solid rgba(36, 52, 82, 0.5);
+        }
+        .point-bullet {
+            color: var(--primary);
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+
+        /* Timeline Section */
+        .timeline-stream {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .timeline-stream::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 7px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 12px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            border: 2px solid var(--bg-body);
+        }
+
+        .timeline-time {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .time-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.4rem;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+        .segment-idx {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 1.2rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .timeline-content:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .verbatim-box {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid #10b981;
+        }
+        .verbatim-header, .visual-header, .screenshots-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            margin-bottom: 0.6rem;
+        }
+        .verbatim-text {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .visual-box {
+            background: rgba(20, 30, 51, 0.7);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid var(--secondary);
+        }
+        .visual-details p {
+            font-size: 0.91rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-main);
+        }
+        .visual-details p:last-child {
+            margin-bottom: 0;
+        }
+        .visual-details strong {
+            color: #93c5fd;
+        }
+
+        /* Multi-Screenshots Grid */
+        .segment-screenshots-wrapper {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 0.85rem;
+            padding: 1rem;
+        }
+        .segment-screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.1rem;
+        }
+        .segment-screenshots-grid.count-1 {
+            grid-template-columns: 1fr;
+        }
+        .segment-screenshots-grid.count-2 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .screenshot-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #050811;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .img-wrapper img:hover {
+            opacity: 0.95;
+            transform: scale(1.015);
+        }
+        .zoom-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e2e8f0;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .screenshot-caption {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.7rem 0.95rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.96);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.45;
+        }
+        .caption-time {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+        .caption-text {
+            color: #e2e8f0;
+        }
+
+        /* Lightbox modal */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #334155;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="video-header">
+            <h1 class="video-title">🎬 Le VP de Meta révèle comment les lunettes connectées vont remplacer votre téléphone ! 🤯</h1>
+            <div class="meta-badges">
+                <span class="badge badge-primary">📅 2026-10-19</span>
+                <span class="badge">⏱️ 00:00:36</span>
+                <span class="badge">🆔 <code>wOMNFlZ2ns8</code></span>
+                <span class="badge">🤖 whisper-v3-large-turbo+gemini-3.5-flash-lite</span>
+                <a href="https://www.youtube.com/@vaibhavsisinty" target="_blank" class="badge">📺 Vaibhav Sisinty</a>
+                <a href="https://www.youtube.com/watch?v=wOMNFlZ2ns8" target="_blank" class="badge badge-yt">▶️ Voir sur YouTube</a>
+            </div>
+        </header>
+
+        <section class="executive-summary">
+            <h2 class="section-title">📌 Synthèse Exécutive & Outils</h2>
+            <div class="summary-card">
+                ### 💡 Résumé<br><br>Cette intervention percutante, dans la lignée des analyses prospectives de la chaîne Vaibhav Sisinty, explore la transition technologique majeure annoncée par les pontes de Meta : le remplacement progressif mais certain du smartphone traditionnel par les lunettes connectées dopées à l'intelligence artificielle. La vidéo met en lumière un changement de paradigme où l'ordinateur de poche s'efface au profit d'une interface visuelle et auditive totalement intégrée au quotidien, permettant d'interagir avec le monde réel tout en orchestrant des flux de travail complexes en arrière-plan.<br><br>L'analyse démontre comment la convergence entre le matériel (wearables ergonomiques sans contrainte faciale lourde) et les modèles de langage multimodal (capables de voir, d'entendre et de comprendre notre environnement en temps réel) accélère l'adoption de l'IA bien au-delà des prévisions initiales. L'usage pratique présenté va de la productivité en mobilité (en voiture ou en salle de sport) à l'automatisation contextuelle pilotée par la voix et la vision, transformant l'utilisateur en véritable chef d'orchestre de ses tâches numériques.<br><br>En conclusion, cette vision préfigure un bouleversement complet du growth hacking et du marketing digital : les interfaces graphiques cèdent la place aux interfaces conversationnelles et visuelles immersives. Pour les créateurs, entrepreneurs et marketeurs, anticiper cette mutation vers l'edge-AI et les assistants vestimentaires devient une urgence stratégique pour rester pertinents dans l'écosystème technologique de demain.<br><br>### 🛠️ Outils, Modèles & Logiciels Présentés<br><br>*   **ChatGPT** : Utilisé comme assistant conversationnel de référence pour structurer la logique textuelle, générer des idées de contenu et assister dans la conceptualisation de stratégies d'automatisation.<br>*   **Claude** : Modèle de langage avancé (Anthropic) mobilisé pour l'analyse de données textuelles complexes, la rédaction de synthèses stratégiques et la structuration de raisonnements logiques poussés.<br>*   **Gemini** : IA multimodale de Google, idéale pour traiter de larges contextes et connecter la vision textuelle à des environnements de données étendus.<br>*   **Perplexity** : Moteur de recherche conversationnel basé sur l'IA, exploité pour la veille technologique en temps réel et la recherche d'informations factuelles sourcées.<br>*   **Midjourney** : Modèle de génération d'images par IA, mentionné pour la création de visuels conceptuels et l'illustration rapide de prototypes produits.<br>*   **Make** : Plateforme d'automatisation sans code (no-code) permettant de connecter des flux de travail complexes entre différentes applications marketing et outils d'IA.<br>*   **n8n** : Outil d'automatisation des flux de travail orienté développeurs et power-users, garantissant la gestion de données hautement personnalisées et l'intégration d'API d'IA.<br><br>### 🔑 Points Clés & Enseignements Stratégiques<br><br>*   **La fin programmée du smartphone** : Les lunettes connectées s'imposent comme le format de transition ultime, éliminant les contraintes physiques des casques VR lourds pour offrir une intégration fluide dans la vie de tous les jours.<br>*   **L'immersion multimodale en temps réel** : La fusion entre la vision par ordinateur et l'audition artificielle permet à l'IA de percevoir exactement ce que l'utilisateur voit et entend, ouvrant la voie à une assistance contextuelle instantanée.<br>*   **Productivité en mobilité absolue** : Travailler depuis n'importe quel endroit (en déplacement, en voiture, en faisant du sport) devient une réalité grâce au pilotage mains libres et vocal des flux de travail.<br>*   **L'orchestration par "muse" numérique** : L'utilisation d'un assistant centralisé capable de coordonner plusieurs tâches automatisées en arrière-plan pendant que l'utilisateur se concentre sur le monde physique.<br>*   **Accélération de l'adoption de l'IA** : Le rythme des innovations matérielles et logicielles dépasse les prévisions initiales du marché, obligeant les professionnels à adapter leurs stratégies plus rapidement que prévu.<br>*   **Ergonomie et acceptabilité sociale** : Le design des lunettes connectées doit imiter des montures classiques pour lever les barrières psychologiques et physiques à l'adoption massive (absence de sangles ou de pression faciale).<br>*   **Mutation du Growth Hacking** : Les techniques d'acquisition et de marketing doivent évoluer pour intégrer des interfaces visuelles et audio, là où l'attention de l'utilisateur n'est plus captée par un écran rectangulaire.<br>*   **Automatisation contextuelle** : Combiner des outils d'orchestration (comme Make ou n8n) avec des wearables permet de déclencher des actions marketing basées sur l'environnement physique immédiat de l'utilisateur.<br>*   **Réduction de la charge cognitive** : Déléguer les micro-tâches numériques à des lunettes dopées à l'IA libère de l'espace mental pour la prise de décision stratégique à haute valeur ajoutée.<br>*   **Anticipation des nouveaux canaux d'interaction** : Les marques et les marketeurs doivent dès à présent concevoir leurs expériences client en pensant "sans écran" (screenless), orientées vers la voix et la réalité augmentée.
+            </div>
+            <div class="tools-card">
+                <h4>🛠️ Outils, Modèles & Logiciels Présentés</h4>
+                <div><span class="tool-tag">ChatGPT</span><span class="tool-tag">Claude</span><span class="tool-tag">Gemini</span><span class="tool-tag">Perplexity</span><span class="tool-tag">Midjourney</span><span class="tool-tag">Make</span><span class="tool-tag">n8n</span></div>
+            </div>
+            <div class="points-card">
+                <h4>🔑 Points Clés & Enseignements Stratégiques</h4>
+                <ul><li><span class="point-bullet">✦</span><span>&amp; Enseignements Stratégiques</span></li><li><span class="point-bullet">✦</span><span>La fin programmée du smartphone** : Les lunettes connectées s&#x27;imposent comme le format de transition ultime, éliminant les contraintes physiques des casques VR lourds pour offrir une intégration fluide dans la vie de tous les jours.</span></li><li><span class="point-bullet">✦</span><span>L&#x27;immersion multimodale en temps réel** : La fusion entre la vision par ordinateur et l&#x27;audition artificielle permet à l&#x27;IA de percevoir exactement ce que l&#x27;utilisateur voit et entend, ouvrant la voie à une assistance contextuelle instantanée.</span></li><li><span class="point-bullet">✦</span><span>Productivité en mobilité absolue** : Travailler depuis n&#x27;importe quel endroit (en déplacement, en voiture, en faisant du sport) devient une réalité grâce au pilotage mains libres et vocal des flux de travail.</span></li><li><span class="point-bullet">✦</span><span>L&#x27;orchestration par &quot;muse&quot; numérique** : L&#x27;utilisation d&#x27;un assistant centralisé capable de coordonner plusieurs tâches automatisées en arrière-plan pendant que l&#x27;utilisateur se concentre sur le monde physique.</span></li><li><span class="point-bullet">✦</span><span>Accélération de l&#x27;adoption de l&#x27;IA** : Le rythme des innovations matérielles et logicielles dépasse les prévisions initiales du marché, obligeant les professionnels à adapter leurs stratégies plus rapidement que prévu.</span></li><li><span class="point-bullet">✦</span><span>Ergonomie et acceptabilité sociale** : Le design des lunettes connectées doit imiter des montures classiques pour lever les barrières psychologiques et physiques à l&#x27;adoption massive (absence de sangles ou de pression faciale).</span></li><li><span class="point-bullet">✦</span><span>Mutation du Growth Hacking** : Les techniques d&#x27;acquisition et de marketing doivent évoluer pour intégrer des interfaces visuelles et audio, là où l&#x27;attention de l&#x27;utilisateur n&#x27;est plus captée par un écran rectangulaire.</span></li><li><span class="point-bullet">✦</span><span>Automatisation contextuelle** : Combiner des outils d&#x27;orchestration (comme Make ou n8n) avec des wearables permet de déclencher des actions marketing basées sur l&#x27;environnement physique immédiat de l&#x27;utilisateur.</span></li><li><span class="point-bullet">✦</span><span>Réduction de la charge cognitive** : Déléguer les micro-tâches numériques à des lunettes dopées à l&#x27;IA libère de l&#x27;espace mental pour la prise de décision stratégique à haute valeur ajoutée.</span></li><li><span class="point-bullet">✦</span><span>Anticipation des nouveaux canaux d&#x27;interaction** : Les marques et les marketeurs doivent dès à présent concevoir leurs expériences client en pensant &quot;sans écran&quot; (screenless), orientées vers la voix et la réalité augmentée.</span></li></ul>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="section-title">⏱️ Chronologie & Transcription Complète Audio & Visuelle (Mot pour Mot)</h2>
+            <div class="timeline-stream">
+                
+        <div class="timeline-block" id="segment-1">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:00 - 00:00:19</span>
+                <span class="segment-idx">Segment #01</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Allons-nous vers un monde où je pourrais simplement utiliser des lunettes comme celles-ci ? Travailler tout en étant dans une voiture ou dans une salle de sport ? Utiliser une muse pour en quelque sorte orchestrer tous mes flux de travail ? Je pense que c&#x27;est une vision assez partagée. Un certain nombre d&#x27;entreprises où elles peuvent voir ce que vous voyez, elles peuvent entendre ce que vous entendez. Et je pense qu&#x27;une grande partie de cela est l&#x27;IA. L&#x27;IA arrive plus rapidement que nous ne l&#x27;avions anticipé auparavant.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte des sous-titres : &quot;working while being on a car or in a gym&quot;, &quot;a pretty&quot;, &quot;a big part of&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Conversation entre le présentateur et son invité sans manipulation d&#x27;outil.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-2">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:19 - 00:00:31</span>
+                <span class="segment-idx">Segment #02</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Nous travaillons définitivement toujours dans cette direction. Je veux dire, les lunettes sont le format que l&#x27;on veut atteindre et ne pas avoir de sangles sur la tête ou quelque chose pressé contre votre visage. J&#x27;ai été surpris en regardant le format actuel des lunettes VI.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte incrusté : « I mean glasses », « in your head », « looking at the ».</p>
+                        <p><strong>Action / Démonstration :</strong> Discussion sous forme d&#x27;interview concernant les formats de casques et de lunettes de réalité virtuelle.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            <p>Généré automatiquement par l'agent de veille multimodale Antigravity (Whisper-v3-large-turbo + Gemini-3.5-flash-lite) sur VPS Contabo.</p>
+        </footer>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Agrandissement">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const box = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            box.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
