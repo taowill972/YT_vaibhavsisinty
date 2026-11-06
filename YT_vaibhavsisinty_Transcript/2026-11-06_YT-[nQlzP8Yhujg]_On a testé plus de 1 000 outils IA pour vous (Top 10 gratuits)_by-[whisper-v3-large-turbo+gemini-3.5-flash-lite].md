@@ -831,3 +831,18 @@ Tout au long du processus, la vidéo décortique l'utilisation d'agents de code,
 
 ---
 
+### ⏱️ `[00:16:10 - 00:16:20]` | Segment #43
+
+**🔊 Audio (Transcription Intégrale Mot pour Mot en Français) :**
+> [Silence / pas de parole]
+
+**👁️ Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :**
+**Interface & Outils** : AUCUNE (écran de fin YouTube / end card)
+
+**Contenu textuel & Code** : Écran noir ; à gauche un QR code avec le texte « Scan to join the Global AI WhatsApp Community » ; à droite « SUBSCRIBE - Stay ahead in the AI first world » avec une flèche courbée.
+
+**Action / Démonstration** : Image fixe d'incitation à rejoindre la communauté WhatsApp et à s'abonner. Aucune démo d'outil. Aucune parole détectée sur cette plage.
+
+*Provenance : analyse multimodale Gemini API `gemini-3.5-flash-lite` via `fileData` YouTube + `videoMetadata` offsets `970s`→`980s` (usageMetadata VIDEO≈904 tokens ; `has_speech=false`, `silence_explicite=true`, confidence high). Pas une reconstitution depuis la description.*
+
+---
