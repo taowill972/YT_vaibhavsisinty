@@ -1,0 +1,2806 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 On a testé plus de 1 000 outils IA pour vous (Top 10 gratuits) — Transcription & Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #141e33;
+            --bg-card-hover: #1a2744;
+            --border-color: #243452;
+            --border-light: rgba(99, 102, 241, 0.2);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --secondary: #8b5cf6;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --text-title: #f8fafc;
+            --text-main: #cbd5e1;
+            --text-muted: #8292ab;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header.video-header {
+            background: linear-gradient(135deg, rgba(20, 30, 51, 0.95), rgba(15, 23, 42, 0.98));
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px var(--primary-glow);
+            backdrop-filter: blur(12px);
+        }
+
+        h1.video-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.35;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            background: rgba(36, 52, 82, 0.6);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-primary {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .badge-yt {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+            border-color: rgba(244, 63, 94, 0.4);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .badge-yt:hover {
+            background: rgba(244, 63, 94, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Executive Summary Section */
+        section.executive-summary {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            padding: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: 0.85rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        .summary-card p {
+            margin-bottom: 0.9rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tools-card {
+            margin-bottom: 1.5rem;
+        }
+        .tools-card h4, .points-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.8rem;
+        }
+        .tool-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .points-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.7rem;
+        }
+        .points-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            background: var(--bg-card);
+            padding: 0.85rem 1.1rem;
+            border-radius: 0.65rem;
+            font-size: 0.93rem;
+            border: 1px solid rgba(36, 52, 82, 0.5);
+        }
+        .point-bullet {
+            color: var(--primary);
+            font-size: 1.1rem;
+            line-height: 1;
+            margin-top: 0.15rem;
+        }
+
+        /* Timeline Section */
+        .timeline-stream {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .timeline-stream::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 7px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 12px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            border: 2px solid var(--bg-body);
+        }
+
+        .timeline-time {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .time-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.4rem;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+        .segment-idx {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 1.2rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .timeline-content:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .verbatim-box {
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid #10b981;
+        }
+        .verbatim-header, .visual-header, .screenshots-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            margin-bottom: 0.6rem;
+        }
+        .verbatim-text {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .visual-box {
+            background: rgba(20, 30, 51, 0.7);
+            border-radius: 0.75rem;
+            padding: 1.1rem;
+            border-left: 3px solid var(--secondary);
+        }
+        .visual-details p {
+            font-size: 0.91rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-main);
+        }
+        .visual-details p:last-child {
+            margin-bottom: 0;
+        }
+        .visual-details strong {
+            color: #93c5fd;
+        }
+
+        /* Multi-Screenshots Grid */
+        .segment-screenshots-wrapper {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 0.85rem;
+            padding: 1rem;
+        }
+        .segment-screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.1rem;
+        }
+        .segment-screenshots-grid.count-1 {
+            grid-template-columns: 1fr;
+        }
+        .segment-screenshots-grid.count-2 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .screenshot-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #050811;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .img-wrapper img:hover {
+            opacity: 0.95;
+            transform: scale(1.015);
+        }
+        .zoom-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e2e8f0;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .screenshot-caption {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.7rem 0.95rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.96);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.45;
+        }
+        .caption-time {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+        .caption-text {
+            color: #e2e8f0;
+        }
+
+        /* Lightbox modal */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #334155;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="video-header">
+            <h1 class="video-title">🎬 On a testé plus de 1 000 outils IA pour vous (Top 10 gratuits)</h1>
+            <div class="meta-badges">
+                <span class="badge badge-primary">📅 2026-11-06</span>
+                <span class="badge">⏱️ 00:16:20</span>
+                <span class="badge">🆔 <code>nQlzP8Yhujg</code></span>
+                <span class="badge">🤖 whisper-v3-large-turbo+gemini-3.5-flash-lite</span>
+                <a href="https://www.youtube.com/@vaibhavsisinty" target="_blank" class="badge">📺 Vaibhav Sisinty</a>
+                <a href="https://www.youtube.com/watch?v=nQlzP8Yhujg" target="_blank" class="badge badge-yt">▶️ Voir sur YouTube</a>
+            </div>
+        </header>
+
+        <section class="executive-summary">
+            <h2 class="section-title">📌 Synthèse Exécutive & Outils</h2>
+            <div class="summary-card">
+                ### 💡 Résumé<br><br>Cette vidéo immersive, présentée dans l’écosystème de Vaibhav Sisinty, propose un tour d'horizon percutant et pragmatique de l'état de l'art des outils d'intelligence artificielle gratuits et open-source. En partant du constat que les entreprises technologiques et les créateurs de contenu s'enlisent souvent dans des abonnements SaaS mensuels prohibitifs (pesant lourdement sur les budgets opérationnels), l'analyse démontre qu'il est désormais possible de répliquer des flux de travail complets — de la rétro-ingénierie d'applications SaaS à la génération d'actifs visuels et audio — en s'appuyant exclusivement sur des solutions locales et open-source. Le fil conducteur de la démonstration repose sur un cas pratique audacieux : la conception, de A à Z, d'une application musicale baptisée *After Hours*, entièrement inspirée par rétro-ingénierie d'un lien Spotify.<br><br>Tout au long du processus, la vidéo décortique l'utilisation d'agents de code, de modèles multimodaux locaux et de suites logicielles alternatives capables de s'affranchir du cloud. L'expérimentation démontre qu'avec des architectures open-source comme Replica pour la reconstruction d'applications, Qwen Image 2.1 pour la création visuelle locale, Voice Studio pour le clonage vocal hors ligne, et la suite Artcraft pour le remplacement de logiciels de design et de montage, l'entrepreneuriat tech devient accessible sans barrière financière. De plus, la mise en place d'analyses prédictives (via Times FM) et de simulations d'utilisateurs virtuels (via Mirofish) offre un cadre méthodologique rigoureux pour valider la viabilité d'un produit avant même son lancement sur le marché.<br><br>### 🛠️ Outils, Modèles & Logiciels Présentés<br><br>* **Replica & Replica Recon** : Ensemble de compétences open-source permettant de faire de la rétro-ingénierie sur des applications existantes pour en concevoir de nouvelles versions fonctionnelles et corrigées des bugs.<br>* **Qwen Image 2.1** : Modèle de génération d'images open-source développé par Alibaba, exécuté localement (notamment via l'interface ComfyUI) sans coût de licence commerciale ni abonnement.<br>* **Voice Studio** : Outil open-source de clonage vocal fonctionnant entièrement en local sur Mac, Windows et Linux à partir d'un échantillon audio court, garantissant la stricte confidentialité des données vocales.<br>* **Google AI Edge Foresight** : Application de transcription et de prise de notes en direct fonctionnant hors-ligne sur Mac, garantissant qu'aucune donnée de réunion ne transitera par le cloud.<br>* **Filmcraft (Artcraft)** : Logiciel open-source de montage vidéo et de motion design (alternative gratuite à Premiere et After Effects) piloté par le développement assisté par Claude.<br>* **Mirofish** : Outil open-source et gratuit simulant des panels d'utilisateurs IA aux profils variés pour débattre et analyser la pertinence d'un pitch ou d'un produit.<br>* **Times FM** : Modèle de prévision temporelle de Google permettant de projeter des métriques futures (comme l'acquisition d'utilisateurs) à partir de données historiques.<br>* **Claude & ChatGPT** : Assistants conversationnels et agents de code mobilisés pour orchestrer le déploiement technique des environnements locaux et structurer le code source des projets.<br>* **Zapier, n8n & Make** : Outils d'automatisation et de gestion de workflows mentionnés dans l'écosystème global de productivité des créateurs tech.<br>* **Grok & Gemini** : Modèles de langage avancés utilisés pour la veille stratégique et le traitement itératif des prompts.<br><br>### 🔑 Points Clés & Enseignements Stratégiques<br><br>* **Rétro-ingénierie fonctionnelle vs contrefaçon** : L'utilisation de frameworks comme Replica démontre qu'il est stratégique de copier la logique métier, l'expérience utilisateur et les fonctionnalités d'une application réussie tout en s'abstenant de dupliquer le code propriétaire, les logos ou les contenus protégés.<br>* **Exploitation des avis négatifs comme backlog produit** : Chaque avis utilisateur critique sur une application existante constitue une opportunité de marché validée et une liste de fonctionnalités prêtes à être développées pour surpasser la concurrence.<br>* **Souveraineté des données et exécution locale (Edge AI)** : Déployer des modèles lourds directement sur des ordinateurs portables (via des architectures comme ComfyUI ou Google AI Edge) élimines les risques de fuite de données sensibles lors de réunions stratégiques ou d'appels confidentiels.<br>* **Optimisation drastique des coûts opérationnels (SaaS vs Open-Source)** : Remplacer des abonnements lourds (Adobe Creative Suite, plateformes de clonage vocal payantes, outils de notes de réunion SaaS) par des alternatives open-source permet de préserver la trésorerie des jeunes entreprises technologiques.<br>* **Simulation comportementale pré-lancement** : Utiliser des outils de simulation de foules virtuelles (Mirofish) permet d'identifier les frictions psychologiques et les exigences des futurs utilisateurs avant d'investir du temps et de l'argent dans le développement final.<br>* **Modélisation prédictive des métriques** : L'utilisation de l'intelligence artificielle pour anticiper la croissance (Times FM) permet de modéliser des scénarios d'utilisation pessimistes et optimistes afin d'ajuster la stratégie d'acquisition en amont.<br>* **Prompt engineering appliqué au déploiement technique** : La complexité technique d'installation de modèles lourds (comme le téléchargement de paquets de 24 Go pour Qwen) est contournée en déléguant la configuration initiale à des agents de code intelligents.<br>* **Validation itérative de la voix synthétique** : Le clonage vocal open-source local (Voice Studio) s'affranchit des systèmes de crédits payants, autorisant des itérations illimitées pour obtenir un rendu audio de qualité professionnelle sans friction financière.<br>* **Développement logiciel assisté par IA à grande échelle** : Des projets comme Artcraft illustrent qu'une petite équipe, épaulée par des assistants comme Claude, peut reconstruire des suites logicielles complexes et rivaliser avec des monopoles industriels.<br>* **Gestion des licences et conformité juridique** : L'utilisation de modèles open-source nécessite une vérification rigoureuse des conditions d'utilisation (recherche, usage personnel vs déploiement commercial) pour éviter tout risque de contentieux juridique.
+            </div>
+            <div class="tools-card">
+                <h4>🛠️ Outils, Modèles & Logiciels Présentés</h4>
+                <div><span class="tool-tag">Replica &amp; Replica Recon</span><span class="tool-tag">Qwen Image 2.1</span><span class="tool-tag">Voice Studio</span><span class="tool-tag">Google AI Edge Foresight</span><span class="tool-tag">Filmcraft (Artcraft)</span><span class="tool-tag">Mirofish</span><span class="tool-tag">Times FM</span><span class="tool-tag">Claude &amp; ChatGPT</span></div>
+            </div>
+            <div class="points-card">
+                <h4>🔑 Points Clés & Enseignements Stratégiques</h4>
+                <ul><li><span class="point-bullet">✦</span><span>&amp; Enseignements Stratégiques</span></li><li><span class="point-bullet">✦</span><span>Rétro-ingénierie fonctionnelle vs contrefaçon** : L&#x27;utilisation de frameworks comme Replica démontre qu&#x27;il est stratégique de copier la logique métier, l&#x27;expérience utilisateur et les fonctionnalités d&#x27;une application réussie tout en s&#x27;abstenant de dupliquer le code propriétaire, les logos ou les contenus protégés.</span></li><li><span class="point-bullet">✦</span><span>Exploitation des avis négatifs comme backlog produit** : Chaque avis utilisateur critique sur une application existante constitue une opportunité de marché validée et une liste de fonctionnalités prêtes à être développées pour surpasser la concurrence.</span></li><li><span class="point-bullet">✦</span><span>Souveraineté des données et exécution locale (Edge AI)** : Déployer des modèles lourds directement sur des ordinateurs portables (via des architectures comme ComfyUI ou Google AI Edge) élimines les risques de fuite de données sensibles lors de réunions stratégiques ou d&#x27;appels confidentiels.</span></li><li><span class="point-bullet">✦</span><span>Optimisation drastique des coûts opérationnels (SaaS vs Open-Source)** : Remplacer des abonnements lourds (Adobe Creative Suite, plateformes de clonage vocal payantes, outils de notes de réunion SaaS) par des alternatives open-source permet de préserver la trésorerie des jeunes entreprises technologiques.</span></li><li><span class="point-bullet">✦</span><span>Simulation comportementale pré-lancement** : Utiliser des outils de simulation de foules virtuelles (Mirofish) permet d&#x27;identifier les frictions psychologiques et les exigences des futurs utilisateurs avant d&#x27;investir du temps et de l&#x27;argent dans le développement final.</span></li><li><span class="point-bullet">✦</span><span>Modélisation prédictive des métriques** : L&#x27;utilisation de l&#x27;intelligence artificielle pour anticiper la croissance (Times FM) permet de modéliser des scénarios d&#x27;utilisation pessimistes et optimistes afin d&#x27;ajuster la stratégie d&#x27;acquisition en amont.</span></li><li><span class="point-bullet">✦</span><span>Prompt engineering appliqué au déploiement technique** : La complexité technique d&#x27;installation de modèles lourds (comme le téléchargement de paquets de 24 Go pour Qwen) est contournée en déléguant la configuration initiale à des agents de code intelligents.</span></li><li><span class="point-bullet">✦</span><span>Validation itérative de la voix synthétique** : Le clonage vocal open-source local (Voice Studio) s&#x27;affranchit des systèmes de crédits payants, autorisant des itérations illimitées pour obtenir un rendu audio de qualité professionnelle sans friction financière.</span></li><li><span class="point-bullet">✦</span><span>Développement logiciel assisté par IA à grande échelle** : Des projets comme Artcraft illustrent qu&#x27;une petite équipe, épaulée par des assistants comme Claude, peut reconstruire des suites logicielles complexes et rivaliser avec des monopoles industriels.</span></li><li><span class="point-bullet">✦</span><span>Gestion des licences et conformité juridique** : L&#x27;utilisation de modèles open-source nécessite une vérification rigoureuse des conditions d&#x27;utilisation (recherche, usage personnel vs déploiement commercial) pour éviter tout risque de contentieux juridique.</span></li></ul>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="section-title">⏱️ Chronologie & Transcription Complète Audio & Visuelle (Mot pour Mot)</h2>
+            <div class="timeline-stream">
+                
+        <div class="timeline-block" id="segment-1">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:00 - 00:00:36</span>
+                <span class="segment-idx">Segment #01</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Une IA gratuite vient de copier Spotify et de nous créer notre propre application musicale à partir d&#x27;un seul lien en environ 20 minutes. Et ce n&#x27;est que la première. À la cinquième, vous aurez un clone vocal qui me ressemble exactement et un preneur de notes de réunion qui ne touche jamais au cloud. De plus, une IA chinoise qui génère des images directement sur votre ordinateur portable et des versions gratuites de Premiere et After Effects. Maintenant, écoutez, mon entreprise dépense près de 50 000 dollars par mois en IA. Chaque semaine, mon équipe teste tout ce qui sort, et la majeure partie est supprimée le jour même, soit parce que c&#x27;est une application payante cachée derrière un essai gratuit, soit</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> AUCUNE</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-2">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:00:36 - 00:01:02</span>
+                <span class="segment-idx">Segment #02</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">une démo qui plante dès qu&#x27;on lui confie du vrai travail. Sur le millier d&#x27;outils que nous avons testés, voici les 10 gratuits qui sont restés sur nos ordinateurs portables. Et juste à la fin, il y a une compétence bonus spéciale pour vous, qui vous aidera à décrocher votre prochain emploi. J&#x27;ai également regroupé chaque outil avec son lien et ses étapes dans un document gratuit, ainsi que cinq outils supplémentaires qui n&#x27;ont pas figuré dans cette vidéo. Il se trouve dans ma communauté WhatsApp et le lien est juste en dessous. Plongeons donc dans le vif du sujet.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application mobile WhatsApp, interface de messagerie et de partage de documents.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Liste de documents partagés intitulés &quot;Tool -4&quot; à &quot;Tool -10&quot; au format PDF, accompagnés d&#x27;appels à rejoindre une communauté d&#x27;intelligence artificielle.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle de la communauté globale d&#x27;IA et des ressources partagées sous forme de fichiers PDF.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000056_seg2.jpg" alt="Capture d&#x27;un smartphone affichant l&#x27;application WhatsApp (discussion &quot;Staying Ahead Club&quot;) avec des fichiers PDF partagés (&quot;Tool -4&quot;, &quot;Tool -5&quot;, etc.) et le texte &quot;Join the Global AI Community&quot; sur la gauche." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000056_seg2.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:00:56</span>
+                        <span class="caption-text">Capture d&#x27;un smartphone affichant l&#x27;application WhatsApp (discussion &quot;Staying Ahead Club&quot;) avec des fichiers PDF partagés (&quot;Tool -4&quot;, &quot;Tool -5&quot;, etc.) et le texte &quot;Join the Global AI Community&quot; sur la gauche.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-3">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:01:03 - 00:01:38</span>
+                <span class="segment-idx">Segment #03</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">À la première place, il y a After Hours, notre propre application musicale, qu&#x27;une IA gratuite a créée rien qu&#x27;en regardant le lien Spotify que nous lui avons donné. Tout ce que nous avons tapé, c&#x27;est : utilise ce Replica Recon pour construire ceci, avec le lien de Spotify collé à la fin. Elle a une page d&#x27;accueil, des playlists, vos chansons aimées, une recherche et votre propre bibliothèque, et elle lit ses propres morceaux originaux. Elle demande même votre prénom, pour qu&#x27;on ait l&#x27;impression que c&#x27;est votre application. Replica Recon est l&#x27;une des 11 compétences gratuites d&#x27;un projet appelé Replica, et ensemble, elles peuvent cloner presque n&#x27;importe quelle application que vous leur désignez. Une compétence fait de la rétro-ingénierie sur l&#x27;application que vous</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface web de l&#x27;application After Hours, dashboard de développement et présentation graphique.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Noms de fichiers modifiés (.gitignore, package.json, architecture.md), structure de dossiers &quot;replica-recon&quot; et design d&#x27;interface musicale.</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration visuelle de l&#x27;application musicale créée automatiquement par l&#x27;IA à partir d&#x27;un lien Spotify.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (3) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-3">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000112_seg3.jpg" alt="Vue d&#x27;ensemble de l&#x27;interface de l&#x27;application After Hours générée par l&#x27;IA, montrant les détails de construction et les fichiers édités." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000112_seg3.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:12</span>
+                        <span class="caption-text">Vue d&#x27;ensemble de l&#x27;interface de l&#x27;application After Hours générée par l&#x27;IA, montrant les détails de construction et les fichiers édités.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000120_seg3.jpg" alt="Gros plan sur l&#x27;interface de l&#x27;application musicale After Hours avec le menu de navigation latéral et les listes de lecture inspirées de Spotify." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000120_seg3.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:20</span>
+                        <span class="caption-text">Gros plan sur l&#x27;interface de l&#x27;application musicale After Hours avec le menu de navigation latéral et les listes de lecture inspirées de Spotify.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000129_seg3.jpg" alt="Présentation graphique du classement montrant le dossier &quot;replica-recon&quot; en surbrillance (1 sur 6)." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000129_seg3.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:29</span>
+                        <span class="caption-text">Présentation graphique du classement montrant le dossier &quot;replica-recon&quot; en surbrillance (1 sur 6).</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-4">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:01:38 - 00:02:08</span>
+                <span class="segment-idx">Segment #04</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">veut copier, l&#x27;un le reconstruit et l&#x27;autre teste les bugs. Et il y a celui qu&#x27;ils appellent l&#x27;entrepreneur. Replica dit qu&#x27;il lit ce que les utilisateurs de l&#x27;application détestent et corrige cela dans votre version. Et il copie ce que fait une application, jamais ce qu&#x27;elle possède, donc pas son code, son logo ou son contenu. Vous avez peut-être vu REA devenir viral pour avoir démonté des applications. Replica est un projet différent qui va encore plus loin parce qu&#x27;il vous construit votre propre version. La compilation a duré environ 22 minutes.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Navigateur web affichant un dépôt GitHub (README).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Documentation textuelle expliquant le fonctionnement de &quot;The Replica skill&quot; avec des instructions d&#x27;installation pour Claude.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur présente à l&#x27;écran la documentation et les fonctionnalités de l&#x27;outil de clonage d&#x27;application.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000146_seg4.jpg" alt="Capture d&#x27;écran montrant la page README d&#x27;un dépôt GitHub décrivant les compétences de Replica pour cloner des applications." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000146_seg4.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:01:46</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant la page README d&#x27;un dépôt GitHub décrivant les compétences de Replica pour cloner des applications.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-5">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:02:08 - 00:02:29</span>
+                <span class="segment-idx">Segment #05</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Ensuite, l&#x27;agent a vérifié son propre travail avec 8 tests et tous ont réussi. Donc vous ne faites pas que copier une application. Chaque application avec des avis négatifs est une liste de fonctionnalités que quelqu&#x27;un n&#x27;a pas encore construites. Et c&#x27;est un raccourci vers votre première version. Mais chaque application a besoin d&#x27;un visage. Est-ce qu&#x27;une IA gratuite tournant sur votre propre ordinateur portable peut lui donner un logo que vous utiliseriez vraiment ?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface web d&#x27;un agent de génération de code avec un panneau de discussion, des fichiers édités et une incrustation vidéo.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Résumé des fonctionnalités générées, mention du temps de travail (21m 52s), liste des fichiers modifiés (gitignore, package.json, architecture.md) et invite de commande textuelle.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation du résultat de l&#x27;application générée et commentée par l&#x27;agent IA à l&#x27;écran.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000213_seg5.jpg" alt="Interface d&#x27;un agent IA affichant les détails de la construction d&#x27;une application de type Spotify, avec une miniature et la liste des fichiers modifiés, et le présentateur visible en incrustation." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000213_seg5.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:02:13</span>
+                        <span class="caption-text">Interface d&#x27;un agent IA affichant les détails de la construction d&#x27;une application de type Spotify, avec une miniature et la liste des fichiers modifiés, et le présentateur visible en incrustation.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-6">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:02:29 - 00:02:48</span>
+                <span class="segment-idx">Segment #06</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Voici le numéro 2. Le logo After Hours. Et il a été fait sur notre propre ordinateur portable, sans abonnement et sans crédits. Il vient de Quen Image 2.1, un modèle d&#x27;image gratuit d&#x27;Alibaba en Chine, et n&#x27;importe qui peut le télécharger. Plus de 200 000 personnes l&#x27;ont téléchargé le mois dernier seulement.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Navigateur web affichant la plateforme Hugging Face.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Page de présentation du modèle Qwen-Image-2.1 avec ses spécifications (7B parameters, 230,375 téléchargements le mois dernier).</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation du modèle d&#x27;image open-source Qwen-Image-2.1.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000243_seg6.jpg" alt="Page Hugging Face du modèle Qwen-Image-2.1 montrant la documentation, les détails techniques et le nombre de téléchargements." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000243_seg6.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:02:43</span>
+                        <span class="caption-text">Page Hugging Face du modèle Qwen-Image-2.1 montrant la documentation, les détails techniques et le nombre de téléchargements.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-7">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:02:48 - 00:03:10</span>
+                <span class="segment-idx">Segment #07</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Maintenant, exécuter un modèle vous-même a l&#x27;air compliqué. Nous ne l&#x27;avons donc pas fait nous-mêmes. Nous avons collé le lien Hugging Face dans notre agent de code et lui avons demandé de tout configurer. Il a téléchargé les 24 gigaoctets, vérifié chaque fichier et créé une image de test pour prouver que cela fonctionnait. Dans l&#x27;interface Tomfy UI, vous cherchez Quen et il y a des modèles prêts à l&#x27;emploi pour créer des images et pour les modifier.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface de chat avec un agent de code (Image 1), interface d&#x27;application de workflows d&#x27;IA avec galerie de modèles (Image 2).</p>
+                        <p><strong>Contenu textuel & Code :</strong> URL Hugging Face, instructions textuelles de téléchargement (24,5 Go), instructions d&#x27;exécution, aperçu d&#x27;une image de test (Image 1) ; vignettes de workflows, catégories de templates (Image 2).</p>
+                        <p><strong>Action / Démonstration :</strong> Interaction avec un agent de code pour configurer et télécharger automatiquement un modèle d&#x27;IA (Image 1) ; navigation dans une bibliothèque de workflows de génération d&#x27;images (Image 2).</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000253_seg7.jpg" alt="Interface d&#x27;un agent conversationnel affichant l&#x27;historique d&#x27;une requête de téléchargement de modèle Hugging Face avec les détails des fichiers et une image de test générée." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000253_seg7.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:02:53</span>
+                        <span class="caption-text">Interface d&#x27;un agent conversationnel affichant l&#x27;historique d&#x27;une requête de téléchargement de modèle Hugging Face avec les détails des fichiers et une image de test générée.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000304_seg7.jpg" alt="Interface d&#x27;une application (ComfyUI / Honey) affichant une galerie de modèles et de workflows de génération d&#x27;images par IA." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000304_seg7.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:03:04</span>
+                        <span class="caption-text">Interface d&#x27;une application (ComfyUI / Honey) affichant une galerie de modèles et de workflows de génération d&#x27;images par IA.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-8">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:03:10 - 00:03:32</span>
+                <span class="segment-idx">Segment #08</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Vous tapez votre instruction ici, vous appuyez sur exécuter et l&#x27;image est créée directement sur votre machine. Le logo a pris moins de 3 minutes. Ensuite, nous avons essayé une photo, une voiture de sport bleue sur une route de montagne. Et elle tient la route même en plein écran. Le forfait gratuit de ChatGPT vous donne quelques images par celle-ci. Celle-ci fonctionne sur notre propre Mac, donc une fois qu&#x27;elle est configurée, vous pouvez en faire autant que vous voulez, gratuitement.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface web de génération d&#x27;images / application de design.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Visuels générés par intelligence artificielle (logo d&#x27;entreprise et photo réaliste d&#x27;une voiture).</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur montre les résultats visuels générés directement sur sa machine lors de la démonstration.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000315_seg8.jpg" alt="Présentation du logo &quot;afterhours&quot; créé par IA sur l&#x27;écran d&#x27;ordinateur, avec le présentateur en médaillon." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000315_seg8.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:03:15</span>
+                        <span class="caption-text">Présentation du logo &quot;afterhours&quot; créé par IA sur l&#x27;écran d&#x27;ordinateur, avec le présentateur en médaillon.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000321_seg8.jpg" alt="Affichage d&#x27;une image générée d&#x27;une voiture de sport bleue sur une route de montagne, avec le présentateur en haut à droite." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000321_seg8.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:03:21</span>
+                        <span class="caption-text">Affichage d&#x27;une image générée d&#x27;une voiture de sport bleue sur une route de montagne, avec le présentateur en haut à droite.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-9">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:03:32 - 00:03:53</span>
+                <span class="segment-idx">Segment #09</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Une chose à savoir, la licence est pour un usage personnel et de recherche. Vérifiez donc avant de l&#x27;utiliser pour une entreprise. Donc After Hours a un nom et un visage. Maintenant, qu&#x27;en est-il d&#x27;une voix ? Un outil gratuit peut-il en cloner une sur un ordinateur portable normal ? Assez bien pour vous tromper. Pour le numéro trois, écoutez ces deux extraits. Un mari en Allemagne vient de construire à sa femme l&#x27;application professionnelle dont elle avait besoin.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Hugging Face</p>
+                        <p><strong>Contenu textuel & Code :</strong> Page de présentation du modèle Qwen-Image-2.1 sur Hugging Face avec ses spécifications et métriques.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation de la page d&#x27;un modèle d&#x27;intelligence artificielle sur une plateforme web.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000338_seg9.jpg" alt="Capture d&#x27;écran montrant la page Hugging Face du modèle Qwen-Image-2.1 avec les détails du modèle et le présentateur en médaillon." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000338_seg9.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:03:38</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant la page Hugging Face du modèle Qwen-Image-2.1 avec les détails du modèle et le présentateur en médaillon.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-10">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:03:53 - 00:04:28</span>
+                <span class="segment-idx">Segment #10</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Le truc fou, c&#x27;est qu&#x27;elle a été embauchée et qu&#x27;il a rendu ça gratuit pour le monde entier. La personne qui paie des impôts paie deux fois le PIB par habitant. C&#x27;est à quel point l&#x27;Inde dépend de ces 20 % parce que l&#x27;un d&#x27;entre eux est ma vraie voix et l&#x27;un est un clone fait sur un clip d&#x27;ordinateur portable, le clip A était le clone et tout ce qu&#x27;il a fallu, c&#x27;est une note vocale de 12 secondes, nous avons tapé une ligne, cliqué sur synthétiser et cela a pris moins de 10 secondes pour le faire, c&#x27;est Voice Studio, c&#x27;est open source et ça tourne entièrement sur votre propre ordinateur pour que votre voix ne le quitte jamais et les gens adorent ça, c&#x27;est fermé.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application Web de génération ou de clonage vocal (type ElevenLabs).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Script affiché : &quot;A husband in Germany just built his wife the job app she needed. The crazy part? She got hired, and he made it free for the whole world.&quot; avec visualiseur de forme d&#x27;onde audio.</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration de l&#x27;interface de synthèse vocale et lecture d&#x27;un échantillon audio généré.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000402_seg10.jpg" alt="Interface d&#x27;un outil de clonage vocal affichant un script textuel et une forme d&#x27;onde audio." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000402_seg10.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:04:02</span>
+                        <span class="caption-text">Interface d&#x27;un outil de clonage vocal affichant un script textuel et une forme d&#x27;onde audio.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-11">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:04:28 - 00:04:52</span>
+                <span class="segment-idx">Segment #11</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">à 100 000 étoiles sur GitHub avec plus de 2 millions de téléchargements. Il fonctionne sur Mac, Windows et Linux, et le pack de modèles standard fait moins de 5 gigas, donc un ordinateur portable normal le gère. Pour cloner une voix sur ElevenLabs, vous avez besoin d&#x27;un forfait payant d&#x27;environ 6 $ par mois, et chaque nouvelle tentative utilise des crédits. Voice Studio est entièrement gratuit, vous pouvez donc refaire une ligne 50 fois et cela ne vous coûte rien.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Site web du projet Open Source AI Voice Studio sur navigateur.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Statistiques visibles : 2 145 192 téléchargements, 99 834 étoiles GitHub, 151 933 Docker pulls, et version v0.5.7.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation de la page d&#x27;accueil du dépôt open source et de ses métriques d&#x27;adoption par la communauté.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000434_seg11.jpg" alt="Capture d&#x27;écran montrant le site web d&#x27;un studio vocal open-source avec des statistiques de téléchargements et d&#x27;étoiles GitHub." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000434_seg11.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:04:34</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant le site web d&#x27;un studio vocal open-source avec des statistiques de téléchargements et d&#x27;étoiles GitHub.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-12">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:04:52 - 00:05:14</span>
+                <span class="segment-idx">Segment #12</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Pour les doublages et les réenregistrements rapides, c&#x27;est celui-ci qu&#x27;on garderait sur l&#x27;ordinateur. Et en parlant de choses qui doivent rester privées, est-ce qu&#x27;une IA gratuite peut prendre des notes de réunion sans envoyer un seul mot dans le cloud ? Le numéro quatre tourne en ce moment même parce que tout ce qui est dit ici se transforme en texte en direct et rien de tout cela ne va dans le cloud. Il s&#x27;agit de Google AI Edge Foresight.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> AUCUNE</p>
+                        <p><strong>Contenu textuel & Code :</strong> AUCUN</p>
+                        <p><strong>Action / Démonstration :</strong> AUCUNE</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-13">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:05:14 - 00:05:52</span>
+                <span class="segment-idx">Segment #13</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Google l&#x27;a sorti gratuitement en octobre en tant qu&#x27;expérience et pour l&#x27;instant, c&#x27;est uniquement sur Mac. Google dit que ça fonctionne hors ligne parce que le modèle d&#x27;IA s&#x27;exécute sur votre propre ordinateur portable. Dans les paramètres, vous choisissez la taille du modèle. Un petit, un moyen, ou un plus grand si votre Mac peut le supporter. Ensuite, vous appuyez sur Démarrer la transcription et il écrit chaque mot pendant que vous parlez. Vous pouvez également le pointer vers vos propres fichiers et dossiers, de sorte que plus tard, vous puissiez poser des questions sur vos réunions et vos notes. Et regardez la page des statistiques. Deux réunions transcrites, trois chats avec l&#x27;IA, et zéro appel d&#x27;API cloud. Vous pouvez donc l&#x27;utiliser pour les appels que vous ne mettriez jamais en ligne nulle part.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application Google AI Edge Foresight</p>
+                        <p><strong>Contenu textuel & Code :</strong> Interface utilisateur avec des sections de notes et de chat, affichant &#x27;Google AI Edge Foresight&#x27; et un panneau latéral de discussion.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation de l&#x27;interface de l&#x27;application Google AI Edge Foresight.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000533_seg13.jpg" alt="Interface de l&#x27;application Google AI Edge Foresight avec un panneau de notes et un panneau de chat latéral." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000533_seg13.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:05:33</span>
+                        <span class="caption-text">Interface de l&#x27;application Google AI Edge Foresight avec un panneau de notes et un panneau de chat latéral.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-14">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:05:52 - 00:06:12</span>
+                <span class="segment-idx">Segment #14</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">appels ou discussions salariales, peu importe. Le forfait payant de Granola coûte environ 14 dollars par mois pour les notes de réunion. Si vous êtes sur Mac, c&#x27;est un Granola gratuit et la transcription en direct fonctionne déjà. L&#x27;application est donc conçue, les appels sont rédigés et il ne reste plus que la vidéo de lancement. Une application gratuite peut-elle remplacer Premiere et After Effects ?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface web de tarification et interface logicielle desktop de Granola.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Tarifs affichés (14$ par mois), fonctionnalités du plan Business et boutons de transcription/exportation de notes.
+[ESC_IMAGE_3] Présentation des fonctionnalités et des coûts de l&#x27;application de notes de réunion Granola.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et analyse méthodologique.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000557_seg14.jpg" alt="Capture d&#x27;écran affichant la page de tarification du plan &#x27;Business&#x27; de l&#x27;application Granola, tarifé à 14 dollars par utilisateur et par mois avec le bouton &#x27;Download for Mac&#x27;." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000557_seg14.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:05:57</span>
+                        <span class="caption-text">Capture d&#x27;écran affichant la page de tarification du plan &#x27;Business&#x27; de l&#x27;application Granola, tarifé à 14 dollars par utilisateur et par mois avec le bouton &#x27;Download for Mac&#x27;.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000602_seg14.jpg" alt="Capture d&#x27;écran rapprochée de l&#x27;interface de l&#x27;application Granola montrant un bouton bleu &#x27;Start transcribing&#x27; et des options d&#x27;importation et d&#x27;exportation de notes de réunion." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000602_seg14.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:06:02</span>
+                        <span class="caption-text">Capture d&#x27;écran rapprochée de l&#x27;interface de l&#x27;application Granola montrant un bouton bleu &#x27;Start transcribing&#x27; et des options d&#x27;importation et d&#x27;exportation de notes de réunion.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-15">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:06:12 - 00:06:33</span>
+                <span class="segment-idx">Segment #15</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">À la position numéro 5, c&#x27;est Filmcraft, et il possède une timeline, un moniteur de programme et un panneau d&#x27;effets tout comme Premiere. Et il coûte zéro. Nous ouvrons le projet de démonstration, appuyons sur lecture et il fonctionne comme le vrai. Et ce n&#x27;est qu&#x27;une des 16 applications d&#x27;un ensemble appelé Artcraft. Chacune remplace une application que vous loueriez normalement.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Page web d&#x27;ArtCraft (ArtCraft.io) listant les différentes applications de la suite open-source.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Grille de 16 applications pour créateurs (PhotoCraft, VectorCraft, Filmcraft, LightCraft, etc.) développées en Rust et gratuites.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle de la suite logicielle ArtCraft par le présentateur (visible en vignette vidéo en haut à droite).</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000627_seg15.jpg" alt="Page web présentant une suite de 16 applications open-source (&quot;Sixteen apps. One craft.&quot;) incluant Filmcraft, PhotoCraft, etc." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000627_seg15.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:06:27</span>
+                        <span class="caption-text">Page web présentant une suite de 16 applications open-source (&quot;Sixteen apps. One craft.&quot;) incluant Filmcraft, PhotoCraft, etc.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-16">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:06:33 - 00:06:53</span>
+                <span class="segment-idx">Segment #16</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Photocraft est leur Photoshop, Vectocraft est Illustrator, Lightcraft est Lightroom et PDFcraft est Acrobat. Et celui-ci, Effectcraft, est pour les motion graphics et les effets visuels. C&#x27;est donc leur After Effects. Il y a même des applications pour les documents, les feuilles de calcul et les présentations, donc Word, Excel et PowerPoint sont également couverts.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface utilisateur de type App Store/Launcher d&#x27;applications créatives (Artcraft).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Liste d&#x27;applications alternatives open-source (GridCraft, LightCraft, MaterialCraft, PdfCraft, PhotoCraft, SolidCraft, DesignCraft, EffectCraft, FigCraft) avec boutons d&#x27;installation et numéros de version.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur parcourt ou met en avant différentes applications logicielles de la suite Artcraft.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000638_seg16.jpg" alt="Vue d&#x27;une interface d&#x27;applications montrant LightCraft, GridCraft, PdfCraft et MaterialCraft." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000638_seg16.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:06:38</span>
+                        <span class="caption-text">Vue d&#x27;une interface d&#x27;applications montrant LightCraft, GridCraft, PdfCraft et MaterialCraft.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000643_seg16.jpg" alt="Vue de l&#x27;interface montrant EffectCraft sélectionné au centre avec les applications DesignCraft et FigCraft." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000643_seg16.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:06:43</span>
+                        <span class="caption-text">Vue de l&#x27;interface montrant EffectCraft sélectionné au centre avec les applications DesignCraft et FigCraft.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-17">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:06:53 - 00:07:18</span>
+                <span class="segment-idx">Segment #17</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Et l&#x27;histoire derrière tout ça est folle, parce que c&#x27;est mené par un développeur d&#x27;Atlanta, Brandon Thomas, qui reconstruit ces applications avec une petite équipe et Claude. Et les gens l&#x27;ont remarqué, parce que le projet a dépassé les 38 000 étoiles sur GitHub, et une étoile, c&#x27;est en gros quelqu&#x27;un qui l&#x27;ajoute à ses favoris. Et leur propre site web résume les choses en une seule phrase : Arrêtez de louer des sites web, car ceux-ci vous appartiennent pour de bon et sans abonnement.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Navigateur web affichant Twitter (X) et le site GitHub.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Mention de 38,5k étoiles sur GitHub et description du projet ArtCraft comme un moteur de création open-source pour artistes et designers.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle d&#x27;un tweet d&#x27;actualité et d&#x27;un dépôt GitHub populaire pour illustrer le succès du projet open-source.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000659_seg17.jpg" alt="Un tweet de Mark Kretschmann présentant le développeur Brandon Thomas et le projet ArtCraft, avec une interface de traitement de texte en bas." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000659_seg17.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:06:59</span>
+                        <span class="caption-text">Un tweet de Mark Kretschmann présentant le développeur Brandon Thomas et le projet ArtCraft, avec une interface de traitement de texte en bas.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000705_seg17.jpg" alt="La page du dépôt GitHub du projet ArtCraft, affichant 38,5k étoiles et des informations sur le projet." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000705_seg17.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:07:05</span>
+                        <span class="caption-text">La page du dépôt GitHub du projet ArtCraft, affichant 38,5k étoiles et des informations sur le projet.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-18">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:07:18 - 00:07:42</span>
+                <span class="segment-idx">Segment #18</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">L&#x27;obtenir est simple. Vous allez sur leur site web et vous téléchargez un lanceur pour Mac ou Windows. Ensuite, chaque application se trouve dans cette même fenêtre avec son propre bouton d&#x27;installation, de sorte que vous ne prenez que celles dont vous avez besoin. Maintenant, la plupart de ces versions sont des versions préliminaires, alors s&#x27;il vous plaît, ne résiliez rien pour l&#x27;instant. Mais la suite complète d&#x27;Adobe coûte environ 70 dollars par mois, et même Photoshop ou Premiere pris séparément coûtent environ 23 dollars par mois chacun.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application Artcraft Craft App Suite et page web de tarification Adobe.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Noms des logiciels (CADCraft, Craft Anything, DeckCraft, DesignCraft, EffectCraft, FigCraft) et tarifs Adobe (Creative Cloud Pro à $69.99/mois).</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation du catalogue d&#x27;applications d&#x27;Artcraft et affichage comparatif des prix d&#x27;Adobe.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000724_seg18.jpg" alt="Interface sombre d&#x27;Artcraft montrant un catalogue d&#x27;applications logicielles (CADCraft, Craft Anything, DeckCraft, etc.) avec des boutons d&#x27;installation." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000724_seg18.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:07:24</span>
+                        <span class="caption-text">Interface sombre d&#x27;Artcraft montrant un catalogue d&#x27;applications logicielles (CADCraft, Craft Anything, DeckCraft, etc.) avec des boutons d&#x27;installation.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000736_seg18.jpg" alt="Page de tarification d&#x27;Adobe montrant le coût de la suite Creative Cloud Pro à $69.99/mois avec une ligne surlignée en jaune." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000736_seg18.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:07:36</span>
+                        <span class="caption-text">Page de tarification d&#x27;Adobe montrant le coût de la suite Creative Cloud Pro à $69.99/mois avec une ligne surlignée en jaune.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-19">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:07:42 - 00:08:02</span>
+                <span class="segment-idx">Segment #19</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Si vous montez des vidéos avec un budget limité, Filmcraft vaut le téléchargement rien qu&#x27;à lui seul, et les autres applications valent la peine d&#x27;être essayées avant de renouveler quoi que ce soit. C&#x27;est la moitié de faite, il en reste cinq, plus un bonus à la fin pour tous ceux qui cherchent du travail. Et n&#x27;oubliez pas, le document gratuit dans la communauté WhatsApp contient cinq autres outils qui n&#x27;ont pas rentré dans cette vidéo, vous pouvez donc commencer à les utiliser dès aujourd&#x27;hui.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Navigateur web affichant le site ArtCraft / Mockup de smartphone montrant une application de messagerie (WhatsApp ou similaire).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Noms des applications de bureau open-source développées en Rust (PhotoCraft, VectorCraft, FilmCraft, etc.) / Texte promotionnel pour rejoindre la communauté IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle de la liste complète des applications logicielles abordées dans la vidéo, suivie d&#x27;un appel à l&#x27;action pour rejoindre la communauté.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000747_seg19.jpg" alt="Capture d&#x27;écran du site web affichant la grille des applications de bureau open-source &quot;Sixteen apps. One craft&quot; avec leurs différentes icônes (PhotoCraft, FilmCraft, etc.)." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000747_seg19.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:07:47</span>
+                        <span class="caption-text">Capture d&#x27;écran du site web affichant la grille des applications de bureau open-source &quot;Sixteen apps. One craft&quot; avec leurs différentes icônes (PhotoCraft, FilmCraft, etc.).</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000757_seg19.jpg" alt="Visuel promotionnel présentant sur la gauche un appel à rejoindre la communauté IA (&quot;Join the Global AI Community&quot;) et sur la droite la maquette d&#x27;un écran de smartphone affichant un canal de discussion avec le document &quot;5 Extra Tools Doc&quot;." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000757_seg19.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:07:57</span>
+                        <span class="caption-text">Visuel promotionnel présentant sur la gauche un appel à rejoindre la communauté IA (&quot;Join the Global AI Community&quot;) et sur la droite la maquette d&#x27;un écran de smartphone affichant un canal de discussion avec le document &quot;5 Extra Tools Doc&quot;.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-20">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:08:02 - 00:08:21</span>
+                <span class="segment-idx">Segment #20</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Le lien est juste en dessous. Donc After Hours est créé et la vidéo de lancement est montée. Mais est-ce que quelqu&#x27;un va vraiment l&#x27;utiliser ? Est-ce qu&#x27;une IA gratuite peut vous le dire avant que vous ne dépensiez quoi que ce soit pour le lancement ? Le numéro 6 commence avec des gens qui n&#x27;existent pas. Et ils viennent de passer 3 rounds à débattre d&#x27;After Hours, l&#x27;application que nous venons de créer.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface web MiroFish (plateforme de simulation/rapports prédictifs).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte du rapport de prédiction : &#x27;Future Prediction Report on Afterhours Music Discovery Concept Simulation&#x27; avec des sections sur l&#x27;engagement utilisateur et la dynamique sociale.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation du rapport d&#x27;analyse généré par l&#x27;IA concernant l&#x27;utilisation du concept Afterhours.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000816_seg20.jpg" alt="Capture d&#x27;écran montrant l&#x27;interface d&#x27;un outil d&#x27;IA (MiroFish) affichant un rapport de prédiction sur l&#x27;application Afterhours." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000816_seg20.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:08:16</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant l&#x27;interface d&#x27;un outil d&#x27;IA (MiroFish) affichant un rapport de prédiction sur l&#x27;application Afterhours.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-21">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:08:21 - 00:08:46</span>
+                <span class="segment-idx">Segment #21</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Nous voulions savoir si quelqu&#x27;un utiliserait vraiment une application musicale qui choisit la bande originale de votre journée. Une concentration intense, un dimanche tranquille, une promenade tard dans la nuit. Et au lieu de demander à nos amis, qui seraient juste gentils avec nous, nous l&#x27;avons confié à un outil appelé Mirofish. C&#x27;est gratuit et open source, près de 84 000 étoiles sur GitHub, et cela crée toute une foule de personnes IA, chacune avec un nom, un parcours et une opinion.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application web Mirofish (localhost:3000) et plateforme GitHub.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Code source, arborescence de fichiers d&#x27;un dépôt GitHub (dossiers .github, backend, frontend, scripts, tests, Dockerfile), et description du moteur d&#x27;intelligence en essaim MiroFish.</p>
+                        <p><strong>Action / Démonstration :</strong> Navigation et présentation de l&#x27;application de simulation et du dépôt de code open-source associé.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000827_seg21.jpg" alt="Capture d&#x27;écran montrant l&#x27;interface d&#x27;une application web de simulation (Mirofish) affichant un rapport détaillé avec des sections textuelles, des retours d&#x27;utilisateurs et des prompts de simulation." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000827_seg21.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:08:27</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant l&#x27;interface d&#x27;une application web de simulation (Mirofish) affichant un rapport détaillé avec des sections textuelles, des retours d&#x27;utilisateurs et des prompts de simulation.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000833_seg21.jpg" alt="Capture d&#x27;écran montrant le dépôt GitHub du projet MiroFish avec la liste des répertoires du code source et la description du projet sur le panneau latéral droit." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000833_seg21.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:08:33</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant le dépôt GitHub du projet MiroFish avec la liste des répertoires du code source et la description du projet sur le panneau latéral droit.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-22">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:08:46 - 00:09:05</span>
+                <span class="segment-idx">Segment #22</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Nous avons collé un pitch d&#x27;une page et tapé, lance cette idée comme une simulation. Ça a créé six personnes, ça a exécuté trois rounds, et ça a écrit le rapport en environ deux minutes et demie. Et les conclusions sont utiles. Ils ont adoré l&#x27;idée de choisir la musique par haine, mais ils voulaient entendre un morceau avant de lui faire confiance, et ils voulaient une lecture qui fonctionne tout simplement.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application web Mirofish (Workbench / Dashboard de simulation)</p>
+                        <p><strong>Contenu textuel & Code :</strong> &quot;Future Prediction Report on Afterhours Music Discovery Concept Simulation&quot;, journaux d&#x27;exécution (logs console), sections de rapport (Planning, User Engagement, MVP Priorities).</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation et navigation dans le rapport de simulation généré automatiquement par l&#x27;outil Mirofish.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (3) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-3">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000850_seg22.jpg" alt="Interface de la plateforme de simulation Mirofish affichant un rapport de prédiction avec le détail des sections générées." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000850_seg22.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:08:50</span>
+                        <span class="caption-text">Interface de la plateforme de simulation Mirofish affichant un rapport de prédiction avec le détail des sections générées.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000855_seg22.jpg" alt="Vue de l&#x27;interface Mirofish montrant les insights approfondis et les données textuelles issues de la simulation." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000855_seg22.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:08:55</span>
+                        <span class="caption-text">Vue de l&#x27;interface Mirofish montrant les insights approfondis et les données textuelles issues de la simulation.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000900_seg22.jpg" alt="Affichage final de la génération du rapport dans l&#x27;interface Mirofish avec les étapes de validation complétées." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000900_seg22.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:09:00</span>
+                        <span class="caption-text">Affichage final de la génération du rapport dans l&#x27;interface Mirofish avec les étapes de validation complétées.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-23">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:09:05 - 00:09:27</span>
+                <span class="segment-idx">Segment #23</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Maintenant, dire qu&#x27;on aime quelque chose et l&#x27;utiliser tous les jours, ce sont deux choses différentes. Nous avons donc utilisé un deuxième outil gratuit de Google appelé Times FM. Vous lui montrez vos chiffres passés, comme le nombre de personnes qui ont utilisé votre application chaque jour, et il devine les quelques semaines à venir. Nous n&#x27;avons pas encore de vrais utilisateurs, alors nous lui avons donné 6 mois d&#x27;auditeurs quotidiens inventés et nous avons demandé les deux semaines suivantes.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Navigateur web affichant un dépôt GitHub (README.md) en mode sombre, avec une incrustation vidéo du présentateur.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte descriptif de TimesFM (Time Series Foundation Model), liens vers la recherche, points de contrôle (Checkpoint), et mentions des versions (TimesFM 3.0).</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur commente la documentation du modèle de prédiction de séries temporelles de Google.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000911_seg23.jpg" alt="Capture d&#x27;écran montrant la page README d&#x27;un dépôt GitHub pour &quot;TimesFM&quot; (Time Series Foundation Model) développé par Google Research, avec la vidéo du présentateur incrustée en haut à droite." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000911_seg23.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:09:11</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant la page README d&#x27;un dépôt GitHub pour &quot;TimesFM&quot; (Time Series Foundation Model) développé par Google Research, avec la vidéo du présentateur incrustée en haut à droite.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-24">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:09:27 - 00:09:48</span>
+                <span class="segment-idx">Segment #24</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Et regardez la partie ombragée, c&#x27;est la fourchette à laquelle il s&#x27;attend, un bon jour et un mauvais jour, vous pouvez donc planifier en fonction des deux. Nous l&#x27;avons même testé sur deux quinzaines qu&#x27;il n&#x27;avait pas vues, et 12 de ces 14 jours se sont inscrits dans sa fourchette. Donc Mirofish pour l&#x27;idée et Times FM pour les chiffres. Et c&#x27;est une répétition pour votre lancement qui ne vous coûte rien.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface web Mirofish, graphiques de prévision temporelle (TimesFM), panneaux de rapport et de simulation.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Prédictions de données d&#x27;usage (Daily listeners, TimesFM median + p10-p90), graphiques de backtest et rapports de simulation d&#x27;utilisateurs.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation des résultats de prévision temporelle, analyse de la fourchette attendue et affichage d&#x27;un rapport de simulation détaillé.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (3) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-3">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000932_seg24.jpg" alt="Graphique montrant les prévisions de &#x27;Daily listeners&#x27; pour les 14 prochains jours avec une fourchette attendue (Expected range)." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000932_seg24.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:09:32</span>
+                        <span class="caption-text">Graphique montrant les prévisions de &#x27;Daily listeners&#x27; pour les 14 prochains jours avec une fourchette attendue (Expected range).</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000938_seg24.jpg" alt="Interface Mirofish affichant un rapport de prévision avec graphiques temporels et commentaires textuels d&#x27;utilisateurs simulés." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000938_seg24.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:09:38</span>
+                        <span class="caption-text">Interface Mirofish affichant un rapport de prévision avec graphiques temporels et commentaires textuels d&#x27;utilisateurs simulés.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000943_seg24.jpg" alt="Interface Mirofish affichant un rapport complet &#x27;Future Prediction Report on Afterhours Music Discovery Concept Simulation&#x27; avec un panneau de terminal en bas." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000943_seg24.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:09:43</span>
+                        <span class="caption-text">Interface Mirofish affichant un rapport complet &#x27;Future Prediction Report on Afterhours Music Discovery Concept Simulation&#x27; avec un panneau de terminal en bas.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-25">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:09:48 - 00:10:10</span>
+                <span class="segment-idx">Segment #25</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Donc maintenant, After Hours a besoin d&#x27;une publication de lancement. Peux-tu en concevoir une sans payer pour Canva ? Le numéro 7 est un Canva gratuit qui fonctionne sur notre propre ordinateur portable. Il s&#x27;appelle Doori. Il est open source et fonctionne directement dans votre navigateur. Notre agent de codage l&#x27;a installé à partir du lien GitHub et l&#x27;a ouvert dans le navigateur pour nous. Et si vous ne voulez rien installer du tout, la même application est en ligne sur dhuri.art.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Navigateur web, GitHub, interface utilisateur de Doory.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Documentation README du projet GitHub, description de Doory en tant qu&#x27;éditeur de design open source fonctionnant dans le navigateur sans abonnement.</p>
+                        <p><strong>Action / Démonstration :</strong> Navigation et présentation de l&#x27;outil de design open source Doory et de sa page GitHub.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000959_seg25.jpg" alt="La page GitHub du projet open source Doory, présenté comme une alternative gratuite à Canva." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_000959_seg25.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:09:59</span>
+                        <span class="caption-text">La page GitHub du projet open source Doory, présenté comme une alternative gratuite à Canva.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001005_seg25.jpg" alt="L&#x27;interface web de Doory en cours d&#x27;utilisation, affichant la page d&#x27;accueil de l&#x27;application de design." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001005_seg25.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:10:05</span>
+                        <span class="caption-text">L&#x27;interface web de Doory en cours d&#x27;utilisation, affichant la page d&#x27;accueil de l&#x27;application de design.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-26">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:10:10 - 00:10:30</span>
+                <span class="segment-idx">Segment #26</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Tu choisis un format, une publication Instagram, une miniature YouTube, une affiche ou un logo, et tu te retrouves directement dans l&#x27;éditeur. Tu obtiens des textes, des photos de stock et des animations pour tes publications. Et quand tu as terminé, cela exporte une image normale, un PNG transparent, un PDF, un SVG, et même un MP4 ou un GIF.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Doory (outil de design et création graphique web / alternative open-source à Canva).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Options de dimensions prédéfinies (Instagram Post, Presentation 16:9, Poster, A4 Document, YouTube Thumbnail, Instagram Story, Logo), panneau d&#x27;outils &quot;Shapes&quot; (Basic shapes, Decorative, Lines and arrows).</p>
+                        <p><strong>Action / Démonstration :</strong> Navigation sur l&#x27;interface d&#x27;accueil pour choisir un modèle de document, suivie de l&#x27;accès au canevas d&#x27;édition graphique.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001015_seg26.jpg" alt="Page d&#x27;accueil de l&#x27;application Doory présentant les choix de formats de création graphique (Instagram Post, YouTube Thumbnail, Poster, Logo)." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001015_seg26.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:10:15</span>
+                        <span class="caption-text">Page d&#x27;accueil de l&#x27;application Doory présentant les choix de formats de création graphique (Instagram Post, YouTube Thumbnail, Poster, Logo).</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001020_seg26.jpg" alt="Interface de l&#x27;éditeur graphique Doory avec un canevas vierge au centre et le menu latéral de sélection de formes géométriques." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001020_seg26.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:10:20</span>
+                        <span class="caption-text">Interface de l&#x27;éditeur graphique Doory avec un canevas vierge au centre et le menu latéral de sélection de formes géométriques.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-27">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:10:30 - 00:10:48</span>
+                <span class="segment-idx">Segment #27</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Pour être tout à fait honnête, c&#x27;est un jeune projet. Il propose 10 modèles de départ et ce n&#x27;outer pas un designer IA, donc il ne concevra pas le post pour vous. Mais si vous utilisez principalement Canva pour vos posts et vos stories, tout ce dont vous avez besoin est ici, gratuitement, et sans filigrane. Le suivant résout la tâche la plus ennuyeuse de la création de contenu.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface web d&#x27;édition graphique similaire à Canva.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Un visuel publicitaire pour un produit de mode (Fashion Big Sale, 30% off, Super offer weekend).</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation et illustration visuelle de l&#x27;outil de création graphique mentionné dans l&#x27;audio.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001034_seg27.jpg" alt="Capture d&#x27;écran montrant une interface de type Canva avec un modèle de publication publicitaire &quot;Bold sale announcement&quot; pour &quot;Lumen Store&quot;." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001034_seg27.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:10:34</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant une interface de type Canva avec un modèle de publication publicitaire &quot;Bold sale announcement&quot; pour &quot;Lumen Store&quot;.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-28">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:10:48 - 00:11:07</span>
+                <span class="segment-idx">Segment #28</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Un seul prompt peut-il transformer une longue vidéo en Reels ? Ces trois Reels sont le numéro huit, et ils proviennent d&#x27;un seul long podcast, à partir d&#x27;un seul prompt. Tout comme Opus Clip facture entre 15 et 29 dollars par mois pour cela. Nous l&#x27;avons fait avec les compétences d&#x27;agent gratuites de ReMotion, qui est gratuit pour les particuliers et les petites équipes.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface de workflow d&#x27;agent IA d&#x27;édition vidéo et grille tarifaire SaaS Opus Clip.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Image 1 : Aperçu vidéo vertical &quot;What gets you hired now?&quot;, historique de conversations/prompts, jauge &quot;8/10&quot;. Image 2 : Plans tarifaires Starter 15 $/mois, Pro 29 $/mois, Free 0 $/mois.</p>
+                        <p><strong>Action / Démonstration :</strong> Démonstration de l&#x27;alternative IA gratuite à la découpe automatique de vidéos face au modèle payant d&#x27;Opus Clip.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001053_seg28.jpg" alt="Interface &quot;Clip workflow&quot; présentant la génération automatique d&#x27;un clip vidéo au format Reel vertical à partir d’un prompt d&#x27;agent IA (étape 8/10)." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001053_seg28.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:10:53</span>
+                        <span class="caption-text">Interface &quot;Clip workflow&quot; présentant la génération automatique d&#x27;un clip vidéo au format Reel vertical à partir d’un prompt d&#x27;agent IA (étape 8/10).</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001058_seg28.jpg" alt="Page de tarification d&#x27;un service SaaS (Opus Clip) affichant les plans Starter (15 $ USD), Pro (29 $ USD) et Free (0 $ USD)." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001058_seg28.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:10:58</span>
+                        <span class="caption-text">Page de tarification d&#x27;un service SaaS (Opus Clip) affichant les plans Starter (15 $ USD), Pro (29 $ USD) et Free (0 $ USD).</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-29">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:11:07 - 00:11:28</span>
+                <span class="segment-idx">Segment #29</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">ReMotion permet à une IA de créer des vidéos de la même manière qu&#x27;elle écrit du code, ainsi l&#x27;agent écrit le montage et ReMotion le transforme en un véritable fichier vidéo. Et il y en a un autre gratuit appelé Hyperframes de HeyGen qui fait le même travail avec des pages web. Alors choisissez celui que votre agent préfère. Tout d&#x27;abord, notre agent de codage a installé l&#x27;ensemble des 13 compétences de ReMotion.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> GitHub (profil et README du projet open-source HyperFrames / HeyGen)</p>
+                        <p><strong>Contenu textuel & Code :</strong> Dépôt `hyperframes`, titre &quot;HyperFrames: Agent-Native HTML to Video Rendering for URLs, Data, and Web Code&quot;, description de la conversion HTML, CSS et JS vers un rendu vidéo MP4.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation de la documentation et du fonctionnement de l&#x27;outil HyperFrames pour la génération vidéo basée sur des technologies web.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001117_seg29.jpg" alt="Page GitHub du projet open-source HyperFrames présentant la documentation README.md." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001117_seg29.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:11:17</span>
+                        <span class="caption-text">Page GitHub du projet open-source HyperFrames présentant la documentation README.md.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-30">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:11:28 - 00:11:48</span>
+                <span class="segment-idx">Segment #30</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Ensuite, le prompt était simple : trouve les trois meilleurs moments, coupe chacun pour qu&#x27;il fasse moins de 45 secondes, mets-le au format vertical et ajoute des sous-titres mot par mot. Et on lui a donné notre dernier podcast, celui avec Thibaut d&#x27;OpenAI. Ça a tourné pendant environ 20 minutes, a sélectionné les moments, les a coupés, les a sous-titrés et a rendu les trois.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface de chat et d&#x27;automatisation d&#x27;agent IA (style Claude Code / agent de développement).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Prompt texte (&quot;Find the three best moments, cut each one under forty-five seconds, make it vertical, and add captions word by word&quot;), URL YouTube du podcast, durée de travail (19m 31s), résultats des clips au format 1080x1920 (16.9s, 38.2s, 33.5s) et modification des scripts Python `prepare_clips.py` (+184) et `finish_clips.py` (+62).</p>
+                        <p><strong>Action / Démonstration :</strong> Exécution automatique d&#x27;une tâche d&#x27;édition et de sous-titrage vidéo par l&#x27;IA à partir d&#x27;un simple prompt et d&#x27;un lien YouTube.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001133_seg30.jpg" alt="Capture d&#x27;écran de l&#x27;interface d&#x27;un agent IA affichant le prompt exécuté pour extraire et formater trois clips vidéo verticaux avec sous-titres ainsi que les fichiers Python générés." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001133_seg30.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:11:33</span>
+                        <span class="caption-text">Capture d&#x27;écran de l&#x27;interface d&#x27;un agent IA affichant le prompt exécuté pour extraire et formater trois clips vidéo verticaux avec sous-titres ainsi que les fichiers Python générés.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-31">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:11:48 - 00:12:08</span>
+                <span class="segment-idx">Segment #31</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Et il n&#x27;y a pas de filigrane, parce que c&#x27;est vous qui le faites. Personne ne vous le loue. Et une fois que ce prompt fonctionne, vous le réutilisez pour votre podcast ou votre cours sur Zoom, exactement le même prompt chaque semaine. Et si vous créez du contenu et que cela vous fait déjà économiser de l&#x27;argent, abonnez-vous. Nous testons de nouveaux outils gratuits comme ceux-ci toutes les quelques semaines, pour que vous n&#x27;ayez pas à le faire.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Cursor (IDE), lecteur vidéo intégré, interface de chat d&#x27;agent IA.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Prompt d&#x27;automatisation vidéo (&quot;Find the three best moments, cut each one under forty-five seconds, make it vertical, and add captions word by word&quot;), fichiers Python générés (`work/prepare_clips.py`, `work/finish_clips.py`), aperçu du clip vertical 1080x1920 avec sous-titre dynamique.</p>
+                        <p><strong>Action / Démonstration :</strong> Génération et prévisualisation automatique de clips vidéo verticaux sous-titrés à l&#x27;aide d&#x27;un prompt et de compétences Remotion exécutées par l&#x27;agent IA.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001153_seg31.jpg" alt="Interface de l&#x27;éditeur de code Cursor affichant un chat d&#x27;agent IA à gauche et la prévisualisation d&#x27;une vidéo verticale générée au centre." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001153_seg31.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:11:53</span>
+                        <span class="caption-text">Interface de l&#x27;éditeur de code Cursor affichant un chat d&#x27;agent IA à gauche et la prévisualisation d&#x27;une vidéo verticale générée au centre.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-32">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:12:08 - 00:12:38</span>
+                <span class="segment-idx">Segment #32</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Maintenant, si vous enregistrez votre écran pour des vidéos comme celles-ci, un enregistreur gratuit peut-il faire les zooms à votre place ? Le numéro 9 est un enregistreur qui affirme qu&#x27;il zoome tout seul sur vos clics, afin que le spectateur sache toujours où regarder. Et c&#x27;est gratuit. Il s&#x27;appelle OpenScreen. Il est open source, sans filigrane et sans abonnement. Et il fonctionne sur Windows, Mac et Linux. Vous pouvez enregistrer une fenêtre ou l&#x27;intégralité de votre écran avec votre micro, le son de votre système et votre webcam par-dessus. Il ajoute également automatiquement des sous-titres.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Présentation ou face-caméra explicatif de l&#x27;intervenant sans interface logicielle partagée.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Explications orales des concepts, architectures, stratégies ou retours d&#x27;expérience.</p>
+                        <p><strong>Action / Démonstration :</strong> Explications face caméra et analyse méthodologique.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001223_seg32.jpg" alt="Page GitHub du projet open-source OpenScreen avec le présentateur incrusté en haut à droite." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001223_seg32.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:12:23</span>
+                        <span class="caption-text">Page GitHub du projet open-source OpenScreen avec le présentateur incrusté en haut à droite.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001231_seg32.jpg" alt="Interface de l&#x27;application d" loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001231_seg32.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:12:31</span>
+                        <span class="caption-text">Interface de l&#x27;application d</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-33">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:12:38 - 00:13:00</span>
+                <span class="segment-idx">Segment #33</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Et il y me semble qu&#x27;il y a un assistant IA qui peut couper vos silences et resserrer les pauses. Vous l&#x27;ouvrez et cette petite barre d&#x27;outils est tout ce qu&#x27;il y a. Vous choisissez votre écran et vous appuyez sur enregistrer. Votre votre curseur est enregistré sur son propre calque, vous pouvez donc en modifier le style et ajouter les zooms plus tard dans l&#x27;éditeur. Screen Studio facture environ 29 $ par mois pour exactement cela, et c&#x27;est uniquement sur Mac.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Système d&#x27;exploitation macOS, navigateur web affichant le site de Screen Studio, barre d&#x27;outils de l&#x27;application.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Interface utilisateur de Screen Studio, boutons d&#x27;enregistrement et options de capture d&#x27;écran.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur illustre l&#x27;utilisation de l&#x27;outil Screen Studio pour l&#x27;enregistrement d&#x27;écran.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001244_seg33.jpg" alt="Capture montrant un bureau d&#x27;ordinateur avec une barre d&#x27;outils de capture d&#x27;écran Screen Studio visible en bas." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001244_seg33.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:12:44</span>
+                        <span class="caption-text">Capture montrant un bureau d&#x27;ordinateur avec une barre d&#x27;outils de capture d&#x27;écran Screen Studio visible en bas.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001255_seg33.jpg" alt="Page d&#x27;accueil du site web du logiciel Screen Studio avec le slogan &quot;Beautiful screen recordings, in minutes.&quot;" loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001255_seg33.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:12:55</span>
+                        <span class="caption-text">Page d&#x27;accueil du site web du logiciel Screen Studio avec le slogan &quot;Beautiful screen recordings, in minutes.&quot;</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-34">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:13:00 - 00:13:20</span>
+                <span class="segment-idx">Segment #34</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Si vous envoyez des présentations de produits ou des vidéos explicatives à votre équipe, voici la version gratuite, également sur Windows. Et une fois la démonstration enregistrée, tout doit être intégré dans une présentation pour l&#x27;équipe. Une suite bureautique gratuite peut-elle créer les diapositives pour vous ? Word 10 rassemble Docs, Sheets, Slides, PDF, Markdown et pages Web dans une seule application gratuite.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Navigateur web affichant le dépôt GitHub du projet OpenScreen.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Page de dépôt GitHub du logiciel OpenScreen (getopenscreen/openscreen) avec la description des fonctionnalités de capture d&#x27;écran, les fichiers du projet et les tags de technologies.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation de la page d&#x27;accueil GitHub d&#x27;un outil open-source de capture et d&#x27;enregistrement d&#x27;écran.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001305_seg34.jpg" alt="Capture d&#x27;écran montrant le dépôt GitHub du projet OpenScreen, avec une incrustation vidéo du présentateur en haut à droite." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001305_seg34.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:13:05</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant le dépôt GitHub du projet OpenScreen, avec une incrustation vidéo du présentateur en haut à droite.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-35">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:13:20 - 00:13:38</span>
+                <span class="segment-idx">Segment #35</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Il s&#x27;appelle GenOffice. C&#x27;est open source et il ouvre et enregistre les mêmes fichiers Word, Excel et PowerPoint que vous utilisez déjà. Voici l&#x27;éditeur de documents. Il ressemble et fonctionne comme Word, il n&#x27;y a donc rien de nouveau à apprendre. Il y a un tableur qui fonctionne comme Excel, des diaporamas comme PowerPoint, et un éditeur de PDF aussi.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface web GitHub et interface de présentation de la suite GenOffice.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Documentation technique décrivant les fonctionnalités open source de GenOffice pour l&#x27;édition de documents Word, Excel et PowerPoint avec IA.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation des fonctionnalités clés de GenOffice et démonstration visuelle des différents modules de la suite bureautique.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (3) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-3">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001324_seg35.jpg" alt="Page de présentation de GenOffice avec le logo, la description de la suite bureautique open source intégrant l&#x27;IA, et un aperçu des formats pris en charge (Word, Excel, PowerPoint, PDF)." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001324_seg35.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:13:24</span>
+                        <span class="caption-text">Page de présentation de GenOffice avec le logo, la description de la suite bureautique open source intégrant l&#x27;IA, et un aperçu des formats pris en charge (Word, Excel, PowerPoint, PDF).</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001329_seg35.jpg" alt="Documentation GitHub de GenOffice montrant la section Demo avec des captures d&#x27;écran illustrant l&#x27;édition de documents Word (.docx) avec l&#x27;assistant IA." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001329_seg35.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:13:29</span>
+                        <span class="caption-text">Documentation GitHub de GenOffice montrant la section Demo avec des captures d&#x27;écran illustrant l&#x27;édition de documents Word (.docx) avec l&#x27;assistant IA.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001334_seg35.jpg" alt="Continuation de la documentation GitHub montrant la section sur les feuilles de calcul (.xlsx) avec graphiques et formules dynamiques." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001334_seg35.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:13:34</span>
+                        <span class="caption-text">Continuation de la documentation GitHub montrant la section sur les feuilles de calcul (.xlsx) avec graphiques et formules dynamiques.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-36">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:13:38 - 00:13:57</span>
+                <span class="segment-idx">Segment #36</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Et chaque application dispose d&#x27;un panneau d&#x27;IA intégré. Il vous suffit de décrire ce que vous voulez, comme une présentation de bilan trimestriel, et elle le crée sur le canevas. Dans leur propre démo, une seule frase crée une feuille de résumé avec un graphique, et toutes les modifications arrivent en un seul lot que vous pouvez annuler. Les éditeurs sont gratuits sur Mac, Windows et Linux.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Documentation GitHub (README) intégrant des captures d&#x27;interface logicielle et un terminal de code (Claude Code).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Documentation technique décrivant les fonctionnalités d&#x27;IA (Ask AI, Markdown, recherche, CLI et protocole MCP) avec des extraits de code et d&#x27;interface.</p>
+                        <p><strong>Action / Démonstration :</strong> Défilement de la page de documentation technique présentant les capacités d&#x27;intelligence artificielle et d&#x27;automatisation de l&#x27;application GenOffice.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (3) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-3">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001343_seg36.jpg" alt="Capture d&#x27;écran montrant la documentation (README) de l&#x27;outil avec la section Markdown et Ask AI, incluant des aperçus visuels d&#x27;interface." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001343_seg36.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:13:43</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant la documentation (README) de l&#x27;outil avec la section Markdown et Ask AI, incluant des aperçus visuels d&#x27;interface.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001347_seg36.jpg" alt="Capture d&#x27;écran affichant la section &#x27;Ask AI&#x27; de la documentation, avec un aperçu de l&#x27;interface de recherche et de lecture de fichiers étoilés." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001347_seg36.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:13:47</span>
+                        <span class="caption-text">Capture d&#x27;écran affichant la section &#x27;Ask AI&#x27; de la documentation, avec un aperçu de l&#x27;interface de recherche et de lecture de fichiers étoilés.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001352_seg36.jpg" alt="Capture d&#x27;écran montrant la section &#x27;MCP&#x27; avec un terminal intégré (Claude Code) en cours d&#x27;exécution de commandes automatisées." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001352_seg36.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:13:52</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant la section &#x27;MCP&#x27; avec un terminal intégré (Claude Code) en cours d&#x27;exécution de commandes automatisées.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-37">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:13:57 - 00:14:16</span>
+                <span class="segment-idx">Segment #37</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">L&#x27;IA utilise des crédits GenSpark, ou vous pouvez intégrer votre propre clé. Microsoft 365 coûte environ 10 $ par mois. Pour les lettres, tableurs et diaporamas de tous les jours, cela fait l&#x27;affaire gratuitement. Mais il y a un bonus pour tous ceux qui cherchent un emploi en ce moment. Est-ce qu&#x27;une IA gratuite peut vous trouver des emplois et réécrire votre CV pour chacun d&#x27;eux ?</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface graphique minimaliste affichant une application de type Microsoft 365.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte &quot;Microsoft 365&quot;, options &quot;Letters&quot;, &quot;Spreadsheets&quot;, &quot;Slides&quot; et le prix de &quot;0,79 $&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle du coût d&#x27;un outil bureautique alternatif.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001402_seg37.jpg" alt="Une interface graphique sombre montrant &quot;Microsoft 365&quot; avec trois icônes (Letters, Spreadsheets, Slides) et le montant de &quot;0,79 $&quot;." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001402_seg37.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:14:02</span>
+                        <span class="caption-text">Une interface graphique sombre montrant &quot;Microsoft 365&quot; avec trois icônes (Letters, Spreadsheets, Slides) et le montant de &quot;0,79 $&quot;.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-38">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:14:16 - 00:14:36</span>
+                <span class="segment-idx">Segment #38</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Et le bonus ! On a donné à celui-ci un profil LinkedIn et il a déterminé quels rôles cette personne devrait cibler, du plus compatible au moins compatible. Ça s&#x27;appelle CareerOps et il a près de 80 000 étoiles sur GitHub. Tu lui donnes ton CV, il scanne les sites d&#x27;emploi et il note chaque emploi de 1 à 5 selon ton degré de correspondance.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Navigateur web affichant GitHub (dépôt CareerOps).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Description du dépôt GitHub, statistiques (commits, forks, étoiles), schéma de fonctionnement (URL -&gt; Archetype Detection -&gt; A-H Evaluation -&gt; Report / Tailored CV / Tracker) et commande d&#x27;initialisation `npx @santifer/career-ops init`.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle de la page GitHub de l&#x27;outil CareerOps et explication de son fonctionnement technique.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001426_seg38.jpg" alt="Page GitHub du projet &quot;CareerOps&quot; présentant l&#x27;agent IA de recherche d&#x27;emploi open-source." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001426_seg38.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:14:26</span>
+                        <span class="caption-text">Page GitHub du projet &quot;CareerOps&quot; présentant l&#x27;agent IA de recherche d&#x27;emploi open-source.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001431_seg38.jpg" alt="Schéma d&#x27;architecture &quot;How It Works&quot; et commandes d&#x27;installation rapide (Quick Start) de CareerOps." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001431_seg38.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:14:31</span>
+                        <span class="caption-text">Schéma d&#x27;architecture &quot;How It Works&quot; et commandes d&#x27;installation rapide (Quick Start) de CareerOps.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-39">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:14:36 - 00:14:55</span>
+                <span class="segment-idx">Segment #39</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Alors au lieu de postuler à 200 offres d&#x27;emploi et de ne recevoir aucune réponse, vous voyez lesquelles valent le coup d&#x27;y passer du temps. Notre agent de codage l&#x27;a configuré pour nous à partir du lien GitHub, donc il n&#x27;y avait rien à configurer à la main. Ensuite, nous avons téléchargé le profil au format PDF, il a lu les six pages et il nous a demandé de confirmer avant d&#x27;utiliser quoi que ce soit.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application web locale (localhost:3030) avec un tableau de bord sombre &#x27;Career Ops&#x27; et un panneau d&#x27;assistant IA intégré.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Tableau de bord affichant &#x27;You&#x27;re all caught up&#x27;, des menus de navigation (Today, Explore, Pipeline, Analytics, CV, etc.), et dans le volet gauche, un aperçu du fichier PDF du profil (&#x27;Profile (2).pdf&#x27;) avec le message de l&#x27;IA indiquant la lecture du profil LinkedIn de Vaibhav Sisinty.</p>
+                        <p><strong>Action / Démonstration :</strong> Le présentateur montre l&#x27;interface de l&#x27;application où le profil utilisateur a été téléchargé et analysé par l&#x27;assistant IA intégré.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001441_seg39.jpg" alt="Capture d&#x27;écran montrant l&#x27;interface utilisateur de l&#x27;application &#x27;Career Ops&#x27; avec un tableau de bord sombre et un volet de chat à gauche affichant l&#x27;analyse d&#x27;un profil PDF téléchargé." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001441_seg39.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:14:41</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant l&#x27;interface utilisateur de l&#x27;application &#x27;Career Ops&#x27; avec un tableau de bord sombre et un volet de chat à gauche affichant l&#x27;analyse d&#x27;un profil PDF téléchargé.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-40">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:14:55 - 00:15:15</span>
+                <span class="segment-idx">Segment #40</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Et vous obtenez un tableau de bord complet pour votre recherche d&#x27;emploi, avec des analyses, un pipeline, des suivis, et vos documents, le tout fonctionnant sur votre propre ordinateur portable. Ensuite, il adapte votre CV et votre lettre de motivation pour un emploi à la fois en utilisant les mots que cette offre d&#x27;emploi demande. Et il ne postule jamais de lui-même. Il remplit tout et vous appuyez sur envoyer.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Application Career Ops, Interface web et éditeur de code Markdown (Cursor/VS Code)</p>
+                        <p><strong>Contenu textuel & Code :</strong> Menu de navigation de l&#x27;application de recherche d&#x27;emploi, tableau de bord analytique, et affichage du code source/markdown du CV de Vaibhav Sisinty.</p>
+                        <p><strong>Action / Démonstration :</strong> Navigation dans les options du tableau de bord Career Ops et visualisation du CV formaté en Markdown dans l&#x27;éditeur.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (2) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-2">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001500_seg40.jpg" alt="Interface de l&#x27;application Career Ops montrant le menu latéral de navigation (Today, Explore, Pipeline, Follow-ups, Analytics, Documents, Config) et le tableau de bord de recherche d&#x27;emploi." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001500_seg40.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:15:00</span>
+                        <span class="caption-text">Interface de l&#x27;application Career Ops montrant le menu latéral de navigation (Today, Explore, Pipeline, Follow-ups, Analytics, Documents, Config) et le tableau de bord de recherche d&#x27;emploi.</span>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001505_seg40.jpg" alt="Éditeur de code (interface de type VS Code ou Cursor) affichant le profil CV au format Markdown (cv.md) de Vaibhav Sisinty avec les sections Summary et Experience." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001505_seg40.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:15:05</span>
+                        <span class="caption-text">Éditeur de code (interface de type VS Code ou Cursor) affichant le profil CV au format Markdown (cv.md) de Vaibhav Sisinty avec les sections Summary et Experience.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-41">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:15:15 - 00:15:53</span>
+                <span class="segment-idx">Segment #41</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Si vous cherchez un emploi en ce moment, c&#x27;est celui-ci qu&#x27;il faut configurer aujourd&#x27;hui. Donc ça fait 10, plus le bonus. Si vous avez une idée d&#x27;application, commencez par Replica, puis testez-la sur un public avec Mirofish avant de la lancer. Si vous créez du contenu, gardez Voice Studio et le flux de travail Clip sur votre ordinateur portable, car vous les utiliserez chaque semaine. Si vous êtes en réunion toute la journée, configurez Foresight. Et si vous cherchez un emploi, configurez Career Ops dès aujourd&#x27;hui. Et la vue d&#x27;ensemble est la suivante. Il y a un an, chacun de ces travaux nécessitait une application payante ou une personne à embaucher. Et aujourd&#x27;hui, il faut un ordinateur portable et le bon outil gratuit. Chaque lien et chaque étape de cette vidéo se trouve dans</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Interface graphique de présentation (diapositive style SaaS).</p>
+                        <p><strong>Contenu textuel & Code :</strong> Texte &quot;Where to start&quot;, une bulle avec l&#x27;icône d&#x27;une ampoule &quot;Got an app idea?&quot; connectée par une flèche à un encadré violet &quot;Replica - Build it&quot;.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation du point de départ recommandé pour le développement d&#x27;une application à partir d&#x27;une idée.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001524_seg41.jpg" alt="Une diapositive sombre montrant un organigramme minimaliste avec le titre &quot;Where to start&quot;, indiquant comment transformer une idée d&#x27;application en utilisant l&#x27;outil Replica." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001524_seg41.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:15:24</span>
+                        <span class="caption-text">Une diapositive sombre montrant un organigramme minimaliste avec le titre &quot;Where to start&quot;, indiquant comment transformer une idée d&#x27;application en utilisant l&#x27;outil Replica.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+        <div class="timeline-block" id="segment-42">
+            <div class="timeline-time">
+                <span class="time-badge">⏱️ 00:15:53 - 00:16:10</span>
+                <span class="segment-idx">Segment #42</span>
+            </div>
+            <div class="timeline-content">
+                <div class="verbatim-box">
+                    <div class="verbatim-header">
+                        <span class="speaker-icon">🔊</span>
+                        <strong>Audio Verbatim (Mot pour Mot en Français) :</strong>
+                    </div>
+                    <blockquote class="verbatim-text">Document gratuit dans la communauté WhatsApp, ainsi que les cinq outils supplémentaires. Les liens sont juste en dessous. Si vous ne vous êtes pas encore abonné, c&#x27;est le moment, car cette liste change tous les quelques mois et nous continuerons à faire des tests. Et si vous en voulez 10 de plus, regardez ensuite notre dernière vidéo sur le top 10 des outils d&#x27;IA. Elle est juste ici à l&#x27;écran.</blockquote>
+                </div>
+                <div class="visual-box">
+                    <div class="visual-header">
+                        <span class="eye-icon">👁️</span>
+                        <strong>Analyse Visuelle d'Écran (gemini-3.5-flash-lite) :</strong>
+                    </div>
+                    <div class="visual-details">
+                        <p><strong>Interface & Outils :</strong> Mockup graphique de smartphone intégrant une interface de messagerie.</p>
+                        <p><strong>Contenu textuel & Code :</strong> Textes textuels promotionnels &quot;Join the Global AI Community&quot;, &quot;Five extra tools&quot;, et boutons d&#x27;appel à l&#x27;action.</p>
+                        <p><strong>Action / Démonstration :</strong> Présentation visuelle de la ressource communautaire et des documents disponibles via le lien.</p>
+                    </div>
+                </div>
+                
+            <div class="segment-screenshots-wrapper">
+                <div class="screenshots-header">
+                    <span class="media-icon">📸</span>
+                    <strong>Démonstration(s) à l'écran (1) :</strong>
+                </div>
+                <div class="segment-screenshots-grid count-1">
+                    
+                <div class="screenshot-card">
+                    <div class="img-wrapper">
+                        <img src="../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001557_seg42.jpg" alt="Capture d&#x27;écran montrant l&#x27;appel à rejoindre la communauté WhatsApp avec un mockup de smartphone affichant des documents PDF." loading="lazy" onclick="openLightbox('../screenshots/nQlzP8Yhujg/nQlzP8Yhujg_001557_seg42.jpg')">
+                        <span class="zoom-badge">🔍 Agrandir</span>
+                    </div>
+                    <div class="screenshot-caption">
+                        <span class="caption-time">⏱️ 00:15:57</span>
+                        <span class="caption-text">Capture d&#x27;écran montrant l&#x27;appel à rejoindre la communauté WhatsApp avec un mockup de smartphone affichant des documents PDF.</span>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <footer>
+            <p>Généré automatiquement par l'agent de veille multimodale Antigravity (Whisper-v3-large-turbo + Gemini-3.5-flash-lite) sur VPS Contabo.</p>
+        </footer>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Agrandissement">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const box = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            box.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
